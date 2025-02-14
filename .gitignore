@@ -1,0 +1,10 @@
+
+# Gitignore files tell git which files to ignore. 
+# Ignored files are not tracked by git.
+# This is useful for ignoring files that are large or that are not needed to be tracked.
+
+# Standard react project files to ignore
+node_modules/
+
+# Other stuff
+.DS_Store

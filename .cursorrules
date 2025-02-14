@@ -1,0 +1,55 @@
+<Preferences>
+- Code should be written as a series of steps. Every step should be grouped using whitespace and a comment should precede the code for that step explaining what is happening. A function should be no more 3 steps
+
+- Every function and component should have a docstring style comment explaining what it does and why it's there
+</Preferences>
+
+<Plan>
+Website Development Checklist
+
+### 1. Project Setup  
+☐ Create a GitHub repository for the project  
+☐ Set up a new React TypeScript app using Vite or Create React App  
+☐ Configure GitHub Pages for deployment  
+☐ Install dependencies:  
+   - ESLint with Airbnb standards  
+   - Prettier  
+   - Styled Components  
+☐ Set up ESLint and Prettier with proper config files  
+
+### 2. Basic Structure  
+☐ Organize project folder structure (e.g., `/components`, `/pages`, `/styles`)  
+☐ Set up a global theme with Styled Components for colors and typography  
+☐ Implement basic routing using React Router  
+
+### 3. Core Pages & Features  
+☐ **Homepage:** Warm, welcoming introduction to Held Thread  
+☐ **About Page:** Teaching philosophy, emotional learning through craft, values  
+☐ **Classes & Private Lessons Page:** Offerings, how waitlist works, inquiry link  
+☐ **Inquiry Page:** Contact form and optional phone call scheduling  
+☐ **Resources Page:** Curated materials (but no digital sales)  
+☐ **Newsletter Signup:** Form to collect emails for future updates  
+☐ **404 Page:** Friendly "Page Not Found" message  
+
+### 4. Design & Aesthetic  
+☐ Implement brand colors and ensure they follow rainbow order where possible  
+☐ Use a traditional but subtly whimsical typography style  
+☐ Ensure spacing, padding, and layout feel warm and welcoming  
+
+### 5. Interactivity & Functionality  
+☐ Implement a functional contact form (use Formspree or a backend service if needed)  
+☐ Add a simple newsletter signup form (e.g., ConvertKit, Mailchimp)  
+☐ Ensure accessibility (ARIA labels, readable text, good color contrast)  
+
+### 6. Deployment & Optimization  
+☐ Test the website locally and fix any UI/UX issues  
+☐ Optimize for mobile and tablet views  
+☐ Deploy to GitHub Pages  
+☐ Verify forms and links are working correctly  
+☐ Share with a small group for feedback before public launch  
+
+### 7. Post-Launch  
+☐ Announce the website via Instagram and newsletter  
+☐ Periodically update class offerings and resources  
+☐ Gather user feedback and iterate based on needs  
+</notes>
