@@ -6,9 +6,8 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import Card from '../components/Card'; // Import the Card component
 import IntroSection from '../components/IntroSection'; // Import the IntroSection component
-import WelcomeSection from '../components/WelcomeSection'; // Import the WelcomeSection component
+import HeroSection from '../components/HeroSection'; // Import the HeroSection component
 import CardSection from '../components/CardSection'; // Import the CardSection component
 
 // Create a styled container for the homepage
@@ -21,57 +20,8 @@ const Container = styled.div`
     min-height: 100vh; /* Ensure it takes at least full height */
 `;
 
-// Create a styled section for the title and subtitle
-const HeroSection = styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Full height of the viewport */
-    width: 100%; /* Full width of the viewport */
-    background-image: url(https://shorturl.at/TUAk9); /* Ensure this path is correct */
-    background-size: cover;
-    color: ${({ theme }) => theme.colors.white}; /* Use theme color */
-    text-align: center;
-`;
-
-// Create a styled grid for the cards
-const CardGrid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
-    gap: 20px; /* Space between cards */
-`;
-
-// Create a styled heading
-const Title = styled.h1`
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: ${({ theme }) => theme.colors.warmRed}; /* Use theme color */
-`;
-
-// Create a styled paragraph
-const Subtitle = styled.p`
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-`;
-
-// Create a styled button
-const Button = styled.button`
-    background-color: ${({ theme }) => theme.colors.softPink}; /* Use theme color */
-    color: ${({ theme }) => theme.colors.white}; /* Use theme color */
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin: 0 10px;
-
-    &:hover {
-        background-color: ${({ theme }) => theme.colors.warmRed}; /* Change color on hover */
-    }
-`;
-
 const HomePage: React.FC = () => {
+    // Define card data here for clarity
     const cardData = [
         {
             title: "Teaching Classes",
@@ -85,14 +35,37 @@ const HomePage: React.FC = () => {
             buttonText: "Join Club",
             onButtonClick: () => alert('Join Club clicked!'),
         },
+        {
+            title: "Crafting Resilience",
+            description: "Join us to learn how crafting can build emotional resilience.",
+            buttonText: "Discover More",
+            onButtonClick: () => alert('Discover More clicked!'),
+        },
+        {
+            title: "Creative Workshops",
+            description: "Participate in our creative workshops designed for all ages.",
+            buttonText: "View Workshops",
+            onButtonClick: () => alert('View Workshops clicked!'),
+        },
+        {
+            title: "Community Events",
+            description: "Join our community events to connect with fellow crafters.",
+            buttonText: "See Events",
+            onButtonClick: () => alert('See Events clicked!'),
+        },
+        {
+            title: "Handwork Techniques",
+            description: "Learn various handwork techniques to enhance your skills.",
+            buttonText: "Learn Techniques",
+            onButtonClick: () => alert('Learn Techniques clicked!'),
+        },
     ];
 
     return (
         <Container>
-            <WelcomeSection 
+            <HeroSection 
                 title="Heartfelt Homespun by Teacher Morrissey"
                 subtitle="Waldorf Inspired Handwork Classes"
-                backgroundImage="https://shorturl.at/TUAk9" // Set your background image here
             />
             <IntroSection 
                 image="https://shorturl.at/NtGsF" // Set your image here
