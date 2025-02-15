@@ -10,8 +10,7 @@ Website Development Checklist
 ### 1. Project Setup  
 - [x] Create a GitHub repository for the project  
 - [x] Set up a new React TypeScript app using Vite or Create React App  
-- [ ] Configure GitHub Pages for deployment  
-- [ ] Install dependencies:  
+- [ ] Install and setup dependencies:  
    - ESLint with Airbnb standards  
    - Prettier  
    - Styled Components  
@@ -47,9 +46,4 @@ Website Development Checklist
 - [ ] Deploy to GitHub Pages  
 - [ ] Verify forms and links are working correctly  
 - [ ] Share with a small group for feedback before public launch  
-
-### 7. Post-Launch  
-- [ ] Announce the website via Instagram and newsletter  
-- [ ] Periodically update class offerings and resources  
-- [ ] Gather user feedback and iterate based on needs  
 </notes>
