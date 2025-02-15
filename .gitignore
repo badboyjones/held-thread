@@ -1,10 +1,24 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Gitignore files tell git which files to ignore. 
-# Ignored files are not tracked by git.
-# This is useful for ignoring files that are large or that are not needed to be tracked.
+node_modules
+dist
+dist-ssr
+*.local
 
-# Standard react project files to ignore
-node_modules/
-
-# Other stuff
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
