@@ -27,37 +27,49 @@ const HomePage: React.FC = () => {
             title: "Teaching Classes",
             description: "I am the felting teacher in residence at Zuckercreme in Portland, where I teach 2-4 workshops per month.",
             buttonText: "Learn More",
+            imageUrl: "https://shorturl.at/Ahqio",
             onButtonClick: () => alert('Learn More clicked!'),
+            titleColor: "#FFD6D6", // Set title color for this card
         },
         {
             title: "Felt Club",
             description: "Felt Club is my monthly crafty gathering for experienced felters. Sign up for the next club on the calendar page.",
             buttonText: "Join Club",
+            imageUrl: "https://shorturl.at/NtGsF",
             onButtonClick: () => alert('Join Club clicked!'),
+            titleColor: "#FFE6D5", // Set title color for this card
         },
         {
             title: "Crafting Resilience",
             description: "Join us to learn how crafting can build emotional resilience.",
             buttonText: "Discover More",
+            imageUrl: "https://shorturl.at/NtGsF",
             onButtonClick: () => alert('Discover More clicked!'),
+            titleColor: "#FFF3D6", // Set title color for this card
         },
         {
             title: "Creative Workshops",
             description: "Participate in our creative workshops designed for all ages.",
             buttonText: "View Workshops",
+            imageUrl: "https://shorturl.at/NtGsF",
             onButtonClick: () => alert('View Workshops clicked!'),
+            titleColor: "#E6EDD5", // Set title color for this card
         },
         {
             title: "Community Events",
             description: "Join our community events to connect with fellow crafters.",
             buttonText: "See Events",
+            imageUrl: "https://shorturl.at/NtGsF",
             onButtonClick: () => alert('See Events clicked!'),
+            titleColor: "#D6E9F2", // Set title color for this card
         },
         {
             title: "Handwork Techniques",
             description: "Learn various handwork techniques to enhance your skills.",
             buttonText: "Learn Techniques",
+            imageUrl: "https://shorturl.at/NtGsF",
             onButtonClick: () => alert('Learn Techniques clicked!'),
+            titleColor: "#E6D6F2", // Set title color for this card
         },
     ];
 
@@ -73,7 +85,8 @@ const HomePage: React.FC = () => {
                 title="Let creativity, tradition, and craft be your guide."
                 description="Join us for hands-on experiences through the art of handwork."
             />
-            <CardSection cards={cardData} />
+            <CardSection cards={cardData} backgroundColor="#FFF3D6" />
+
         </Container>
     );
 };

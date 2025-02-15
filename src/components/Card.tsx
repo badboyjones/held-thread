@@ -1,24 +1,36 @@
 /**
  * Card component that displays information in a visually appealing format.
  * This component can be reused to show different types of content.
+ * It now includes an image at the top, followed by a title, description, and a button.
  */
 
 import React from 'react';
 import styled from 'styled-components';
+import Button from './Button'; // Import the Button component
 
 // Create a styled card container
 const CardContainer = styled.div`
     background-color: ${({ theme }) => theme.colors.white}; /* Background color */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    padding: 20px;
-    margin: 20px;
-    text-align: left;
+    padding: 20px; /* Padding inside the card */
+    margin: 20px; /* Margin around the card */
+    text-align: center; /* Center align text */
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack children vertically */
     transition: transform 0.2s;
 
     &:hover {
         transform: scale(1.05); /* Scale effect on hover */
     }
+`;
+
+// Create a styled image
+const CardImage = styled.img`
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
+    margin-bottom: 10px; /* Space below the image */
 `;
 
 // Create a styled title
@@ -34,15 +46,18 @@ const CardDescription = styled.p`
     color: ${({ theme }) => theme.colors.black}; /* Use theme color */
 `;
 
-// Create a styled button
-const CardButton = styled.button`
+// Button component
+const StyledButton = styled.button`
     background-color: ${({ theme }) => theme.colors.softPink}; /* Use theme color */
     color: ${({ theme }) => theme.colors.white}; /* Use theme color */
     border: none;
     border-radius: 5px;
     padding: 10px 15px;
     cursor: pointer;
-    margin-top: 10px;
+    margin: 10px auto; /* Center the button */
+    display: block; /* Make the button a block element */
+    width: 150px; /* Set a fixed width for uniformity */
+    margin-top: auto; /* Push the button to the bottom of the card */
 
     &:hover {
         background-color: ${({ theme }) => theme.colors.warmRed}; /* Change color on hover */
@@ -54,14 +69,16 @@ interface CardProps {
     description: string;
     buttonText: string;
     onButtonClick: () => void; // Function to handle button click
+    imageUrl: string; // New prop for the image URL
 }
 
-const Card: React.FC<CardProps> = ({ title, description, buttonText, onButtonClick }) => {
+const Card: React.FC<CardProps> = ({ title, description, buttonText, onButtonClick, imageUrl }) => {
     return (
         <CardContainer>
-            <CardTitle>{title}</CardTitle>
+            <CardImage src={imageUrl} alt={title} /> {/* Image at the top */}
+            <CardTitle>{title}</CardTitle> {/* Use the default title color */}
             <CardDescription>{description}</CardDescription>
-            <CardButton onClick={onButtonClick}>{buttonText}</CardButton>
+            <Button text={buttonText} onClick={onButtonClick} /> {/* Use the Button component */}
         </CardContainer>
     );
 };
