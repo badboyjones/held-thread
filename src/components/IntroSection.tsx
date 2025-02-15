@@ -18,7 +18,7 @@ const Container = styled.section<{ backgroundColor: string }>`
     align-items: center;
     justify-content: space-between;
     width: 100%; /* Full width of the viewport */
-    padding: 20px;
+    padding: 0; /* Remove padding to allow full height */
     background-color: ${props => props.backgroundColor}; /* Set background color */
 `;
 
@@ -32,12 +32,13 @@ const ImageSection = styled.div`
     flex: 1; /* Take up half of the space */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: stretch; /* Stretch to fill the height */
 `;
 
 const StyledImage = styled.img`
-    max-width: 100%; /* Responsive image */
-    height: auto;
+    width: 100%; /* Make the image full width */
+    height: 100%; /* Make the image full height */
+    object-fit: cover; /* Cover the area while maintaining aspect ratio */
 `;
 
 const IntroSection: React.FC<IntroSectionProps> = ({ image, backgroundColor, title, description }) => {

@@ -24,6 +24,7 @@ const Container = styled.section<{ backgroundImage: string }>`
     background-position: center; /* Center the image */
     color: #FFFFFF; /* White text for better contrast */
     text-align: center;
+    min-height: 100vh; /* Set minimum height to 100% of the viewport */
 `;
 
 const Title = styled.h1`
