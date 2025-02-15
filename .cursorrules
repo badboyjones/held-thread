@@ -14,12 +14,12 @@ Website Development Checklist
    - ESLint with Airbnb standards  
    - Prettier  
    - Styled Components  
-- [ ] Set up ESLint and Prettier with proper config files  
+- [x] Set up ESLint and Prettier with proper config files  
 
 ### 2. Basic Structure  
-- [ ] Organize project folder structure (e.g., `/components`, `/pages`, `/styles`)  
-- [ ] Set up a global theme with Styled Components for colors and typography  
-- [ ] Implement basic routing using React Router  
+- [x] Organize project folder structure (e.g., `/components`, `/pages`, `/styles`)  
+- [x] Set up a global theme with Styled Components for colors and typography  
+- [x] Implement basic routing using React Router  
 
 ### 3. Core Pages & Features  
 - [ ] **Homepage:** Warm, welcoming introduction to Held Thread  
@@ -28,7 +28,7 @@ Website Development Checklist
 - [ ] **Inquiry Page:** Contact form and optional phone call scheduling  
 - [ ] **Resources Page:** Curated materials (but no digital sales)  
 - [ ] **Newsletter Signup:** Form to collect emails for future updates  
-- [ ] **404 Page:** Friendly "Page Not Found" message  
+- [x] **404 Page:** Friendly "Page Not Found" message  
 
 ### 4. Design & Aesthetic  
 - [ ] Implement brand colors and ensure they follow rainbow order where possible  
@@ -47,3 +47,46 @@ Website Development Checklist
 - [ ] Verify forms and links are working correctly  
 - [ ] Share with a small group for feedback before public launch  
 </notes>
+
+
+
+
+
+<businessdetails>
+  - Audience: Parents
+  - Offerings: Private lessons & classes (waitlist-based)
+  - Teaching Format: In-person only
+  - Teaching Philosophy:
+    - Rooted in tradition and heart
+    - Teaching emotional skills through craft: resilience, gentleness, perseverance, stamina, emotional regulation
+    - Focus on ages 6-14
+    - Emphasis on social-emotional learning and community-building through craft
+    - Parents appreciate the wholesome nature of the classes
+</businessdetails>
+
+<features>
+  - No booking or scheduling system
+  - Inquiry page or an option to schedule an informational phone call
+  - Resource section (but no digital resources for sale)
+  - No gallery
+  - Contact form & newsletter sign-up
+</features>
+
+<designaesthetic>
+  - Brand colors:
+    - Warm red: #FFD6D6 (Soft coral)
+    - Peach: #FFE6D5 (Warm peach)
+    - Warm yellow: #FFF3D6 (Soft butter)
+    - Sage: #E6EDD5 (Gentle sage green)
+    - Sky: #D6E9F2 (Soft sky blue)
+    - Lavender: #E6D6F2 (Gentle purple)
+    - Soft pink: #F4B5D9 (Accent pink)
+    - Plum: #A06B8F (Text and details)
+    - White: #FFFFFF
+    - Black: #333333
+  - Aesthetic:
+    - Warm, familiar, welcoming
+    - Traditional but with a subtle, whimsical feeling
+    - Colors should be kept in rainbow order when possible
+
+</designaesthetic>

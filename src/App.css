@@ -1,23 +1,38 @@
+/* Global styles for the application */
+html, body {
+  height: 100%; /* Ensure full height */
+  margin: 0;
+  font-family: 'Arial', sans-serif; /* Change to your preferred font */
+  background-color: #FFF3D6; /* Soft butter background */
+  color: #333333; /* Text color */
+}
+
+/* Center the main content */
 #root {
+  height: 100%; /* Ensure root takes full height */
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
+/* Logo styles */
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+/* Animation for logo */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -33,10 +48,35 @@
   }
 }
 
+/* Card styles */
 .card {
   padding: 2em;
+  background-color: #E6EDD5; /* Gentle sage green */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Read the docs link style */
 .read-the-docs {
   color: #888;
+}
+
+/* Header styles */
+header {
+  background-color: #FFD6D6; /* Soft coral */
+  padding: 1rem;
+}
+
+/* Navigation link styles */
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #A06B8F; /* Plum */
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #E6EDD5; /* Gentle sage green */
 }
