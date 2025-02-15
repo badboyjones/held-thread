@@ -7,6 +7,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import Card from '../components/Card'; // Import the Card component
+import IntroSection from '../components/IntroSection'; // Import the IntroSection component
+import WelcomeSection from '../components/WelcomeSection'; // Import the WelcomeSection component
 
 // Create a styled container for the homepage
 const Container = styled.div`
@@ -78,73 +80,74 @@ const Button = styled.button`
 `;
 
 const HomePage: React.FC = () => {
-    const handleButtonClick = () => {
-        // Handle button click logic here
-        alert('Button clicked!');
-    };
-
-    // Render the homepage introduction
     return (
         <Container>
-            <HeroSection>
-                <Title>Welcome to Held Thread</Title>
-                <Subtitle>felting classes + wool supply shop by artist LeBrie Rich.</Subtitle>
-            </HeroSection>
+            <WelcomeSection 
+                title="Heartfelt Homespun by Teacher Morrissey"
+                subtitle="Waldorf Inspired Handwork Classes"
+                backgroundImage="https://shorturl.at/TUAk9" // Set your background image here
+            />
+            <IntroSection 
+                image="path/to/your/image.jpg" // Set your image here
+                backgroundColor="#E6EDD5" // Set your background color here
+                title="Welcome to the Crafting World!"
+                description="Join us for hands-on experiences in felting and crafting."
+            />
             <CardSection>
                 <CardGrid>
                     <Card
                         title="Teaching Classes"
                         description="I am the felting teacher in residence at Zuckercreme in Portland, where I teach 2-4 workshops per month."
                         buttonText="Learn More"
-                        onButtonClick={handleButtonClick}
+                        onButtonClick={() => alert('Button clicked!')}
                     />
                     <Card
                         title="Felt Club"
                         description="Felt Club is my monthly crafty gathering for experienced felters. Sign up for the next club on the calendar page."
                         buttonText="Join Club"
-                        onButtonClick={handleButtonClick}
+                        onButtonClick={() => alert('Button clicked!')}
                     />
                     <Card
                         title="IRL Felting Supply Shop"
                         description="I maintain a shop-within-a-shop of wool felting materials at Zuckercreme."
                         buttonText="Shop Now"
-                        onButtonClick={handleButtonClick}
+                        onButtonClick={() => alert('Button clicked!')}
                     />
                     <Card
                         title="Sculpture"
                         description="I have an exhibition of my wool felted sculpture at Nine Gallery in April. Sign up for my email list to get an invitation!"
                         buttonText="More About Me"
-                        onButtonClick={handleButtonClick}
+                        onButtonClick={() => alert('Button clicked!')}
                     />
                     <Card
                         title="Felted Animals"
                         description="Join me for a workshop on creating adorable felted animals. Perfect for all skill levels!"
                         buttonText="Sign Up"
-                        onButtonClick={handleButtonClick}
+                        onButtonClick={() => alert('Button clicked!')}
                     />
                     <Card
                         title="Seasonal Workshops"
                         description="Check out our seasonal workshops that focus on different felting techniques and projects."
                         buttonText="View Workshops"
-                        onButtonClick={handleButtonClick}
+                        onButtonClick={() => alert('Button clicked!')}
                     />
                     <Card
                         title="Community Events"
                         description="Participate in our community events to connect with fellow felters and share your work."
                         buttonText="Join Us"
-                        onButtonClick={handleButtonClick}
+                        onButtonClick={() => alert('Button clicked!')}
                     />
                     <Card
                         title="Online Tutorials"
                         description="Explore our online tutorials for felting techniques you can do at home."
                         buttonText="Watch Now"
-                        onButtonClick={handleButtonClick}
+                        onButtonClick={() => alert('Button clicked!')}
                     />
                     <Card
                         title="Felted Gifts"
                         description="Discover unique felted gifts for your loved ones, handmade with care."
                         buttonText="Shop Gifts"
-                        onButtonClick={handleButtonClick}
+                        onButtonClick={() => alert('Button clicked!')}
                     />
                 </CardGrid>
             </CardSection>
