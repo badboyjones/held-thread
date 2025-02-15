@@ -84,20 +84,7 @@ const HomePage: React.FC = () => {
             description: "Felt Club is my monthly crafty gathering for experienced felters. Sign up for the next club on the calendar page.",
             buttonText: "Join Club",
             onButtonClick: () => alert('Join Club clicked!'),
-        },        
-        {
-            title: "Felt Club",
-            description: "Felt Club is my monthly crafty gathering for experienced felters. Sign up for the next club on the calendar page.",
-            buttonText: "Join Club",
-            onButtonClick: () => alert('Join Club clicked!'),
         },
-        {
-            title: "Felt Club",
-            description: "Felt Club is my monthly crafty gathering for experienced felters. Sign up for the next club on the calendar page.",
-            buttonText: "Join Club",
-            onButtonClick: () => alert('Join Club clicked!'),
-        },
-        // Add more card data as needed
     ];
 
     return (
