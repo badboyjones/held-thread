@@ -6,7 +6,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import Button from './Button'; // Import the Button component
+import { CardData } from '../types/CardData'; // Import the shared CardData interface
 
 // Create a styled card container
 const CardContainer = styled.div`
@@ -64,13 +64,8 @@ const StyledButton = styled.button`
     }
 `;
 
-interface CardProps {
-    title: string;
-    description: string;
-    buttonText: string;
-    onButtonClick: () => void; // Function to handle button click
-    imageUrl: string; // New prop for the image URL
-}
+// Update the CardProps interface to use the shared CardData
+interface CardProps extends CardData {}
 
 const Card: React.FC<CardProps> = ({ title, description, buttonText, onButtonClick, imageUrl }) => {
     return (
@@ -78,7 +73,7 @@ const Card: React.FC<CardProps> = ({ title, description, buttonText, onButtonCli
             <CardImage src={imageUrl} alt={title} /> {/* Image at the top */}
             <CardTitle>{title}</CardTitle> {/* Use the default title color */}
             <CardDescription>{description}</CardDescription>
-            <Button text={buttonText} onClick={onButtonClick} /> {/* Use the Button component */}
+            <StyledButton onClick={onButtonClick}>{buttonText}</StyledButton> {/* Use StyledButton here */}
         </CardContainer>
     );
 };

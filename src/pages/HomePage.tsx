@@ -6,6 +6,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import WelcomeSection from '../components/WelcomeSection'; // Import the WelcomeSection component
 import IntroSection from '../components/IntroSection'; // Import the IntroSection component
 import HeroSection from '../components/HeroSection'; // Import the HeroSection component
 import CardSection from '../components/CardSection'; // Import the CardSection component
@@ -75,9 +76,10 @@ const HomePage: React.FC = () => {
 
     return (
         <Container>
-            <HeroSection 
-                title="Heartfelt Homespun by Teacher Morrissey"
-                subtitle="Waldorf Inspired Handwork Classes"
+            <WelcomeSection 
+                title="Welcome to Our Crafting Community"
+                subtitle="Join us for hands-on experiences"
+                backgroundImage="https://shorturl.at/hSta4" // Ensure this URL is valid
             />
             <IntroSection 
                 image="https://shorturl.at/NtGsF" // Set your image here
@@ -86,7 +88,6 @@ const HomePage: React.FC = () => {
                 description="Join us for hands-on experiences through the art of handwork."
             />
             <CardSection cards={cardData} backgroundColor="#FFF3D6" />
-
         </Container>
     );
 };

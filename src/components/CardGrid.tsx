@@ -1,25 +1,25 @@
 /**
- * CardGrid component renders a grid of cards based on provided data.
- * 
- * @param {Array} cardData - An array of card data to render.
+ * CardGrid component renders a grid of cards based on the provided card data.
+ * It allows for a dynamic display of various offerings.
  */
+
 import React from 'react';
-import styled from 'styled-components';
+import Card from './Card'; // Ensure this import is correct
+import { CardData } from '../types/CardData'; // Import the shared CardData interface
 
-// Styled component for the CardGrid
-const StyledCardGrid = styled.div`
-    // Add your styles here
-`;
+interface CardGridProps {
+    cards: CardData[];
+}
 
-// CardGrid functional component
-const CardGrid: React.FC<{ cardData: Array<any> }> = ({ cardData }) => {
+// Main CardGrid component
+const CardGrid: React.FC<CardGridProps> = ({ cards }) => {
+    // Render the grid of cards
     return (
-        <StyledCardGrid>
-            {cardData.map((card, index) => (
-                // Render each card here
-                <div key={index}>{card.title}</div>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
+            {cards.map((card, index) => (
+                <Card key={index} {...card} /> // Ensure Card is being used here
             ))}
-        </StyledCardGrid>
+        </div>
     );
 };
 

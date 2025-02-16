@@ -1,39 +1,22 @@
 /**
- * HeroSection component displays a welcoming hero section
- * with a title and subtitle for the homepage.
- * 
- * @param {string} title - The main title to display.
- * @param {string} subtitle - The subtitle to provide additional context.
+ * HeroSection component displays the main title and subtitle
+ * for the homepage, creating an inviting introduction for visitors.
  */
+
 import React from 'react';
-import styled from 'styled-components';
 
-// Create a styled section for the title and subtitle
-const HeroContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Full height of the viewport */
-    width: 100%; /* Full width of the viewport */
-    background-image: url(https://shorturl.at/TUAk9); /* Ensure this path is correct */
-    background-size: cover;
-    color: ${({ theme }) => theme.colors.white}; /* Use theme color */
-    text-align: center;
-`;
+interface HeroSectionProps {
+    title: string;
+    subtitle: string;
+}
 
-// Remove the unused StyledHeroSection
-// const StyledHeroSection = styled.div`
-//     // Add your styles here
-// `;
-
-// HeroSection functional component
-const HeroSection: React.FC<{ title: string; subtitle: string }> = ({ title, subtitle }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ title, subtitle }) => {
+    // Render the hero section with title and subtitle
     return (
-        <HeroContainer>
+        <div>
             <h1>{title}</h1>
             <h2>{subtitle}</h2>
-        </HeroContainer>
+        </div>
     );
 };
 
