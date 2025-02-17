@@ -8,8 +8,16 @@ import React from 'react';
 import styled from 'styled-components';
 import WelcomeSection from '../components/WelcomeSection'; // Import the WelcomeSection component
 import IntroSection from '../components/IntroSection'; // Import the IntroSection component
-import HeroSection from '../components/HeroSection'; // Import the HeroSection component
 import CardSection from '../components/CardSection'; // Import the CardSection component
+import Footer from '../components/Footer'; // Import the new Footer component
+
+// Import the image
+import cardImage3 from '../images/card images/3.png'; // Adjust the path as necessary
+import cardImage4 from '../images/card images/4.png'; // Adjust the path as necessary
+import cardImage1 from '../images/card images/1.png'; // Adjust the path as necessary
+import cardImage2 from '../images/card images/2.png'; // Adjust the path as necessary
+import cardImage5 from '../images/card images/5.png'; // Adjust the path as necessary
+
 
 // Create a styled container for the homepage
 const Container = styled.div`
@@ -25,53 +33,40 @@ const HomePage: React.FC = () => {
     // Define card data here for clarity
     const cardData = [
         {
-            title: "Teaching Classes",
-            description: "I am the felting teacher in residence at Zuckercreme in Portland, where I teach 2-4 workshops per month.",
+            title: "Beginning in Knitting",
+            description: "Perfect for absolute beginners, knitting is the first thing taught in traditional handwork ciriculum. Ages 6 and up.",
             buttonText: "Learn More",
-            imageUrl: "https://shorturl.at/Ahqio",
+            imageUrl: cardImage3, // Use the imported image
             onButtonClick: () => alert('Learn More clicked!'),
             titleColor: "#FFD6D6", // Set title color for this card
         },
         {
-            title: "Felt Club",
-            description: "Felt Club is my monthly crafty gathering for experienced felters. Sign up for the next club on the calendar page.",
-            buttonText: "Join Club",
-            imageUrl: "https://shorturl.at/NtGsF",
-            onButtonClick: () => alert('Join Club clicked!'),
-            titleColor: "#FFE6D5", // Set title color for this card
-        },
-        {
-            title: "Crafting Resilience",
-            description: "Join us to learn how crafting can build emotional resilience.",
-            buttonText: "Discover More",
-            imageUrl: "https://shorturl.at/NtGsF",
-            onButtonClick: () => alert('Discover More clicked!'),
-            titleColor: "#FFF3D6", // Set title color for this card
-        },
-        {
-            title: "Creative Workshops",
-            description: "Participate in our creative workshops designed for all ages.",
-            buttonText: "View Workshops",
-            imageUrl: "https://shorturl.at/NtGsF",
+            title: "Advancing in Knitting",
+            description: "For intermediate knitters who are ready to move beyond knitting basics. Ages 7 and up.",
+            buttonText: "Learn More",
+            imageUrl: cardImage5,
             onButtonClick: () => alert('View Workshops clicked!'),
             titleColor: "#E6EDD5", // Set title color for this card
         },
         {
-            title: "Community Events",
-            description: "Join our community events to connect with fellow crafters.",
-            buttonText: "See Events",
-            imageUrl: "https://shorturl.at/NtGsF",
-            onButtonClick: () => alert('See Events clicked!'),
-            titleColor: "#D6E9F2", // Set title color for this card
+            title: "Beginning in Crochet",
+            description: "Crochet uses a hook to create a series of loops and chains, forming something beautiful and new. ",
+            buttonText: "Learn More",
+            imageUrl: cardImage2,
+            onButtonClick: () => alert('Discover More clicked!'),
+            titleColor: "#FFF3D6", // Set title color for this card
         },
         {
-            title: "Handwork Techniques",
-            description: "Learn various handwork techniques to enhance your skills.",
-            buttonText: "Learn Techniques",
-            imageUrl: "https://shorturl.at/NtGsF",
-            onButtonClick: () => alert('Learn Techniques clicked!'),
-            titleColor: "#E6D6F2", // Set title color for this card
+            title: "Waldorf Doll Making",
+            description: "Combine drafting, hand sewing, and embroidery to create a one-of-a-kind doll.",
+            buttonText: "Learn More",
+            imageUrl: cardImage1,
+            onButtonClick: () => alert('Join Club clicked!'),
+            titleColor: "#FFE6D5", // Set title color for this card
         },
+
+
+
     ];
 
     return (
@@ -79,7 +74,7 @@ const HomePage: React.FC = () => {
             <WelcomeSection 
                 title="Welcome to Our Crafting Community"
                 subtitle="Join us for hands-on experiences"
-                backgroundImage="https://shorturl.at/hSta4" // Ensure this URL is valid
+                backgroundImage="https://shorturl.at/ov1sJ" // Ensure this URL is valid
             />
             <IntroSection 
                 image="https://shorturl.at/NtGsF" // Set your image here
@@ -88,6 +83,7 @@ const HomePage: React.FC = () => {
                 description="Join us for hands-on experiences through the art of handwork."
             />
             <CardSection cards={cardData} backgroundColor="#FFF3D6" />
+            <Footer />
         </Container>
     );
 };

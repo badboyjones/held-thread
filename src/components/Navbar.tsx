@@ -45,12 +45,11 @@ const NavLink = styled(Link)`
 const Navbar: React.FC = () => {
     return (
         <Nav>
-            <Logo>PENFELT studio</Logo>
+            <Logo>HEARTSPUN STUDIO</Logo>
             <NavLinks>
-                <NavLink to="/shop">SHOP</NavLink>
+                <NavLink to="/shop">ABOUT</NavLink>
                 <NavLink to="/classes">CLASSES</NavLink>
                 <NavLink to="/resources">RESOURCES</NavLink>
-                <NavLink to="/about">ABOUT</NavLink>
             </NavLinks>
         </Nav>
     );

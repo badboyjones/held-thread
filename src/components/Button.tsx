@@ -6,7 +6,7 @@ const StyledButton = styled.button`
     background-color: ${({ theme }) => theme.colors.softPink}; /* Use theme color */
     color: ${({ theme }) => theme.colors.white}; /* Use theme color */
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     padding: 10px 15px;
     cursor: pointer;
     margin: 10px auto; /* Center the button */
