@@ -2,62 +2,73 @@ import React from 'react';
 import styled from 'styled-components';
 
 /**
- * IntroSection component displays a welcoming introduction
- * alongside an image, creating a visually appealing layout.
+ * IntroSection component displays an introductory section
+ * with an image, title, and description, and can include
+ * additional content like a grid.
  */
-interface IntroSectionProps {
-    image: string;
-    backgroundColor: string;
-    title: string;
-    description: string;
-}
 
-const Container = styled.section<{ backgroundColor: string }>`
-    display: flex;
+// Styled component for the IntroSection
+const SectionContainer = styled.div<{ backgroundColor: string }>`
+    display: flex; /* Use flexbox for layout */
     flex-direction: row; /* Default to row for desktop */
-    align-items: center;
-    justify-content: space-between;
-    width: 100%; /* Full width of the viewport */
-    padding: 0; /* Remove padding to allow full height */
-    background-color: ${props => props.backgroundColor}; /* Set background color */
+    background-color: ${props => props.backgroundColor};
+    width: 100%; /* Ensure it takes full width */
+    height: 100vh; /* Set height to fill the viewport */
+    text-align: center;
 
     @media (max-width: 768px) {
         flex-direction: column; /* Stack elements vertically on mobile */
+        height: auto; /* Allow height to adjust on mobile */
     }
 `;
 
+// Styled component for the text section
 const TextSection = styled.div`
     flex: 1; /* Take up half of the space */
-    padding: 20px;
-    color: #333333; /* Dark text */
-    text-align: center; /* Center text */
+    display: flex;
+    flex-direction: column; /* Stack text vertically */
+    justify-content: center; /* Center text vertically */
 `;
 
+// Styled component for the image section
 const ImageSection = styled.div`
     flex: 1; /* Take up half of the space */
     display: flex;
     justify-content: center;
     align-items: center; /* Center the image */
     width: 100%; /* Full width */
+    height: 100%; /* Ensure it takes full height */
 `;
 
+// Styled component for the image
 const StyledImage = styled.img`
     width: 100%; /* Make the image full width */
-    height: auto; /* Maintain aspect ratio */
+    height: 100%; /* Make the image full height */
     object-fit: cover; /* Cover the area while maintaining aspect ratio */
 `;
 
-const IntroSection: React.FC<IntroSectionProps> = ({ image, backgroundColor, title, description }) => {
+// Props for the IntroSection component
+interface IntroSectionProps {
+    image: string;
+    backgroundColor: string;
+    title: string;
+    description: string;
+    children?: React.ReactNode; // Allow children to be passed
+}
+
+// Main IntroSection component
+const IntroSection: React.FC<IntroSectionProps> = ({ image, backgroundColor, title, description, children }) => {
     return (
-        <Container backgroundColor={backgroundColor}>
+        <SectionContainer backgroundColor={backgroundColor}>
             <TextSection>
-                <h1>{title}</h1>
+                <h2>{title}</h2>
                 <p>{description}</p>
+                {children} {/* Render children here */}
             </TextSection>
             <ImageSection>
-                <StyledImage src={image} alt="Craft materials" />
+                <StyledImage src={image} alt={title} />
             </ImageSection>
-        </Container>
+        </SectionContainer>
     );
 };
 

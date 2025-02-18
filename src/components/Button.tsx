@@ -6,8 +6,8 @@ const StyledButton = styled.button`
     background-color: ${({ theme }) => theme.colors.softPink}; /* Use theme color */
     color: ${({ theme }) => theme.colors.white}; /* Use theme color */
     border: none;
-    border-radius: 50px;
-    padding: 10px 15px;
+    border-radius: 50px; /* Keep this for a fully rounded button */
+    padding: 10px 15px; /* Padding for better button appearance */
     cursor: pointer;
     margin: 10px auto; /* Center the button */
     display: block; /* Make the button a block element */

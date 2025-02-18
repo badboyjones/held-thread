@@ -51,8 +51,10 @@ const StyledButton = styled.button`
     background-color: ${({ theme }) => theme.colors.softPink}; /* Use theme color */
     color: ${({ theme }) => theme.colors.white}; /* Use theme color */
     border: none;
-    border-radius: 5px;
-    padding: 10px 15px;
+
+    // Make the button rounder
+    border-radius: 50px; /* Keep this for a fully rounded button */
+    padding: 10px 15px; /* Padding for better button appearance */
     cursor: pointer;
     margin: 10px auto; /* Center the button */
     display: block; /* Make the button a block element */
@@ -64,14 +66,16 @@ const StyledButton = styled.button`
     }
 `;
 
-// Update the CardProps interface to use the shared CardData
-interface CardProps extends CardData {}
+// Update the CardProps interface to include titleColor
+interface CardProps extends CardData {
+    titleColor: string; // Make titleColor required
+}
 
-const Card: React.FC<CardProps> = ({ title, description, buttonText, onButtonClick, imageUrl }) => {
+const Card: React.FC<CardProps> = ({ title, description, buttonText, onButtonClick, imageUrl, titleColor }) => {
     return (
         <CardContainer>
             <CardImage src={imageUrl} alt={title} /> {/* Image at the top */}
-            <CardTitle>{title}</CardTitle> {/* Use the default title color */}
+            <CardTitle style={{ color: titleColor }}>{title}</CardTitle> {/* Apply titleColor prop */}
             <CardDescription>{description}</CardDescription>
             <StyledButton onClick={onButtonClick}>{buttonText}</StyledButton> {/* Use StyledButton here */}
         </CardContainer>

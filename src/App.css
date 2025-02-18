@@ -1,6 +1,8 @@
 /* Global styles for the application */
 html, body {
   height: 100%; /* Ensure full height */
+  width: 100%;
+  max-width: 100vw;
   margin: 0;
   font-family: 'Arial', sans-serif; /* Change to your preferred font */
   background-color: #FFF3D6; /* Soft butter background */
@@ -10,9 +12,10 @@ html, body {
 /* Center the main content */
 #root {
   height: 100%; /* Ensure root takes full height */
-  max-width: 1280px;
+  /* max-width: 1280px; */
+  width: 100%;
+  display: flex;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 

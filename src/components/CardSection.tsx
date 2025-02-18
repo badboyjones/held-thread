@@ -5,32 +5,44 @@ import CardGrid from './CardGrid'; // Import the CardGrid component
 import { CardData } from '../types/CardData'; // Import the shared CardData interface
 
 /**
- * CardSection component displays a collection of cards
- * with whitespace on either side, creating a visually
- * appealing layout.
+ * CardSection component that displays a section of cards with a gradient background.
+ * This component is used to group related cards together.
  */
+
 interface CardSectionProps {
     cards: CardData[];
-    backgroundColor?: string; // New prop for background color
+    backgroundColor?: string;
 }
 
-// Styled container for the CardSection
-const Container = styled.section<{ backgroundColor?: string }>`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%; /* Full width of the viewport */
-    padding: 30px 30px; /* Padding around the section */
-    background-color: ${({ backgroundColor, theme }) => backgroundColor || theme.colors.white}; /* Use prop or default to white */
+const ParentContainer = styled.div`
+    width: 100%; /* Ensure the parent spans the full width */
+`;
+
+// Create a styled section with a gradient background
+const SectionContainer = styled.section<{ backgroundColor?: string }>`
+    width: 100%; /* Ensure it spans the full width */
+    height: auto; /* Allow height to adjust based on content */
+    background: ${({ backgroundColor, theme }) => backgroundColor || `linear-gradient(
+        to right,
+        ${theme.colors.warmRed},
+        ${theme.colors.peach},
+        ${theme.colors.warmYellow},
+        ${theme.colors.sage},
+        ${theme.colors.sky},
+        ${theme.colors.lavender},
+        ${theme.colors.softPink}
+    )`}; /* Use backgroundColor prop or default to gradient */
+    /* Retain original padding and styling */
 `;
 
 // Main CardSection component
 const CardSection: React.FC<CardSectionProps> = ({ cards, backgroundColor }) => {
     return (
-        <Container backgroundColor={backgroundColor}>
-            <CardGrid cards={cards} />
-        </Container>
+        <ParentContainer>
+            <SectionContainer backgroundColor={backgroundColor}>
+                <CardGrid cards={cards} style={{ margin: '20px 0' }} />
+            </SectionContainer>
+        </ParentContainer>
     );
 };
 
