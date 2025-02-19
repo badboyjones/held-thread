@@ -10,9 +10,7 @@ import WelcomeSection from '../components/WelcomeSection'; // Import the Welcome
 import IntroSection from '../components/IntroSection'; // Import the IntroSection component
 import CardSection from '../components/CardSection'; // Import the CardSection component
 import Footer from '../components/Footer'; // Import the new Footer component
-import Grid from '../components/Grid'; // Import the Grid component
-import GridItem from '../components/GridItem'; // Import the GridItem component
-import HamburgerMenu from '../components/HamburgerMenu'; // Import the HamburgerMenu
+ // Import the Grid component
 
 // Import the card image
 import cardImage3 from '../images/card images/card images/3.png'; // Adjust the path as necessary
@@ -37,11 +35,6 @@ const Container = styled.div`
     min-height: 100vh; /* Ensure it takes at least full height */
     padding: 0; /* Ensure no padding is causing overflow */
     margin: 0; /* Ensure no margin is causing overflow */
-`;
-
-// Create a styled GridItem for text
-const StyledGridItem = styled(GridItem)`
-    color: #333333; /* Set text color */
 `;
 
 const HomePage: React.FC = () => {

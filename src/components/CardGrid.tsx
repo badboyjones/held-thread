@@ -21,7 +21,7 @@ const CardGrid: React.FC<CardGridProps> = ({ cards }) => {
             gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
             gap: '30px', 
             width: '75%',// Limit the width to 75%
-            margin: '0 auto' // Center the grid
+            margin: '0px auto' // Center the grid
         }}>
             {cards.map((card, index) => (
                 <Card key={index} {...card} /> // Ensure Card is being used here

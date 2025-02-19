@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Card from './Card'; // Import the Card component
 import CardGrid from './CardGrid'; // Import the CardGrid component
 import { CardData } from '../types/CardData'; // Import the shared CardData interface
 
@@ -16,12 +15,14 @@ interface CardSectionProps {
 
 const ParentContainer = styled.div`
     width: 100%; /* Ensure the parent spans the full width */
+    height: 100%; /* Allow the parent to take full height */
 `;
 
 // Create a styled section with a gradient background
 const SectionContainer = styled.section<{ backgroundColor?: string }>`
     width: 100%; /* Ensure it spans the full width */
-    height: auto; /* Allow height to adjust based on content */
+    height: 100%; /* Set height to 100% to cover the entire section */
+    padding: 100px 0; /* Add padding for whitespace above and below the cards */
     background: ${({ backgroundColor, theme }) => backgroundColor || `linear-gradient(
         to right,
         ${theme.colors.warmRed},
@@ -32,7 +33,7 @@ const SectionContainer = styled.section<{ backgroundColor?: string }>`
         ${theme.colors.lavender},
         ${theme.colors.softPink}
     )`}; /* Use backgroundColor prop or default to gradient */
-    /* Retain original padding and styling */
+    /* Retain original styling */
 `;
 
 // Main CardSection component

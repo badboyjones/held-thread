@@ -80,13 +80,18 @@ const KnotImage = styled.img`
     }
 `;
 
-// Update props to include title, subtitle, and knot images
+/**
+ * WelcomeSection component that displays a welcoming message
+ * and images, creating an inviting atmosphere for visitors.
+ */
+
 interface WelcomeSectionProps {
+    backgroundColor: string;
+    titleColor: string;
+    subtitleColor: string;
     title: string;
     subtitle: string;
-    backgroundColor: string;
-    children?: React.ReactNode;
-    knotImages: string[]; // Array of image URLs
+    knotImages: string[];
 }
 
 const WelcomeSection: React.FC<WelcomeSectionProps> = ({ title, subtitle, backgroundColor, knotImages }) => {

@@ -124,3 +124,5 @@ Documentation
 [ ] Add Docstrings
 Ensure each new component has a docstring explaining its purpose and usage.
 </refactoring>
+
+NEVER ADD PADDING.
