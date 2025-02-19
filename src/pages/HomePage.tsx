@@ -12,6 +12,7 @@ import CardSection from '../components/CardSection'; // Import the CardSection c
 import Footer from '../components/Footer'; // Import the new Footer component
 import Grid from '../components/Grid'; // Import the Grid component
 import GridItem from '../components/GridItem'; // Import the GridItem component
+import HamburgerMenu from '../components/HamburgerMenu'; // Import the HamburgerMenu
 
 // Import the card image
 import cardImage3 from '../images/card images/card images/3.png'; // Adjust the path as necessary
@@ -21,7 +22,7 @@ import cardImage2 from '../images/card images/card images/2.png'; // Adjust the 
 import cardImage5 from '../images/card images/card images/5.png'; // Adjust the path as necessary
 
 // Import the knot images
-import knotImage1  from '../images/card images/knots/1.png'; // Adjust the path as necessary
+import knotImage1 from '../images/card images/knots/1.png'; // Adjust the path as necessary
 import knotImage2 from '../images/card images/knots/2.png'; // Adjust the path as necessary
 import knotImage3 from '../images/card images/knots/3.png'; // Adjust the path as necessary
 import knotImage4 from '../images/card images/knots/4.png'; // Adjust the path as necessary
@@ -78,46 +79,22 @@ const HomePage: React.FC = () => {
             onButtonClick: () => alert('Join Club clicked!'),
             titleColor: "#9ddfff", // Set title color for this card
         },
-
-
-
     ];
+
+    // Array of knot images
+    const knotImages = [knotImage1, knotImage2, knotImage3, knotImage4, knotImage5];
 
     return (
         <Container>
+            <nav></nav>
             <WelcomeSection 
                 backgroundColor="#ffffff"
                 titleColor="#333333" // Set title color
                 subtitleColor="#333333" // Set subtitle color
-            >
-                <Grid rows={2} columns={7}>
-                    <StyledGridItem colSpan={7}>
-                        <h1 style={{ color: '#333333' }}>Welcome to Our Crafting Community</h1>
-                        <h2 style={{ color: '#333333' }}>Join us for hands-on experiences</h2>
-                    </StyledGridItem>
-                    <GridItem>
-                    </GridItem>
-                    <GridItem>
-                        <img src={knotImage1} alt="Knot 1" style={{ width: '100%', height: 'auto' }} />
-                    </GridItem>
-                    <GridItem>
-                        <img src={knotImage2} alt="Knot 2" style={{ width: '100%', height: 'auto' }} />
-                    </GridItem>
-                    <GridItem>
-                        <img src={knotImage3} alt="Knot 3" style={{ width: '100%', height: 'auto' }} />
-                    </GridItem>
-                    <GridItem>
-                        <img src={knotImage4} alt="Knot 4" style={{ width: '100%', height: 'auto' }} />
-                    </GridItem>
-                    <GridItem>
-                        <img src={knotImage5} alt="Knot 5" style={{ width: '100%', height: 'auto' }} />
-                    </GridItem>
-                    <GridItem>
-                    </GridItem>
-                    <GridItem rowSpan={8}>
-                    </GridItem>
-                </Grid>
-            </WelcomeSection>
+                title="Welcome to Our Crafting Community"
+                subtitle="Join us for hands-on experiences"
+                knotImages={knotImages} // Pass the knot images
+            />
             <IntroSection 
                 image="src/images/card images/card images/HEARTSPUN handwork.png" // Set your image here
                 backgroundColor="#D6E9F2" // Set your background color here

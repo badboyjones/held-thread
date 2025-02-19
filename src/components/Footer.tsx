@@ -10,7 +10,6 @@ import styled from 'styled-components';
 const FooterContainer = styled.footer`
     width: 100%; /* Ensure footer takes full width */
     background-color: #D6E9F2; /* Soft sky blue */
-    // padding: 20px;
     text-align: center;
     color: #333; /* Text color */
 `;

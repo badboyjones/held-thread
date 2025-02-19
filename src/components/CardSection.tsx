@@ -40,7 +40,7 @@ const CardSection: React.FC<CardSectionProps> = ({ cards, backgroundColor }) => 
     return (
         <ParentContainer>
             <SectionContainer backgroundColor={backgroundColor}>
-                <CardGrid cards={cards} style={{ margin: '20px 0' }} />
+                <CardGrid cards={cards} />
             </SectionContainer>
         </ParentContainer>
     );
