@@ -84,12 +84,13 @@ const HomePage: React.FC = () => {
                 backgroundColor="#ffffff"
                 titleColor="#333333" // Set title color
                 subtitleColor="#333333" // Set subtitle color
-                title="Welcome to Our Crafting Community"
-                subtitle="Join us for hands-on experiences"
+                title="Handwork with Heart: Crafting Skills, Building Resilience"
+                subtitle="Rooted in tradition, Held Thread offers in-person handwork classes for children and adults,
+                 nurturing patience, confidence, and creativity through the rhythm of craft."
                 knotImages={knotImages} // Pass the knot images
             />
             <IntroSection 
-                image="src/images/card images/card images/HEARTSPUN handwork.png" // Set your image here
+                image="src/images/card images/card images/HEARTSPUN handwork(1).png" // Set your image here
                 backgroundColor="#D6E9F2" // Set your background color here
                 title="Meet Tr. Morrissey!"
                 description="Join us for hands-on experiences through the art of handwork."

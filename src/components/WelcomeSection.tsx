@@ -108,6 +108,11 @@ const WelcomeSection: React.FC<WelcomeSectionProps> = ({ title, subtitle, backgr
                     <KnotImage key={index} src={image} alt={`Knot ${index + 1}`} />
                 ))}
             </ImageRow>
+            <Grid>
+                {knotImages.map((image, index) => (
+                    <GridItem key={index} image={image} alt={`Knot ${index + 1}`} />
+                ))}
+            </Grid>
         </SectionContainer>
     );
 };

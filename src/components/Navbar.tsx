@@ -32,7 +32,7 @@ const NavbarContainer = styled.nav`
 
 // Create a styled logo
 const Logo = styled.h1`
-    font-family: 'YourFont', sans-serif; /* Replace with your font */
+    font-family: 'Rubik', sans-serif; /* Replace with your font */
     font-size: 2rem;
     color: #333; /* Text color */
 `;
@@ -47,6 +47,17 @@ const NavLinks = styled.div<{ isOpen: boolean }>`
     align-items: center; /* Full width for mobile */
 `;
 
+const HamburgerLinks = styled.div<{ isOpen: boolean }>`
+    display: ${({ isOpen }) => (isOpen ? 'flex' : 'unset')}; /* Show or hide links */
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px; /* Space between links */
+    align-items: right; /* Full width for mobile */
+    @media (max-width: 768px) {       
+        display: none; /* Hide the hamburger menu on small screens */
+        
+    }
+`;
+
 // Create a styled link
 const NavLink = styled(Link)`
     text-decoration: none;
@@ -56,10 +67,6 @@ const NavLink = styled(Link)`
 
     &:hover {
         color: #Fff; /* Change color on hover */
-    }
-    @media (max-width: 768px) {       
-        display: none; /* Hide the hamburger menu on small screens */
-        
     }
 `;
 
@@ -80,9 +87,12 @@ const Navbar: React.FC = () => {
                 <NavLink to="/classes">CLASSES</NavLink>
                 <NavLink to="/resources">RESOURCES</NavLink>
             </NavLinks>
+            <HamburgerLinks isOpen={isOpen}>
                 <NavLink to="/about">ABOUT</NavLink>
                 <NavLink to="/classes">CLASSES</NavLink>
                 <NavLink to="/resources">RESOURCES</NavLink>
+            </HamburgerLinks>
+
 
         </NavbarContainer>
     );
