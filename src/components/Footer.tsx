@@ -17,7 +17,7 @@ const FooterContainer = styled.footer`
 const Footer: React.FC = () => {
     return (
         <FooterContainer>
-            <p>© 2023 Heartspun Studio. All rights reserved.</p>
+            <p>© 2023 Held Thread Handwork. All rights reserved.</p>
             {/* Add social media links here */}
         </FooterContainer>
     );

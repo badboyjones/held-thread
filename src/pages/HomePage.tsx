@@ -11,10 +11,8 @@ import IntroSection from '../components/IntroSection'; // Import the IntroSectio
 import CardSection from '../components/CardSection'; // Import the CardSection component
 import Footer from '../components/Footer'; // Import the new Footer component
 
-
 // Import the card image
 import cardImage3 from '../images/card images/card images/3.png'; // Adjust the path as necessary
-// import cardImage4 from '../images/card images/4.png'; // Adjust the path as necessary
 import cardImage1 from '../images/card images/card images/1.png'; // Adjust the path as necessary
 import cardImage2 from '../images/card images/card images/2.png'; // Adjust the path as necessary
 import cardImage5 from '../images/card images/card images/5.png'; // Adjust the path as necessary
@@ -83,17 +81,22 @@ const HomePage: React.FC = () => {
             <WelcomeSection 
                 backgroundColor="#ffffff"
                 titleColor="#333333" // Set title color
-                subtitleColor="#333333" // Set subtitle color
-                title="Handwork with Heart: Crafting Skills, Building Resilience"
-                subtitle="Rooted in tradition, Held Thread offers in-person handwork classes for children and adults,
+                subtitleColor="#333333"
+                title="HELD THREAD HANDWORK"
+                subtitle="rooted in tradition, held thread offers in-person handwork classes for children and adults,
                  nurturing patience, confidence, and creativity through the rhythm of craft."
                 knotImages={knotImages} // Pass the knot images
             />
             <IntroSection 
                 image="src/images/card images/card images/HEARTSPUN handwork(1).png" // Set your image here
                 backgroundColor="#D6E9F2" // Set your background color here
-                title="Meet Tr. Morrissey!"
-                description="Join us for hands-on experiences through the art of handwork."
+                title="hi! i'm happy you're here!"
+                description="my name is Teaher Morrissey and i am the teacher and artist behind held thread. i'm so glad you're here!
+                i'm a teacher, artist, and maker. i'm passionate about the art of handwork and the joy it brings to people of all ages.
+                i believe that everyone can be a maker, and that the art of handwork is a powerful way to connect with oneself and others.
+                "
+                buttonText="Learn More" // Pass the button text
+                onButtonClick={() => alert('Button clicked!')} // Pass the button click handler
             />
             <CardSection cards={cardData}/>
             <Footer />

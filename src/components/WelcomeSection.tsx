@@ -18,7 +18,8 @@ const SectionContainer = styled.div`
     justify-content: center;
     height: 100vh; // Full viewport height for hero effect
     min-height: 100vh; // Ensure it fills the viewport even with content
-    width: 100%; // Ensure it fills the viewport width
+    width: 100%;
+    max-width: 60%; // Ensure it fills the viewport width
     background-color: #ffffff; // Background color
     text-align: center; // Center text
 

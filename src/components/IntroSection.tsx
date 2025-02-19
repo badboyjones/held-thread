@@ -30,6 +30,13 @@ const TextSection = styled.div`
     justify-content: center; /* Center text vertically */
 `;
 
+// Styled component for the text container
+const TextContainer = styled.div`
+    width: 60%; /* Limit width to 60% for breathing room */
+    margin: 0 auto; /* Center the text container horizontally */
+    text-align: left;
+`;
+
 // Styled component for the image section
 const ImageSection = styled.div`
     flex: 1; /* Take up half of the space */
@@ -53,17 +60,24 @@ interface IntroSectionProps {
     backgroundColor: string;
     title: string;
     description: string;
+    buttonText?: string; // Optional button text
+    onButtonClick?: () => void; // Optional button click handler
     children?: React.ReactNode; // Allow children to be passed
 }
 
 // Main IntroSection component
-const IntroSection: React.FC<IntroSectionProps> = ({ image, backgroundColor, title, description, children }) => {
+const IntroSection: React.FC<IntroSectionProps> = ({ image, backgroundColor, title, description, buttonText, onButtonClick, children }) => {
     return (
         <SectionContainer backgroundColor={backgroundColor}>
             <TextSection>
-                <h2>{title}</h2>
-                <p>{description}</p>
-                {children} {/* Render children here */}
+                <TextContainer>
+                    <h2>{title}</h2>
+                    <p>{description}</p>
+                    {buttonText && onButtonClick && (
+                        <button onClick={onButtonClick}>{buttonText}</button> // Render button if props are provided
+                    )}
+                    {children} {/* Render children here */}
+                </TextContainer>
             </TextSection>
             <ImageSection>
                 <StyledImage src={image} alt={title} />

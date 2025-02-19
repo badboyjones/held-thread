@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
 
     return (
         <NavbarContainer>
-            <Logo>HEARTSPUN STUDIO</Logo>
+            <Logo>HELD THREAD HANDWORK</Logo>
             <HamburgerMenu onClick={toggleMenu} /> 
             <NavLinks isOpen={isOpen}>
                 <NavLink to="/about">ABOUT</NavLink>
