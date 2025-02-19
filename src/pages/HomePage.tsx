@@ -10,7 +10,7 @@ import WelcomeSection from '../components/WelcomeSection'; // Import the Welcome
 import IntroSection from '../components/IntroSection'; // Import the IntroSection component
 import CardSection from '../components/CardSection'; // Import the CardSection component
 import Footer from '../components/Footer'; // Import the new Footer component
- // Import the Grid component
+
 
 // Import the card image
 import cardImage3 from '../images/card images/card images/3.png'; // Adjust the path as necessary
@@ -91,7 +91,7 @@ const HomePage: React.FC = () => {
             <IntroSection 
                 image="src/images/card images/card images/HEARTSPUN handwork.png" // Set your image here
                 backgroundColor="#D6E9F2" // Set your background color here
-                title="Let creativity, tradition, and craft be your guide."
+                title="Meet Tr. Morrissey!"
                 description="Join us for hands-on experiences through the art of handwork."
             />
             <CardSection cards={cardData}/>

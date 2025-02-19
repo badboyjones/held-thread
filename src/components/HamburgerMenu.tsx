@@ -12,12 +12,15 @@ const MenuContainer = styled.div`
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    align-items: center; /* Center the lines horizontally */
+    width: 30px; /* Set a fixed width for the hamburger menu */
+    margin: 0 auto; /* Center the hamburger menu in its parent */
 `;
 
 // Create a styled line for the hamburger icon
 const Line = styled.div`
     height: 3px;
-    width: 25px;
+    width: 100%; /* Make the lines take the full width of the container */
     background-color: #333; /* Color of the hamburger lines */
     margin: 3px 0; /* Space between lines */
 `;

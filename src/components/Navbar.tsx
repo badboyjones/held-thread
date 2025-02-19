@@ -43,7 +43,9 @@ const NavLinks = styled.div<{ isOpen: boolean }>`
     display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')}; /* Show or hide links */
     flex-direction: column; /* Stack links vertically */
     gap: 10px; /* Space between links */
-    width: 100%; /* Full width for mobile */
+    width: 100%;
+    background: #ffffff;
+    align-items: center; /* Full width for mobile */
 `;
 
 // Create a styled link
