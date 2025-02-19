@@ -21,7 +21,6 @@ const SectionContainer = styled.div`
     width: 100%; // Ensure it fills the viewport width
     background-color: #ffffff; // Background color
     text-align: center; // Center text
-    padding: 20px; // Add padding for smaller screens
 
     @media (max-width: 768px) {
         padding: 10px; // Reduce padding on smaller screens

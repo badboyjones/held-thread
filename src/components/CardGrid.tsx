@@ -15,7 +15,14 @@ interface CardGridProps {
 const CardGrid: React.FC<CardGridProps> = ({ cards }) => {
     // Render the grid of cards
     return (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
+        // Set the width to 75% and center the grid
+        <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
+            gap: '30px', 
+            width: '75%',// Limit the width to 75%
+            margin: '0 auto' // Center the grid
+        }}>
             {cards.map((card, index) => (
                 <Card key={index} {...card} /> // Ensure Card is being used here
             ))}
