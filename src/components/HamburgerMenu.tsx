@@ -11,10 +11,15 @@ import styled from 'styled-components';
 const MenuContainer = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
     cursor: pointer;
     align-items: center; /* Center the lines horizontally */
     width: 30px; /* Set a fixed width for the hamburger menu */
     margin: 0 auto; /* Center the hamburger menu in its parent */
+    @media (min-width: 768px) {       
+        display: none; /* Hide the hamburger menu on small screens */
+        
+    }
 `;
 
 // Create a styled line for the hamburger icon

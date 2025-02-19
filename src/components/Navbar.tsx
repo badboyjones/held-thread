@@ -27,7 +27,6 @@ const NavbarContainer = styled.nav`
 
     @media (max-width: 768px) {
         flex-direction: column; /* Stack items on small screens */
-        align-items: flex-start; /* Align items to the start */
     }
 `;
 
@@ -58,6 +57,10 @@ const NavLink = styled(Link)`
     &:hover {
         color: #Fff; /* Change color on hover */
     }
+    @media (max-width: 768px) {       
+        display: none; /* Hide the hamburger menu on small screens */
+        
+    }
 `;
 
 const Navbar: React.FC = () => {
@@ -71,12 +74,16 @@ const Navbar: React.FC = () => {
     return (
         <NavbarContainer>
             <Logo>HEARTSPUN STUDIO</Logo>
-            <HamburgerMenu onClick={toggleMenu} /> {/* Add the hamburger menu */}
+            <HamburgerMenu onClick={toggleMenu} /> 
             <NavLinks isOpen={isOpen}>
                 <NavLink to="/about">ABOUT</NavLink>
                 <NavLink to="/classes">CLASSES</NavLink>
                 <NavLink to="/resources">RESOURCES</NavLink>
             </NavLinks>
+                <NavLink to="/about">ABOUT</NavLink>
+                <NavLink to="/classes">CLASSES</NavLink>
+                <NavLink to="/resources">RESOURCES</NavLink>
+
         </NavbarContainer>
     );
 };
