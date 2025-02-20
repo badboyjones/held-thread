@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from './Button'; // Ensure this is the new Button component
 
 /**
  * IntroSection component displays an introductory section
@@ -60,22 +61,23 @@ interface IntroSectionProps {
     backgroundColor: string;
     title: string;
     description: string;
-    buttonText?: string; // Optional button text
-    onButtonClick?: () => void; // Optional button click handler
     children?: React.ReactNode; // Allow children to be passed
 }
 
 // Main IntroSection component
-const IntroSection: React.FC<IntroSectionProps> = ({ image, backgroundColor, title, description, buttonText, onButtonClick, children }) => {
+const IntroSection: React.FC<IntroSectionProps> = ({
+    image,
+    backgroundColor,
+    title,
+    description,
+    children
+}) => {
     return (
         <SectionContainer backgroundColor={backgroundColor}>
             <TextSection>
                 <TextContainer>
                     <h2>{title}</h2>
                     <p>{description}</p>
-                    {buttonText && onButtonClick && (
-                        <button onClick={onButtonClick}>{buttonText}</button> // Render button if props are provided
-                    )}
                     {children} {/* Render children here */}
                 </TextContainer>
             </TextSection>

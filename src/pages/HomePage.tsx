@@ -10,6 +10,7 @@ import WelcomeSection from '../components/WelcomeSection'; // Import the Welcome
 import IntroSection from '../components/IntroSection'; // Import the IntroSection component
 import CardSection from '../components/CardSection'; // Import the CardSection component
 import Footer from '../components/Footer'; // Import the new Footer component
+import Button from '../components/Button'; // This import is not needed in HomePage
 
 // Import the card image
 import cardImage3 from '../images/card images/card images/3.png'; // Adjust the path as necessary
@@ -80,24 +81,56 @@ const HomePage: React.FC = () => {
             <nav></nav>
             <WelcomeSection 
                 backgroundColor="#ffffff"
-                titleColor="#333333" // Set title color
-                subtitleColor="#333333"
+                titleColor="#87b5ca" // Set title color
+                subtitleColor="#87b5ca"
                 title="HELD THREAD HANDWORK"
-                subtitle="rooted in tradition, held thread offers in-person handwork classes for children and adults,
-                 nurturing patience, confidence, and creativity through the rhythm of craft."
+                subtitle="textile arts classes for children and adults"
                 knotImages={knotImages} // Pass the knot images
-            />
+            >
+                <Button 
+                    text="Visit Our Website"
+                    link="https://www.example.com"
+                    backgroundColor="#87b5ca"
+                    color="white"
+                    padding="10px 20px"
+                    borderRadius="30px"
+                    hoverColor="#9dbfd1"
+                    hoverTextColor="white"
+                />
+            </WelcomeSection>
+        
             <IntroSection 
-                image="src/images/card images/card images/HEARTSPUN handwork(1).png" // Set your image here
-                backgroundColor="#D6E9F2" // Set your background color here
+                image="src/images/card images/card images/HEARTSPUN handwork(1).png"
+                backgroundColor="#D6E9F2"
                 title="hi! i'm happy you're here!"
-                description="my name is Teaher Morrissey and i am the teacher and artist behind held thread. i'm so glad you're here!
-                i'm a teacher, artist, and maker. i'm passionate about the art of handwork and the joy it brings to people of all ages.
-                i believe that everyone can be a maker, and that the art of handwork is a powerful way to connect with oneself and others.
-                "
-                buttonText="Learn More" // Pass the button text
-                onButtonClick={() => alert('Button clicked!')} // Pass the button click handler
-            />
+                description="i'm morrissey and i am the teacher and artist behind held thread.
+                to me, handwork is a way to build resilience, connection, and creativity within ourselves and within our community.
+                as a lifelong crafter, i began learning handwork as a child.
+                now, i reside here in beautiful portland, oregon where i get to share my love of craft with you."
+            >
+                <Button 
+                    text="MORE ABOUT ME"
+                    link="https://www.example.com"
+                    backgroundColor="#fff"
+                    color="#87b5ca"
+                    padding="10px 20px"
+                    borderRadius="30px"
+                    hoverColor="#f4fbff"
+                    hoverTextColor="#87b5ca"
+                    margin="10px"
+                />
+                 <Button 
+                    text="MORE ABOUT HANDWORK"
+                    link="https://www.example.com"
+                    backgroundColor="#fff"
+                    color="#87b5ca"
+                    padding="10px 20px"
+                    borderRadius="30px"
+                    hoverColor="#f4fbff"
+                    hoverTextColor="#87b5ca"
+                    margin="10px"
+                />
+            </IntroSection>
             <CardSection cards={cardData}/>
             <Footer />
         </Container>

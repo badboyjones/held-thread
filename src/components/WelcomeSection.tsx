@@ -11,7 +11,7 @@ import GridItem from '../components/GridItem'; // Import the GridItem component
 /**
  * Styled components for layout and appearance of the hero section.
  */
-const SectionContainer = styled.div`
+const SectionContainer = styled.div<{ backgroundColor: string }>`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,11 +20,13 @@ const SectionContainer = styled.div`
     min-height: 100vh; // Ensure it fills the viewport even with content
     width: 100%;
     max-width: 60%; // Ensure it fills the viewport width
-    background-color: #ffffff; // Background color
+    background-color: ${({ backgroundColor }) => backgroundColor}; // Use the backgroundColor prop
     text-align: center; // Center text
+    margin-top: 60px; // Add margin to create space from the navbar
 
     @media (max-width: 768px) {
         padding: 10px; // Reduce padding on smaller screens
+        margin-top: 30px; // Adjust margin for smaller screens
     }
 `;
 
@@ -45,18 +47,6 @@ const Subtitle = styled.h2`
 
     @media (max-width: 768px) {
         font-size: 1.2rem; // Adjust font size for smaller screens
-    }
-`;
-
-const ButtonContainer = styled.div`
-    display: flex;
-    flex-direction: column; // Stack buttons vertically on small screens
-    align-items: center; // Center buttons
-    gap: 10px; // Space between buttons
-    margin: 20px 0; // Space above and below buttons
-
-    @media (min-width: 769px) {
-        flex-direction: row; // Align buttons horizontally on larger screens
     }
 `;
 
@@ -93,23 +83,29 @@ interface WelcomeSectionProps {
     title: string;
     subtitle: string;
     knotImages: string[];
+    children?: React.ReactNode;
 }
 
-const WelcomeSection: React.FC<WelcomeSectionProps> = ({ title, subtitle, backgroundColor, knotImages }) => {
+const WelcomeSection: React.FC<WelcomeSectionProps> = ({
+    backgroundColor,
+    titleColor,
+    subtitleColor,
+    title,
+    subtitle,
+    knotImages,
+    children
+}) => {
     return (
-        <SectionContainer style={{ backgroundColor }}>
-            <Title>{title}</Title>
-            <Subtitle>{subtitle}</Subtitle>
-            <ButtonContainer>
-                <button style={{ padding: '15px 20px', backgroundColor: '#D6E9F2', color: '#fff', border: 'none', borderRadius: '50px', width: '100%' }}>Button 1</button>
-                <button style={{ padding: '15px 20px', backgroundColor: '#D6E9F2', color: '#fff', border: 'none', borderRadius: '50px', width: '100%' }}>Button 2</button>
-            </ButtonContainer>
+        <SectionContainer backgroundColor={backgroundColor}>
+            <Title style={{ color: titleColor }}>{title}</Title>
+            <Subtitle style={{ color: subtitleColor }}>{subtitle}</Subtitle>
+            {children} {/* This will render any buttons passed as children */}
             <ImageRow>
                 {knotImages.map((image, index) => (
                     <KnotImage key={index} src={image} alt={`Knot ${index + 1}`} />
                 ))}
             </ImageRow>
-            <Grid>
+            <Grid columns={2} rows={2}>
                 {knotImages.map((image, index) => (
                     <GridItem key={index} image={image} alt={`Knot ${index + 1}`} />
                 ))}
