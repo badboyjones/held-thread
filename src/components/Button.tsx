@@ -15,6 +15,7 @@ const StyledButton = styled.button<{
     hoverColor: string;
     hoverTextColor: string;
     margin?: string; // Add margin as an optional prop
+    width?: string; // Add width as an optional prop
 }>`
     background-color: ${({ backgroundColor }) => backgroundColor}; /* Background color */
     color: ${({ color }) => color}; /* Text color */
@@ -23,6 +24,7 @@ const StyledButton = styled.button<{
     cursor: pointer; /* Pointer cursor on hover */
     border-radius: ${({ borderRadius }) => borderRadius}; /* Rounded corners */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+    width: ${({ width }) => width}; /* Width of the button */
 
     &:hover {
         background-color: ${({ hoverColor }) => hoverColor}; /* Darker shade on hover */
@@ -39,6 +41,7 @@ const StyledLink = styled.a<{
     hoverColor: string;
     hoverTextColor: string;
     margin?: string; // Add margin as an optional prop
+    width?: string; // Add width as an optional prop
 }>`
     display: inline-block; /* Make it behave like a button */
     text-decoration: none; /* Remove underline */
@@ -49,6 +52,7 @@ const StyledLink = styled.a<{
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
     margin: ${({ margin }) => margin}; /* Apply margin */
+    width: ${({ width }) => width}; /* Width of the link */
 
     &:hover {
         background-color: ${({ hoverColor }) => hoverColor}; /* Darker shade on hover */
@@ -68,6 +72,8 @@ interface ButtonProps {
     hoverColor?: string; // Hover color
     hoverTextColor?: string; // Hover text color
     margin?: string; // Margin
+    type?: 'button' | 'submit' | 'reset'; // Add type prop
+    width?: string; // Width of the button
 }
 
 // Main Button component
@@ -82,6 +88,8 @@ const Button: React.FC<ButtonProps> = ({
     hoverColor = '#d68a8a', // Default hover color
     hoverTextColor = 'white', // Default hover text color
     margin = '10px', // Default margin
+    type = 'button', // Default type
+    width, // Add width to the destructured props
 }) => {
     if (link) {
         return (
@@ -94,6 +102,7 @@ const Button: React.FC<ButtonProps> = ({
                 hoverColor={hoverColor}
                 hoverTextColor={hoverTextColor}
                 margin={margin}
+                width={width} // Use the width prop
             >
                 {text}
             </StyledLink>
@@ -110,6 +119,8 @@ const Button: React.FC<ButtonProps> = ({
             hoverColor={hoverColor}
             hoverTextColor={hoverTextColor}
             margin={margin}
+            type={type} // Pass the type prop to the button
+            width={width} // Use the width prop
         >
             {text}
         </StyledButton>

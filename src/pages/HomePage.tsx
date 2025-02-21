@@ -11,6 +11,7 @@ import IntroSection from '../components/IntroSection'; // Import the IntroSectio
 import CardSection from '../components/CardSection'; // Import the CardSection component
 import Footer from '../components/Footer'; // Import the new Footer component
 import Button from '../components/Button'; // This import is not needed in HomePage
+import NewsletterSignup from '../components/NewsletterSignup'; // Import the NewsletterSignup component
 
 // Import the card image
 import cardImage3 from '../images/card images/card images/3.png'; // Adjust the path as necessary
