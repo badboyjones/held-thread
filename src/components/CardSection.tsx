@@ -4,13 +4,17 @@ import CardGrid from './CardGrid'; // Import the CardGrid component
 import { CardData } from '../types/CardData'; // Import the shared CardData interface
 
 /**
- * CardSection component that displays a section of cards with a gradient background.
- * This component is used to group related cards together.
+ * CardSection component displays a grid of cards with an optional title.
+ * It accepts card data and displays each card in a structured layout.
  */
 
 interface CardSectionProps {
     cards: CardData[];
     backgroundColor?: string;
+    title?: string;
+    titleColor?: string;
+    titleFontSize?: string;
+    titleMargin?: string;
 }
 
 const ParentContainer = styled.div`
@@ -36,12 +40,34 @@ const SectionContainer = styled.section<{ backgroundColor?: string }>`
     /* Retain original styling */
 `;
 
+// Create a styled container for the title
+const Title = styled.h2<{ color: string; fontSize: string; margin: string }>`
+    color: ${({ color }) => color};
+    font-size: ${({ fontSize }) => fontSize};
+    margin: ${({ margin }) => margin};
+`;
+
+// Create a styled container for the card section
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
+
 // Main CardSection component
-const CardSection: React.FC<CardSectionProps> = ({ cards, backgroundColor }) => {
+const CardSection: React.FC<CardSectionProps> = ({ cards, backgroundColor, title, titleColor = "#000", titleFontSize = "24px", titleMargin = "20px" }) => {
     return (
         <ParentContainer>
             <SectionContainer backgroundColor={backgroundColor}>
-                <CardGrid cards={cards} />
+                <Container>
+                    {title && (
+                        // Render the title if provided
+                        <Title color={titleColor} fontSize={titleFontSize} margin={titleMargin}>
+                            {title}
+                        </Title>
+                    )}
+                    <CardGrid cards={cards} />
+                </Container>
             </SectionContainer>
         </ParentContainer>
     );

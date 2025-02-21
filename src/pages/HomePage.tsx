@@ -41,41 +41,34 @@ const HomePage: React.FC = () => {
     // Define card data here for clarity
     const cardData = [
         {
-            title: "Beginning in Knitting",
-            description: "Perfect for absolute beginners, knitting is the first thing taught in traditional handwork ciriculum. Ages 6 and up.",
+            title: "Private Lessons",
+            description: "Personalized one-on-one instruction for all ages and skill levels",
             buttonText: "Learn More",
             imageUrl: cardImage3, // Use the imported image
             onButtonClick: () => alert('Learn More clicked!'),
             titleColor: "#f79c9c", // Set title color for this card
         },
         {
-            title: "Advancing in Knitting",
-            description: "For intermediate knitters who are ready to move beyond knitting basics. Ages 7 and up.",
-            buttonText: "Learn More",
-            imageUrl: cardImage5,
-            onButtonClick: () => alert('View Workshops clicked!'),
-            titleColor: "#ffd97d", // Set title color for this card
-        },
-        {
-            title: "Beginning in Crochet",
-            description: "Crochet uses a hook to create a series of loops and chains, forming something beautiful and new. ",
-            buttonText: "Learn More",
-            imageUrl: cardImage2,
-            onButtonClick: () => alert('Discover More clicked!'),
-            titleColor: "#9eb566", // Set title color for this card
-        },
-        {
-            title: "Waldorf Doll Making",
-            description: "Combine drafting, hand sewing, and embroidery to create a one-of-a-kind doll.",
+            title: "Small Group Classes",
+            description: "Social, group-based classes to build skills and community",
             buttonText: "Learn More",
             imageUrl: cardImage1,
             onButtonClick: () => alert('Join Club clicked!'),
             titleColor: "#9ddfff", // Set title color for this card
         },
+        {
+            title: "Workshops & Special Events",
+            description: "Seasonal, one-time experiences to explore new techniques and materials together",
+            buttonText: "Learn More",
+            imageUrl: cardImage5,
+            onButtonClick: () => alert('View Workshops clicked!'),
+            titleColor: "#ffd97d", // Set title color for this card
+        },
     ];
 
     // Array of knot images
     const knotImages = [knotImage1, knotImage2, knotImage3, knotImage4, knotImage5];
+    
 
     return (
         <Container>
@@ -84,12 +77,12 @@ const HomePage: React.FC = () => {
                 backgroundColor="#ffffff"
                 titleColor="#87b5ca" // Set title color
                 subtitleColor="#87b5ca"
-                title="HELD THREAD HANDWORK"
-                subtitle="textile arts classes for children and adults"
+                title="HANDWORK FOR ALL"
+                subtitle="weaving creativity, resilience, and community"
                 knotImages={knotImages} // Pass the knot images
             >
                 <Button 
-                    text="Visit Our Website"
+                    text="inquire about lessons"
                     link="https://www.example.com"
                     backgroundColor="#87b5ca"
                     color="white"
@@ -101,13 +94,82 @@ const HomePage: React.FC = () => {
             </WelcomeSection>
         
             <IntroSection 
-                image="src/images/card images/card images/HEARTSPUN handwork(1).png"
+                image="src/images/card images/card images/HEARTSPUN handwork(2).png"
                 backgroundColor="#D6E9F2"
                 title="hi! i'm happy you're here!"
-                description="i'm morrissey and i am the teacher and artist behind held thread.
-                to me, handwork is a way to build resilience, connection, and creativity within ourselves and within our community.
-                as a lifelong crafter, i began learning handwork as a child.
-                now, i reside here in beautiful portland, oregon where i get to share my love of craft with you."
+                imageWidth="50%"
+                textWidth="50%"
+                maxHeight="100%"
+                maxWidth="auto%"
+                mobileMaxHeight="100%"
+                mobileMaxWidth="100%"
+                description={
+                    <>
+                        i'm morrissey and i am the teacher and artist behind held thread.
+                        <br /><br />
+                        held thread is built on the belief that traditional handwork nurtures both skill and soul.
+                        <br /><br />
+                        through slow, mindful making, we develop patience, perseverance, and connection to craft and community.
+                    </>
+                }
+                imagePosition="right"
+            >
+                <Button 
+                    text="MORE ABOUT ME"
+                    link="https://www.example.com"
+                    backgroundColor="#fff"
+                    color="#87b5ca"
+                    padding="10px 20px"
+                    borderRadius="30px"
+                    hoverColor="#f4fbff"
+                    hoverTextColor="#87b5ca"
+                    margin="10px"
+                />
+                <Button 
+                    text="MORE ABOUT HANDWORK"
+                    link="https://www.example.com"
+                    backgroundColor="#fff"
+                    color="#87b5ca"
+                    padding="10px 20px"
+                    borderRadius="30px"
+                    hoverColor="#f4fbff"
+                    hoverTextColor="#87b5ca"
+                    margin="10px"
+                />
+            </IntroSection>
+            <CardSection 
+                cards={cardData} 
+                title="OFFERINGS" // Title for the card section
+                titleColor="#333" // Color for the title
+                titleFontSize="3rem" // Font size for the title
+                titleMargin="30px" // Margin for the title
+            />
+            <IntroSection 
+                image="src/images/card images/knots/Natural_dye_colour_wheel.jpg"
+                backgroundColor="#D6E9F2"
+                title="why handwork?"
+                description={
+                    <>
+                        in a world full of screens and distractions, handwork gives one the chance to slow down,
+                        focus, and create something with their own hands.
+                        <br /><br />
+                        the deep and complex tradition of handwork isn't about a finished product, but a way to build 
+                        the self. working with yarn, fabric, and thread work to strengthen physical skills like fine 
+                        motor control as well as a greater sense of rhythm in the body and world.
+                        <br /><br />
+                        we have to remember that these skills have been passed down for millennia. 
+                        working with your hands is a connection to tradition and community. we take these skills and 
+                        make them our own, creating our own traditions and stories together. the world becomes a more beautiful place 
+                        when we share this task with one another.
+                        <br /><br />
+                        at held thread, we teach handwork as more than a craft—it's a way to help one grow, one stitch 
+                        at a time.
+                    </>
+                }
+                imagePosition="left"
+                style={{ transform: 'rotate(270deg)' }}
+                maxHeight="100%" // Ensure the image takes full height
+                maxWidth="100%" // Ensure the image does not exceed its container's width
             >
                 <Button 
                     text="MORE ABOUT ME"
@@ -132,7 +194,6 @@ const HomePage: React.FC = () => {
                     margin="10px"
                 />
             </IntroSection>
-            <CardSection cards={cardData}/>
             <Footer />
         </Container>
     );
