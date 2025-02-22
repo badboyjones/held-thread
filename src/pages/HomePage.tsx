@@ -195,7 +195,7 @@ const HomePage: React.FC = () => {
                     margin="10px"
                 />
             </IntroSection>
-            <WaveDivider />
+            <WaveDivider backgroundColor="#D6E9F2" waveColor="#bcc9a0" />
             <Footer />
         </Container>
     );

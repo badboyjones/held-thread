@@ -1,8 +1,15 @@
 import React from 'react';
+
 /**
  * WaveDivider component renders two sections with a wave SVG divider.
+ * It accepts colors for the background and the wave as props.
  */
-const WaveDivider = () => {
+interface WaveDividerProps {
+  backgroundColor: string; // Background color for the top section
+  waveColor: string;       // Color for the wave
+}
+
+const WaveDivider: React.FC<WaveDividerProps> = ({ backgroundColor, waveColor }) => {
   const getSvgHeight = (amplitude: number): number => {
     return Math.max(50, amplitude + 20);
   };
@@ -36,7 +43,7 @@ const WaveDivider = () => {
     <div style={{ width: '100vw', overflow: 'hidden' }}>
       <div style={{ maxWidth: '100%', margin: '0 auto' }}>
         <div style={{
-          backgroundColor: '#e6f3ff',
+          backgroundColor: backgroundColor,
           padding: '2rem',
           paddingBottom: `calc(2rem + ${svgHeight}px)`,
           position: 'relative',
@@ -49,14 +56,14 @@ const WaveDivider = () => {
           >
             <path
               d={generateWavePath()}
-              fill="#ffe6e6"
+              fill={waveColor}
               style={{ transition: 'all 0.3s ease-in-out' }}
             />
           </svg>
         </div>
 
         <div style={{ backgroundColor: '#ffe6e6', marginTop: '-1px' }}>
-
+          {/* Content for Section 2 can be added here */}
         </div>
       </div>
     </div>
