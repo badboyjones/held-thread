@@ -75,7 +75,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
                             borderColor: inputBorderColor,
                             borderRadius: inputBorderRadius,
                             padding: inputPadding,
-                            border: '1px solid', // Ensure border is visible
+                            border: '0px solid', // Ensure border is visible
                             width: width, // Use the width prop
                             height: height, // Use the height prop
                             boxSizing: 'border-box', // Include padding and border in element's total width and height

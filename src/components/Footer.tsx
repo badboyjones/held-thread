@@ -12,7 +12,7 @@ import Copyright from './Copyright'; // Import the new Copyright component
 // Create a styled container for the Footer with a sky blue background
 const FooterContainer = styled.footer`
     width: 100%; /* Ensure footer takes full width */
-    background-color: #D6E9F2; /* Soft sky blue */
+    background-color: #bcc9a0; /* Soft sky blue */
     text-align: center;
     color: #333; /* Text color */
     display: flex;
@@ -50,8 +50,9 @@ const Footer: React.FC = () => {
             <FooterSection>
                 <FooterLinks links={links} 
                     color='#333' // Default link color
+                    hoverColor='#ffffff' // Default link hover color
                     fontSize='16px' // Default font size
-                    padding='10px' // Default padding
+                    padding='0px' // Default padding
                     width='30%' // Default width
                 />
             </FooterSection>
@@ -62,11 +63,11 @@ const Footer: React.FC = () => {
             {/* Add social media links here */}
             <FooterSection>
                 <NewsletterSignup
-                    labelColor='#000' // Default label color
+                    labelColor='#fff' // Default label color
                     inputColor='#fff' // Default input background color
-                    buttonColor='#87b5ca' // Default button background color
+                    buttonColor='#798b52' // Default button background color
                     buttonTextColor='#fff' // Default button text color
-                    linkColor='#000' // Default link color
+                    linkColor='#fff' // Default link color
                     width='50%' // Default width
                     height='40px' // Default height
                     inputBorderColor='#ccc' // Default input border color

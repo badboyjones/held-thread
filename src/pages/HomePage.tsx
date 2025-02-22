@@ -12,6 +12,7 @@ import CardSection from '../components/CardSection'; // Import the CardSection c
 import Footer from '../components/Footer'; // Import the new Footer component
 import Button from '../components/Button'; // This import is not needed in HomePage
 import NewsletterSignup from '../components/NewsletterSignup'; // Import the NewsletterSignup component
+import WaveDivider from '../components/WaveDivider'; // Import the WaveDivider component
 
 // Import the card image
 import cardImage3 from '../images/card images/card images/3.png'; // Adjust the path as necessary
@@ -150,8 +151,8 @@ const HomePage: React.FC = () => {
                 title="why handwork?"
                 description={
                     <>
-                        in a world full of screens and distractions, handwork gives one the chance to slow down,
-                        focus, and create something with their own hands.
+                        in a world full of screens and distractions, handwork gives us the chance to slow down,
+                        focus, and create with our own hands.
                         <br /><br />
                         the deep and complex tradition of handwork isn't about a finished product, but a way to build 
                         the self. working with yarn, fabric, and thread work to strengthen physical skills like fine 
@@ -162,7 +163,7 @@ const HomePage: React.FC = () => {
                         make them our own, creating our own traditions and stories together. the world becomes a more beautiful place 
                         when we share this task with one another.
                         <br /><br />
-                        at held thread, we teach handwork as more than a craft—it's a way to help one grow, one stitch 
+                        at held thread, handwork is more than craft. it's a way to help us grow, one stitch 
                         at a time.
                     </>
                 }
@@ -194,6 +195,7 @@ const HomePage: React.FC = () => {
                     margin="10px"
                 />
             </IntroSection>
+            <WaveDivider />
             <Footer />
         </Container>
     );
