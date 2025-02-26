@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { GlobalStyle } from './styles/theme';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -17,6 +18,7 @@ const App: React.FC = () => {
     // Wrap the application in Router for routing functionality
     return (
         <Router>
+            <GlobalStyle />
             <Navbar />
             {/* Define the routes for the application */}
             <Routes>
