@@ -14,15 +14,34 @@ const CardContainer = styled.div`
     background-color: ${({ theme }) => theme.colors.white}; /* Background color */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    padding: 20px; /* Padding inside the card */
-    margin: 20px; /* Margin around the card */
     text-align: center; /* Center align text */
     display: flex; /* Use flexbox */
     flex-direction: column; /* Stack children vertically */
     transition: transform 0.2s;
+    
+    // Step 1: Set max-width for mobile and center with margin
+    width: 75%;
+    max-width: 300px;
+    margin: 5px auto;
+    
+    @media (min-width: 768px) {
+        margin: 1rem;
+        width: 100%;
+        max-width: none;
+    }
 
-    &:hover {
-        transform: scale(1.05); /* Scale effect on hover */
+    // Step 2: Disable hover effect on mobile devices
+    @media (hover: hover) {
+        &:hover {
+            transform: none;
+        }
+    }
+
+    // Step 3: Adjust padding for mobile
+    padding: 8px;
+    
+    @media (min-width: 768px) {
+        padding: 0px;
     }
 `;
 
@@ -30,8 +49,14 @@ const CardContainer = styled.div`
 const CardImage = styled.img`
     width: 100%; /* Full width */
     height: auto; /* Maintain aspect ratio */
-    border-radius: 10px 10px 0 0; /* Rounded top corners */
-    margin-bottom: 10px; /* Space below the image */
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+    
+    // Step 3: Reduce image margin on mobile
+    margin-bottom: 4px;
+    
+    @media (min-width: 768px) {
+        margin-bottom: 10px;
+    }
 `;
 
 // Add the missing CardContent component
@@ -44,15 +69,26 @@ const CardContent = styled.div`
 
 // Create a styled title
 const CardTitle = styled.h2<{ $color: string }>`
-    font-size: 1.5rem;
+    // Step 4: Smaller font size on mobile
+    font-size: 1rem;
     color: ${({ $color }) => $color};
-    margin-bottom: 10px;
+    margin-bottom: 4px;
+    
+    @media (min-width: 768px) {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
 `;
 
 // Create a styled paragraph
 const CardDescription = styled.p`
-    font-size: 1rem;
+    // Step 5: Smaller description text on mobile
+    font-size: 0.75rem;
     color: ${({ theme }) => theme.colors.black}; /* Use theme color */
+    
+    @media (min-width: 768px) {
+        font-size: 1.25rem;
+    }
 `;
 
 // Update the CardProps interface to include titleColor and link
@@ -85,6 +121,7 @@ const Card: React.FC<CardProps> = ({
                     borderRadius="30px"
                     hoverColor="#9dbfd1"
                     hoverTextColor="white"
+                    width="auto"
                 />
             </CardContent>
         </CardContainer>

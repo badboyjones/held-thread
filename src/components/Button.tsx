@@ -43,6 +43,8 @@ interface ButtonProps {
     hoverColor: string;
     hoverTextColor: string;
     margin?: string;
+    width: string;
+    type?: 'button' | 'submit' | 'reset';
 }
 
 // Main Button component

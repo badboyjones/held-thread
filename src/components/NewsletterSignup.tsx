@@ -16,7 +16,6 @@ interface NewsletterSignupProps {
     inputPadding?: string; // Padding for the input
     buttonColor?: string; // Background color for the submit button
     buttonTextColor?: string; // Text color for the submit button
-    linkColor?: string; // Color for the powered by link
     width?: string; // Width for the input
     height?: string; // Height for the input
 }
@@ -29,7 +28,6 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
     inputPadding = '10px', // Default input padding
     buttonColor = '#87b5ca', // Default button background color
     buttonTextColor = '#fff', // Default button text color
-    linkColor = '#000', // Default link color
     width = '30%', // Default width
     height = '50px', // Default height
 }) => {
@@ -91,15 +89,13 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
                         color={buttonTextColor}
                         padding="10px 20px"
                         borderRadius="20px"
-                        hoverColor="#e89999" // You can customize this as needed
+                        hoverColor="#f3df6d" // You can customize this as needed
                         hoverTextColor={buttonTextColor}
                         type="submit" // Set the button type to submit
                         width={width}
+                        link="https://buttondown.com/api/emails/embed-subscribe/morrissey"
                     />
                 </div>
-                {/* Powered by Buttondown link */}
-                <p>
-                </p>
             </form>
         </div>
     );

@@ -11,27 +11,34 @@ import Copyright from './Copyright'; // Import the new Copyright component
 
 // Create a styled container for the Footer with a sky blue background
 const FooterContainer = styled.footer`
-    width: 100%; /* Ensure footer takes full width */
-    background-color: #bcc9a0; /* Soft sky blue */
-    text-align: center;
-    color: #333; /* Text color */
+    width: 100%;
+    background-color: #bcc9a0;
+    color: #333;
     display: flex;
-    flex-direction: row; /* Keep items in a row by default */
-    justify-content: space-between; /* Space items evenly */
-    align-items: center; /* Center items vertically */
-    height: 100%; /* Set a fixed height for the footer */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 200px;
 
-    @media (max-width: 768px) { /* Adjust the breakpoint as needed */
-        flex-direction: column; /* Stack items vertically on mobile */
-        height: auto; /* Allow height to adjust based on content */
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
     }
 `;
 
 const FooterSection = styled.div`
-    flex: 1; /* Each section takes up equal space */
+    flex: 1;
     display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+
+    @media (max-width: 768px) {
+        width: 90%;
+        justify-content: center;
+    }
 `;
 
 const Footer: React.FC = () => {
@@ -48,12 +55,13 @@ const Footer: React.FC = () => {
         <FooterContainer>
             {/* Render the FooterLinks component with the defined links */}
             <FooterSection>
-                <FooterLinks links={links} 
+                <FooterLinks 
+                    links={links} 
                     color='#333' // Default link color
                     hoverColor='#ffffff' // Default link hover color
                     fontSize='16px' // Default font size
                     padding='0px' // Default padding
-                    width='30%' // Default width
+                    width='100%' // Default width
                 />
             </FooterSection>
             {/* Use the new Copyright component */}
@@ -63,16 +71,15 @@ const Footer: React.FC = () => {
             {/* Add social media links here */}
             <FooterSection>
                 <NewsletterSignup
-                    labelColor='#fff' // Default label color
-                    inputColor='#fff' // Default input background color
-                    buttonColor='#798b52' // Default button background color
-                    buttonTextColor='#fff' // Default button text color
-                    linkColor='#fff' // Default link color
-                    width='50%' // Default width
-                    height='40px' // Default height
-                    inputBorderColor='#ccc' // Default input border color
-                    inputBorderRadius='20px' // Default input border radius
-                    inputPadding='10px' // Default input padding
+                    labelColor='#fff'
+                    inputColor='#fff'
+                    buttonColor='#798b52'
+                    buttonTextColor='#fff'
+                    width='100%'
+                    height='40px'
+                    inputBorderColor='#ccc'
+                    inputBorderRadius='20px'
+                    inputPadding='10px'
                 />
             </FooterSection>
         </FooterContainer>
