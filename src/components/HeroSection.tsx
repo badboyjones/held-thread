@@ -20,27 +20,27 @@ interface HeroSectionProps {
 }
 
 // Container for the entire hero section
-const HeroContainer = styled.section<{ backgroundColor: string }>`
+const HeroContainer = styled.section<{ $backgroundColor: string }>`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
     min-height: 80vh;
-    background-color: ${props => props.backgroundColor};
+    background-color: ${props => props.$backgroundColor};
     position: relative;
 `;
 
 // Styled components for title and subtitle
-const Title = styled.h1<{ color: string }>`
-    color: ${props => props.color};
+const Title = styled.h1<{ $color: string }>`
+    color: ${props => props.$color};
     font-size: 3.5rem;
     text-align: center;
     margin-bottom: 1rem;
 `;
 
-const Subtitle = styled.h2<{ color: string }>`
-    color: ${props => props.color};
+const Subtitle = styled.h2<{ $color: string }>`
+    color: ${props => props.$color};
     font-size: 1.8rem;
     text-align: center;
     margin-bottom: 2rem;
@@ -71,9 +71,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     children
 }) => {
     return (
-        <HeroContainer backgroundColor={backgroundColor}>
-            <Title id={titleId} color={titleColor}>{title}</Title>
-            <Subtitle color={subtitleColor}>{subtitle}</Subtitle>
+        <HeroContainer $backgroundColor={backgroundColor}>
+            <Title id={titleId} $color={titleColor}>{title}</Title>
+            <Subtitle $color={subtitleColor}>{subtitle}</Subtitle>
             {children}
             <KnotContainer>
                 {knotImages.map((image, index) => (

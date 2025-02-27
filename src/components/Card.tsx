@@ -7,6 +7,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CardData } from '../types/CardData'; // Import the shared CardData interface
+import Button from './Button'; // Import the Button component
 
 // Create a styled card container
 const CardContainer = styled.div`
@@ -33,10 +34,18 @@ const CardImage = styled.img`
     margin-bottom: 10px; /* Space below the image */
 `;
 
+// Add the missing CardContent component
+const CardContent = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+`;
+
 // Create a styled title
-const CardTitle = styled.h2`
+const CardTitle = styled.h2<{ $color: string }>`
     font-size: 1.5rem;
-    color: ${({ theme }) => theme.colors.warmRed}; /* Use theme color */
+    color: ${({ $color }) => $color};
     margin-bottom: 10px;
 `;
 
@@ -46,38 +55,38 @@ const CardDescription = styled.p`
     color: ${({ theme }) => theme.colors.black}; /* Use theme color */
 `;
 
-// Button component
-const StyledButton = styled.button`
-    background-color: ${({ theme }) => theme.colors.softPink}; /* Use theme color */
-    color: ${({ theme }) => theme.colors.white}; /* Use theme color */
-    border: none;
-
-    // Make the button rounder
-    border-radius: 50px; /* Keep this for a fully rounded button */
-    padding: 10px 15px; /* Padding for better button appearance */
-    cursor: pointer;
-    margin: 10px auto; /* Center the button */
-    display: block; /* Make the button a block element */
-    width: 150px; /* Set a fixed width for uniformity */
-    margin-top: auto; /* Push the button to the bottom of the card */
-
-    &:hover {
-        background-color: ${({ theme }) => theme.colors.warmRed}; /* Change color on hover */
-    }
-`;
-
-// Update the CardProps interface to include titleColor
+// Update the CardProps interface to include titleColor and link
 interface CardProps extends CardData {
     titleColor: string; // Make titleColor required
+    link: string; // Make link required
 }
 
-const Card: React.FC<CardProps> = ({ title, description, buttonText, onButtonClick, imageUrl, titleColor }) => {
+const Card: React.FC<CardProps> = ({
+    title,
+    description,
+    buttonText,
+    imageUrl,
+    imageAlt,
+    titleColor,
+    link
+}) => {
     return (
         <CardContainer>
-            <CardImage src={imageUrl} alt={title} /> {/* Image at the top */}
-            <CardTitle style={{ color: titleColor }}>{title}</CardTitle> {/* Apply titleColor prop */}
-            <CardDescription>{description}</CardDescription>
-            <StyledButton onClick={onButtonClick}>{buttonText}</StyledButton> {/* Use StyledButton here */}
+            <CardImage src={imageUrl} alt={imageAlt} />
+            <CardContent>
+                <CardTitle $color={titleColor}>{title}</CardTitle>
+                <CardDescription>{description}</CardDescription>
+                <Button 
+                    text={buttonText}
+                    link={link}
+                    backgroundColor="#87b5ca"
+                    color="white"
+                    padding="10px 20px"
+                    borderRadius="30px"
+                    hoverColor="#9dbfd1"
+                    hoverTextColor="white"
+                />
+            </CardContent>
         </CardContainer>
     );
 };

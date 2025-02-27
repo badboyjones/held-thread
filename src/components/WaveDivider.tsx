@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 /**
  * WaveDivider component renders two sections with a wave SVG divider.
@@ -8,6 +9,16 @@ interface WaveDividerProps {
   backgroundColor: string; // Background color for the top section
   waveColor: string;       // Color for the wave
 }
+
+const WaveContainer = styled.div<{ $backgroundColor: string }>`
+  background-color: ${({ $backgroundColor }) => $backgroundColor};
+  width: 100%;
+  overflow: hidden;
+`;
+
+const Wave = styled.svg<{ $waveColor: string }>`
+  fill: ${({ $waveColor }) => $waveColor};
+`;
 
 const WaveDivider: React.FC<WaveDividerProps> = ({ backgroundColor, waveColor }) => {
   const getSvgHeight = (amplitude: number): number => {
@@ -40,15 +51,15 @@ const WaveDivider: React.FC<WaveDividerProps> = ({ backgroundColor, waveColor })
   const svgHeight = getSvgHeight(40); // Use a static value or define it as needed
 
   return (
-    <div style={{ width: '100vw', overflow: 'hidden' }}>
+    <WaveContainer $backgroundColor={backgroundColor}>
       <div style={{ maxWidth: '100%', margin: '0 auto' }}>
         <div style={{
-          backgroundColor: backgroundColor,
           padding: '2rem',
           paddingBottom: `calc(2rem + ${svgHeight}px)`,
           position: 'relative',
         }}>
-          <svg
+          <Wave
+            $waveColor={waveColor}
             style={{ position: 'absolute', bottom: 0, left: 0, width: '100vw' }}
             height={svgHeight}
             viewBox={`0 0 500 ${svgHeight}`}
@@ -56,17 +67,16 @@ const WaveDivider: React.FC<WaveDividerProps> = ({ backgroundColor, waveColor })
           >
             <path
               d={generateWavePath()}
-              fill={waveColor}
               style={{ transition: 'all 0.3s ease-in-out' }}
             />
-          </svg>
+          </Wave>
         </div>
 
         <div style={{ backgroundColor: '#ffe6e6', marginTop: '-1px' }}>
           {/* Content for Section 2 can be added here */}
         </div>
       </div>
-    </div>
+    </WaveContainer>
   );
 };
 

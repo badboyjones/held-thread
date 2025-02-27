@@ -31,27 +31,27 @@ interface IntroSectionProps {
 }
 
 // Create a styled container for the IntroSection
-const SectionContainer = styled.div<{ backgroundColor: string; imagePosition: 'left' | 'right' }>`
+const SectionContainer = styled.div<{ $backgroundColor: string; $imagePosition: 'left' | 'right' }>`
     display: flex;
-    flex-direction: ${({ imagePosition }) => (imagePosition === 'left' ? 'row' : 'row-reverse')}; // Adjust layout based on image position
-    background-color: ${({ backgroundColor }) => backgroundColor};
+    flex-direction: ${({ $imagePosition }) => ($imagePosition === 'left' ? 'row' : 'row-reverse')};
+    background-color: ${({ $backgroundColor }) => $backgroundColor};
     align-items: center;
-    width: 100%; /* Ensure it takes full width */
-    height: 100vh; /* Set height to fill the viewport */
+    width: 100%;
+    height: 100vh;
     text-align: center;
 
     @media (max-width: 768px) {
-        flex-direction: column; /* Stack elements vertically on mobile */
-        height: auto; /* Allow height to adjust on mobile */
+        flex-direction: column;
+        height: auto;
     }
 `;
 
 // Styled component for the text section
-const TextSection = styled.div<{ width: string }>`
-    flex: 0 0 ${({ width }) => width}; /* Use the width prop */
+const TextSection = styled.div<{ $width: string }>`
+    flex: 0 0 ${({ $width }) => $width};
     display: flex;
-    flex-direction: column; /* Stack text vertically */
-    justify-content: center; /* Center text vertically */
+    flex-direction: column;
+    justify-content: center;
 `;
 
 // Styled component for the text container
@@ -71,16 +71,21 @@ const ImageSection = styled.div`
 `;
 
 // Styled component for the image
-const StyledImage = styled.img<{ maxHeight?: string; maxWidth?: string; mobileMaxHeight?: string; mobileMaxWidth?: string }>`
-    max-width: ${({ maxWidth }) => maxWidth || '100%'}; // Ensure the image does not exceed its container's width
-    max-height: ${({ maxHeight }) => maxHeight || '100%'}; // Ensure the image does not exceed its container's height
-    height: auto; // Maintain aspect ratio
-    width: auto; // Allow width to adjust while maintaining aspect ratio
-    object-fit: cover; // Cover the area while maintaining aspect ratio
+const StyledImage = styled.img<{
+    $maxHeight?: string;
+    $maxWidth?: string;
+    $mobileMaxHeight?: string;
+    $mobileMaxWidth?: string;
+}>`
+    max-width: ${({ $maxWidth }) => $maxWidth || '100%'};
+    max-height: ${({ $maxHeight }) => $maxHeight || '100%'};
+    height: auto;
+    width: auto;
+    object-fit: cover;
 
     @media (max-width: 768px) {
-        max-width: ${({ mobileMaxWidth }) => mobileMaxWidth || '100%'}; // Set max-width for mobile
-        max-height: ${({ mobileMaxHeight }) => mobileMaxHeight || '100%'}; // Set max-height for mobile
+        max-width: ${({ $mobileMaxWidth }) => $mobileMaxWidth || '100%'};
+        max-height: ${({ $mobileMaxHeight }) => $mobileMaxHeight || '100%'};
     }
 `;
 
@@ -106,24 +111,24 @@ const IntroSection: React.FC<IntroSectionProps> = ({
     loading,
 }) => {
     return (
-        <SectionContainer backgroundColor={backgroundColor} imagePosition={imagePosition}>
+        <SectionContainer $backgroundColor={backgroundColor} $imagePosition={imagePosition}>
             <ImageSection>
                 <StyledImage 
                     src={image} 
                     alt={imageAlt}
                     loading={loading}
                     style={style} 
-                    maxHeight={maxHeight} 
-                    maxWidth={maxWidth} 
-                    mobileMaxHeight={mobileMaxHeight} 
-                    mobileMaxWidth={mobileMaxWidth} 
+                    $maxHeight={maxHeight} 
+                    $maxWidth={maxWidth} 
+                    $mobileMaxHeight={mobileMaxHeight} 
+                    $mobileMaxWidth={mobileMaxWidth} 
                 />
             </ImageSection>
-            <TextSection width={textWidth}>
+            <TextSection $width={textWidth}>
                 <TextContainer>
                     <h2 id={titleId}>{title}</h2>
                     <p>{description}</p>
-                    {children} {/* Render children here */}
+                    {children}
                 </TextContainer>
             </TextSection>
         </SectionContainer>
