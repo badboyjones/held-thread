@@ -57,7 +57,7 @@ export const Image = styled.img`
 
     @media (max-width: 768px) {
         margin: 1rem;
-        width: calc(100% - 2rem);
-        height: calc(100% - 2rem);
+        width: 100vw;
+        height: auto;
     }
 `; 
