@@ -37,11 +37,11 @@ const WelcomeSection: React.FC<WelcomeSectionProps> = ({
             <TextContent>
                 <Title id={titleId}>{title}</Title>
                 <Description>
-                    i'm morrissey and i am the teacher and artist behind held thread.
+                    I'm Morrissey and I am the teacher and artist behind Held Thread Handwork.
                     <br /><br />
-                    held thread is built on the belief that traditional handwork nurtures both skill and soul.
+                    I built Held Thread on the belief that working with our hands nurtures both skill and soul. It is my goal to share these skills with whoever is called to them.
                     <br /><br />
-                    through slow, mindful making, we develop patience, perseverance, and connection to craft and community.
+                    Through slow, mindful making, we can develop patience, perseverance, and connection to one another and to our selves.
                 </Description>
                 {children}
             </TextContent>

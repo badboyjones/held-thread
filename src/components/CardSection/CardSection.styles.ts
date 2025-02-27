@@ -36,7 +36,7 @@ export const Card = styled.article`
 `;
 
 export const CardImage = styled.img`
-    width: 100%;
+    width: 100vw;
     height: auto;
     object-fit: cover;
 `;
@@ -56,5 +56,4 @@ export const CardDescription = styled.p`
 
 export const ButtonContainer = styled.div`
     margin-top: auto;
-    padding: 1rem;
 `; 

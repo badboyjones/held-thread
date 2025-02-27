@@ -126,7 +126,7 @@ const HomePage: React.FC = () => {
                     <WelcomeSection 
                         image={IMAGES.CARDS.HEARTSPUN}
                         backgroundColor="#D6E9F2"
-                        title="hi! i'm happy you're here!"
+                        title="I'm happy you're here."
                         titleId="intro-title"
                     >
                         <Button 
