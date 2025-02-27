@@ -9,10 +9,8 @@
  * - Accessibility features
  */
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { GlobalStyle } from './App.styles';
-
-// Import pages using the index.ts files
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 // TODO: Add these pages once they're created
@@ -24,10 +22,8 @@ import NotFoundPage from './pages/NotFoundPage';
 const App: React.FC = () => {
     return (
         <Router>
-            {/* Step 1: Apply global styles */}
-            <GlobalStyle />
-
-            {/* Step 2: Set up routes */}
+            <Navbar />
+            {/* Define the routes for the application */}
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
