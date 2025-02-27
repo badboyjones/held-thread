@@ -95,37 +95,71 @@ const HomePage: React.FC = () => {
     ], []);
     
     return (
-        <Container role="main">
-            {/* Navigation section */}
-            <nav role="navigation" aria-label="Main navigation"></nav>
+        <>
+            <GlobalStyle />
+            <Container role="main">
+                {/* Navigation section */}
+                <nav role="navigation" aria-label="Main navigation"></nav>
+                
+                {/* Hero section with main call-to-action */}
+                <section aria-labelledby="hero-title">
+                    <HeroSection 
+                        backgroundColor="#ffffff"
+                        titleColor="#87b5ca"
+                        subtitleColor="#87b5ca"
+                        title="HANDWORK FOR ALL"
+                        subtitle="weaving creativity, resilience, and community"
+                        knotImages={knotImages}
+                        titleId="hero-title"
+                    >
+                        <Button 
+                            text="inquire about lessons"
+                            link="/inquire"
+                            {...BUTTON_STYLES.primary}
+                            {...BUTTON_STYLES.shared}
+                        />
+                    </HeroSection>
+                </section>
             
-            {/* Hero section with main call-to-action */}
-            <section aria-labelledby="hero-title">
-                <HeroSection 
-                    backgroundColor="#ffffff"
-                    titleColor="#87b5ca"
-                    subtitleColor="#87b5ca"
-                    title="HANDWORK FOR ALL"
-                    subtitle="weaving creativity, resilience, and community"
-                    knotImages={knotImages}
-                    titleId="hero-title"
-                >
-                    <Button 
-                        text="inquire about lessons"
-                        link="/inquire"
-                        {...BUTTON_STYLES.primary}
-                        {...BUTTON_STYLES.shared}
+                {/* Introduction section with personal message */}
+                <section aria-labelledby="intro-title">
+                    <WelcomeSection 
+                        image={IMAGES.CARDS.HEARTSPUN}
+                        backgroundColor="#D6E9F2"
+                        title="hi! i'm happy you're here!"
+                        titleId="intro-title"
+                    >
+                        <Button 
+                            text="MORE ABOUT ME"
+                            link="/about"
+                            {...BUTTON_STYLES.secondary}
+                            {...BUTTON_STYLES.shared}
+                        />
+                        <Button 
+                            text="MORE ABOUT HANDWORK"
+                            link="/handwork"
+                            {...BUTTON_STYLES.secondary}
+                            {...BUTTON_STYLES.shared}
+                        />
+                    </WelcomeSection>
+                </section>
+
+                {/* Offerings section with service cards */}
+                <section aria-labelledby="offerings-title">
+                    <CardSection 
+                        cards={cardData} 
+                        title="OFFERINGS"
+                        titleId="offerings-title"
+                        titleColor="#333"
+                        titleFontSize="3rem"
+                        titleMargin="30px"
                     />
-                </HeroSection>
-            </section>
-        
-            {/* Introduction section with personal message */}
-            <section aria-labelledby="intro-title">
-                <WelcomeSection 
-                    image={IMAGES.CARDS.HEARTSPUN}
+                </section>
+
+                {/* About handwork section with philosophy */}
+                <AboutHandworkSection
+                    image={IMAGES.KNOTS.COLOR_WHEEL}
                     backgroundColor="#D6E9F2"
-                    title="hi! i'm happy you're here!"
-                    titleId="intro-title"
                 >
                     <Button 
                         text="MORE ABOUT ME"
@@ -139,54 +173,28 @@ const HomePage: React.FC = () => {
                         {...BUTTON_STYLES.secondary}
                         {...BUTTON_STYLES.shared}
                     />
-                </WelcomeSection>
-            </section>
+                </AboutHandworkSection>
 
-            {/* Offerings section with service cards */}
-            <section aria-labelledby="offerings-title">
-                <CardSection 
-                    cards={cardData} 
-                    title="OFFERINGS"
-                    titleId="offerings-title"
-                    titleColor="#333"
-                    titleFontSize="3rem"
-                    titleMargin="30px"
-                />
-            </section>
-
-            {/* About handwork section with philosophy */}
-            <AboutHandworkSection
-                image={IMAGES.KNOTS.COLOR_WHEEL}
-                backgroundColor="#D6E9F2"
-            >
-                <Button 
-                    text="MORE ABOUT ME"
-                    link="/about"
-                    {...BUTTON_STYLES.secondary}
-                    {...BUTTON_STYLES.shared}
-                />
-                <Button 
-                    text="MORE ABOUT HANDWORK"
-                    link="/handwork"
-                    {...BUTTON_STYLES.secondary}
-                    {...BUTTON_STYLES.shared}
-                />
-            </AboutHandworkSection>
-
-            {/* Visual divider with wave pattern */}
-            <WaveDivider backgroundColor="#D6E9F2" waveColor="#bcc9a0" />
-
-            {/* Site footer */}
-            <Footer />
-        </Container>
+                {/* Visual divider with wave pattern */}
+                <WaveDivider backgroundColor="#D6E9F2" waveColor="#bcc9a0" />
+            </Container>
+        </>
     );
 };
 
 /**
- * GlobalStyle component defines utility classes
- * for accessibility features like screen-reader-only content
+ * GlobalStyle component defines utility classes and forces light mode
+ * by setting explicit background and text colors
  */
 const GlobalStyle = createGlobalStyle`
+    // Force light mode colors regardless of system preferences
+    @media (prefers-color-scheme: dark) {
+        html, body {
+            background-color: #ffffff;
+            color: #333333;
+        }
+    }
+
     .sr-only {
         position: absolute;
         width: 1px;

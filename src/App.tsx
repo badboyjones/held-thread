@@ -18,6 +18,7 @@ import AboutPage from './pages/AboutPage';
 // import InquirePage from './pages/InquirePage';
 // import ResourcesPage from './pages/ResourcesPage';
 import NotFoundPage from './pages/NotFoundPage';
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
     return (
@@ -33,11 +34,7 @@ const App: React.FC = () => {
                 {/* <Route path="/resources" element={<ResourcesPage />} /> */}
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
-
-            {/* Step 3: Skip to main content link for accessibility */}
-            <a href="#main" className="sr-only">
-                Skip to main content
-            </a>
+            <Footer />
         </Router>
     );
 };

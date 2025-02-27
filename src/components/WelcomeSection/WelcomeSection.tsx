@@ -10,15 +10,12 @@
 import React from 'react';
 import {
     Section,
-    Content,
     TextContent,
     Title,
     Description,
     ImageContainer,
     Image
 } from './WelcomeSection.styles';
-import Button from '../Button';
-import { BUTTON_STYLES } from '../../constants/styles';
 
 interface WelcomeSectionProps {
     image: string;
@@ -37,29 +34,24 @@ const WelcomeSection: React.FC<WelcomeSectionProps> = ({
 }) => {
     return (
         <Section backgroundColor={backgroundColor}>
-            <Content>
-                {/* Step 1: Display the welcome text */}
-                <TextContent>
-                    <Title id={titleId}>{title}</Title>
-                    <Description>
-                        i'm morrissey and i am the teacher and artist behind held thread.
-                        <br /><br />
-                        held thread is built on the belief that traditional handwork nurtures both skill and soul.
-                        <br /><br />
-                        through slow, mindful making, we develop patience, perseverance, and connection to craft and community.
-                    </Description>
-                    {children}
-                </TextContent>
-
-                {/* Step 2: Display the image */}
-                <ImageContainer>
-                    <Image 
-                        src={image} 
-                        alt="Heartspun handwork illustration"
-                        loading="lazy"
-                    />
-                </ImageContainer>
-            </Content>
+            <TextContent>
+                <Title id={titleId}>{title}</Title>
+                <Description>
+                    i'm morrissey and i am the teacher and artist behind held thread.
+                    <br /><br />
+                    held thread is built on the belief that traditional handwork nurtures both skill and soul.
+                    <br /><br />
+                    through slow, mindful making, we develop patience, perseverance, and connection to craft and community.
+                </Description>
+                {children}
+            </TextContent>
+            <ImageContainer>
+                <Image 
+                    src={image} 
+                    alt="An image of Morrissey surrounded by images of flowers and clouds"
+                    loading="lazy"
+                />
+            </ImageContainer>
         </Section>
     );
 };

@@ -28,6 +28,7 @@ export const TextContent = styled.div`
     flex: 1;
     text-align: left;
     order: 2;
+    margin: 2rem;
 
     @media (max-width: 768px) {
         order: 1;

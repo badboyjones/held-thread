@@ -27,7 +27,6 @@ const ParentContainer = styled.div`
 const SectionContainer = styled.section<{ backgroundColor?: string }>`
     width: 100%; /* Ensure it spans the full width */
     height: 100%; /* Set height to 100% to cover the entire section */
-    padding: 100px 0; /* Add padding for whitespace above and below the cards */
     background: ${({ backgroundColor, theme }) => backgroundColor || `linear-gradient(
         to right,
         ${theme.colors.warmRed},

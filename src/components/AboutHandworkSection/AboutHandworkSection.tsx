@@ -28,17 +28,11 @@ interface AboutHandworkSectionProps {
 const ABOUT_HANDWORK_TEXT = `in a world full of screens and distractions, handwork gives us the chance to slow down,
 focus, and create with our own hands.
 
-the deep and complex tradition of handwork isn't about a finished product, but a way to build 
-the self. working with yarn, fabric, and thread work to strengthen physical skills like fine 
-motor control as well as a greater sense of rhythm in the body and world.
+the deep and complex tradition of handwork isn't about a finished product, but a way to build the self. working with yarn, fabric, and thread work to strengthen physical skills like fine motor control as well as a greater sense of rhythm in the body and world.
 
-we have to remember that these skills have been passed down for millennia. 
-working with your hands is a connection to tradition and community. we take these skills and 
-make them our own, creating our own traditions and stories together. the world becomes a more beautiful place 
-when we share this task with one another.
+we have to remember that these skills have been passed down for millennia. working with your hands is a connection to tradition and community. we take these skills and make them our own, creating our own traditions and stories together. the world becomes a more beautiful place when we share this task with one another.
 
-at held thread, handwork is more than craft. it's a way to help us grow, one stitch 
-at a time.`;
+at held thread, handwork is more than craft. it's a way to help us grow, one stitch at a time.`;
 
 const AboutHandworkSection: React.FC<AboutHandworkSectionProps> = ({
     image,
