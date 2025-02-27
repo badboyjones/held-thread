@@ -25,6 +25,9 @@ interface IntroSectionProps {
     mobileMaxWidth?: string; // New prop for mobile maximum width of the image
     width?: string; // Add width prop
     height?: string; // Add height prop
+    titleId?: string; // Add titleId prop
+    imageAlt?: string; // Add imageAlt prop for accessibility
+    loading?: 'lazy' | 'eager'; // Add loading prop with correct types
 }
 
 // Create a styled container for the IntroSection
@@ -53,8 +56,7 @@ const TextSection = styled.div<{ width: string }>`
 
 // Styled component for the text container
 const TextContainer = styled.div`
-    padding: 20px;
-    margin: 0 auto; /* Center the text container horizontally */
+    margin: 0 auto; /* Keep horizontal centering */
     text-align: left;
 `;
 
@@ -99,13 +101,17 @@ const IntroSection: React.FC<IntroSectionProps> = ({
     mobileMaxWidth, // Accept mobileMaxWidth prop
     width, // Accept width prop
     height, // Accept height prop
+    titleId,
+    imageAlt = '', // Default to empty string if not provided
+    loading,
 }) => {
     return (
         <SectionContainer backgroundColor={backgroundColor} imagePosition={imagePosition}>
             <ImageSection>
                 <StyledImage 
                     src={image} 
-                    alt={title} 
+                    alt={imageAlt}
+                    loading={loading}
                     style={style} 
                     maxHeight={maxHeight} 
                     maxWidth={maxWidth} 
@@ -115,7 +121,7 @@ const IntroSection: React.FC<IntroSectionProps> = ({
             </ImageSection>
             <TextSection width={textWidth}>
                 <TextContainer>
-                    <h2>{title}</h2>
+                    <h2 id={titleId}>{title}</h2>
                     <p>{description}</p>
                     {children} {/* Render children here */}
                 </TextContainer>

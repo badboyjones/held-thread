@@ -6,6 +6,7 @@ export interface CardData {
     description: string;
     buttonText: string;
     imageUrl: string;
-    onButtonClick: () => void;
-    titleColor: string; // Ensure titleColor is included
+    imageAlt: string;
+    titleColor: string;
+    link: string;
 } 

@@ -1,150 +1,218 @@
 /**
- * HomePage component displays a welcoming introduction
- * and an image with craft materials, creating a warm
- * and inviting atmosphere for visitors.
+ * HomePage component serves as the landing page for Held Thread.
+ * 
+ * Structure:
+ * 1. Hero Section - Displays main title and call-to-action
+ * 2. Intro Section - Introduces the teacher and philosophy
+ * 3. Offerings Section - Shows available classes and services
+ * 4. About Handwork Section - Explains the importance of handwork
+ * 5. Footer - Contains site navigation and contact info
+ * 
+ * Features:
+ * - Accessible navigation and feedback
+ * - Consistent button styling
+ * - Responsive layout
  */
 
-import React from 'react';
-import styled from 'styled-components';
-import WelcomeSection from '../components/WelcomeSection'; // Import the WelcomeSection component
-import IntroSection from '../components/IntroSection'; // Import the IntroSection component
-import CardSection from '../components/CardSection'; // Import the CardSection component
-import Footer from '../components/Footer'; // Import the new Footer component
-import Button from '../components/Button'; // This import is not needed in HomePage
-import NewsletterSignup from '../components/NewsletterSignup'; // Import the NewsletterSignup component
-import WaveDivider from '../components/WaveDivider'; // Import the WaveDivider component
+import React, { useMemo, useCallback, useState, useEffect } from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+import IntroSection from '../components/IntroSection';
+import CardSection from '../components/CardSection';
+import Footer from '../components/Footer';
+import WaveDivider from '../components/WaveDivider';
+import HeroSection from '../components/HeroSection';
+import Button from '../components/Button';
 
-// Import the card image
-import cardImage3 from '../images/card images/card images/3.png'; // Adjust the path as necessary
-import cardImage1 from '../images/card images/card images/1.png'; // Adjust the path as necessary
-import cardImage2 from '../images/card images/card images/2.png'; // Adjust the path as necessary
-import cardImage5 from '../images/card images/card images/5.png'; // Adjust the path as necessary
+// Group constant definitions with descriptive comments
+/**
+ * Image path constants for organizing and accessing
+ * card and knot images throughout the component
+ */
+const CARD_IMAGES_PATH = 'src/images/card images/card images';
+const KNOT_IMAGES_PATH = 'src/images/card images/knots';
 
-// Import the knot images
-import knotImage1 from '../images/card images/knots/1.png'; // Adjust the path as necessary
-import knotImage2 from '../images/card images/knots/2.png'; // Adjust the path as necessary
-import knotImage3 from '../images/card images/knots/3.png'; // Adjust the path as necessary
-import knotImage4 from '../images/card images/knots/4.png'; // Adjust the path as necessary
-import knotImage5 from '../images/card images/knots/5.png'; // Adjust the path as necessary
+// Card images
+const cardImage1 = `${CARD_IMAGES_PATH}/1.png`;
+const cardImage3 = `${CARD_IMAGES_PATH}/3.png`;
+const cardImage5 = `${CARD_IMAGES_PATH}/5.png`;
 
-// Create a styled container for the homepage
+// Knot images 
+const knotImage1 = `${KNOT_IMAGES_PATH}/1.png`;
+const knotImage2 = `${KNOT_IMAGES_PATH}/2.png`;
+const knotImage3 = `${KNOT_IMAGES_PATH}/3.png`;
+const knotImage4 = `${KNOT_IMAGES_PATH}/4.png`;
+const knotImage5 = `${KNOT_IMAGES_PATH}/5.png`;
+
+/**
+ * Button style configurations for maintaining
+ * consistent visual hierarchy across the site
+ */
+const BUTTON_STYLES = {
+    primary: {
+        backgroundColor: "#87b5ca",
+        color: "white",
+        hoverColor: "#9dbfd1",
+        hoverTextColor: "white",
+    },
+    secondary: {
+        backgroundColor: "#fff",
+        color: "#87b5ca",
+        hoverColor: "#f4fbff",
+        hoverTextColor: "#87b5ca",
+    },
+    shared: {
+        padding: "10px 20px",
+        borderRadius: "30px",
+        margin: "10px",
+    }
+} as const;
+
+/**
+ * Container component provides the main layout structure.
+ * Uses flex layout to organize content vertically and
+ * ensures full viewport height coverage.
+ */
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Align items to the start */
-    min-height: 100vh; /* Ensure it takes at least full height */
-    padding: 0; /* Ensure no padding is causing overflow */
-    margin: 0; /* Ensure no margin is causing overflow */
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
 `;
 
 const HomePage: React.FC = () => {
-    // Define card data here for clarity
-    const cardData = [
+    /**
+     * Card data for the offerings section. Each card represents a service
+     * with its own styling, content, and accessibility features.
+     * 
+     * Steps:
+     * 1. Define service details (title, description)
+     * 2. Set up visual elements (images, colors)
+     * 3. Configure accessible feedback mechanism
+     */
+    const cardData = useMemo(() => [
         {
             title: "Private Lessons",
             description: "Personalized one-on-one instruction for all ages and skill levels",
             buttonText: "Learn More",
-            imageUrl: cardImage3, // Use the imported image
-            onButtonClick: () => alert('Learn More clicked!'),
-            titleColor: "#f79c9c", // Set title color for this card
+            imageUrl: cardImage3,
+            imageAlt: "Private lessons illustration",
+            link: "/lessons",
+            titleColor: "#f79c9c",
         },
         {
             title: "Small Group Classes",
             description: "Social, group-based classes to build skills and community",
             buttonText: "Learn More",
             imageUrl: cardImage1,
-            onButtonClick: () => alert('Join Club clicked!'),
-            titleColor: "#9ddfff", // Set title color for this card
+            imageAlt: "Small group classes illustration",
+            link: "/classes",
+            titleColor: "#9ddfff",
         },
         {
             title: "Workshops & Special Events",
             description: "Seasonal, one-time experiences to explore new techniques and materials together",
             buttonText: "Learn More",
             imageUrl: cardImage5,
-            onButtonClick: () => alert('View Workshops clicked!'),
-            titleColor: "#ffd97d", // Set title color for this card
+            imageAlt: "Workshops and special events illustration",
+            link: "/workshops",
+            titleColor: "#ffd97d",
         },
-    ];
+    ], []);
 
-    // Array of knot images
-    const knotImages = [knotImage1, knotImage2, knotImage3, knotImage4, knotImage5];
+    /**
+     * Collection of decorative knot images arranged in a border pattern.
+     * Images are loaded in sequence to create a consistent visual rhythm.
+     */
+    const knotImages = useMemo(() => [
+        knotImage1, 
+        knotImage2, 
+        knotImage3, 
+        knotImage4, 
+        knotImage5
+    ], []);
     
-
     return (
-        <Container>
-            <nav></nav>
-            <WelcomeSection 
-                backgroundColor="#ffffff"
-                titleColor="#87b5ca" // Set title color
-                subtitleColor="#87b5ca"
-                title="HANDWORK FOR ALL"
-                subtitle="weaving creativity, resilience, and community"
-                knotImages={knotImages} // Pass the knot images
-            >
-                <Button 
-                    text="inquire about lessons"
-                    link="https://www.example.com"
-                    backgroundColor="#87b5ca"
-                    color="white"
-                    padding="10px 20px"
-                    borderRadius="30px"
-                    hoverColor="#9dbfd1"
-                    hoverTextColor="white"
-                />
-            </WelcomeSection>
+        <Container role="main">
+            {/* Navigation section */}
+            <nav role="navigation" aria-label="Main navigation"></nav>
+            
+            {/* Hero section with main call-to-action */}
+            <section aria-labelledby="hero-title">
+                <HeroSection 
+                    backgroundColor="#ffffff"
+                    titleColor="#87b5ca"
+                    subtitleColor="#87b5ca"
+                    title="HANDWORK FOR ALL"
+                    subtitle="weaving creativity, resilience, and community"
+                    knotImages={knotImages}
+                    titleId="hero-title"
+                >
+                    <Button 
+                        text="inquire about lessons"
+                        link="https://www.example.com"
+                        {...BUTTON_STYLES.primary}
+                        {...BUTTON_STYLES.shared}
+                    />
+                </HeroSection>
+            </section>
         
-            <IntroSection 
-                image="src/images/card images/card images/HEARTSPUN handwork(2).png"
-                backgroundColor="#D6E9F2"
-                title="hi! i'm happy you're here!"
-                imageWidth="50%"
-                textWidth="50%"
-                maxHeight="100%"
-                maxWidth="auto%"
-                mobileMaxHeight="100%"
-                mobileMaxWidth="100%"
-                description={
-                    <>
-                        i'm morrissey and i am the teacher and artist behind held thread.
-                        <br /><br />
-                        held thread is built on the belief that traditional handwork nurtures both skill and soul.
-                        <br /><br />
-                        through slow, mindful making, we develop patience, perseverance, and connection to craft and community.
-                    </>
-                }
-                imagePosition="right"
-            >
-                <Button 
-                    text="MORE ABOUT ME"
-                    link="https://www.example.com"
-                    backgroundColor="#fff"
-                    color="#87b5ca"
-                    padding="10px 20px"
-                    borderRadius="30px"
-                    hoverColor="#f4fbff"
-                    hoverTextColor="#87b5ca"
-                    margin="10px"
+            {/* Introduction section with personal message */}
+            <section aria-labelledby="intro-title">
+                <IntroSection 
+                    image="src/images/card images/card images/HEARTSPUN handwork(2).png"
+                    backgroundColor="#D6E9F2"
+                    title="hi! i'm happy you're here!"
+                    titleId="intro-title"
+                    imageWidth="50%"
+                    textWidth="50%"
+                    maxHeight="100%"
+                    maxWidth="auto%"
+                    mobileMaxHeight="100%"
+                    mobileMaxWidth="100%"
+                    description={
+                        <>
+                            i'm morrissey and i am the teacher and artist behind held thread.
+                            <br /><br />
+                            held thread is built on the belief that traditional handwork nurtures both skill and soul.
+                            <br /><br />
+                            through slow, mindful making, we develop patience, perseverance, and connection to craft and community.
+                        </>
+                    }
+                    imagePosition="right"
+                    imageAlt="Heartspun handwork illustration"
+                    loading="lazy"
+                >
+                    <Button 
+                        text="MORE ABOUT ME"
+                        link="https://www.example.com"
+                        {...BUTTON_STYLES.secondary}
+                        {...BUTTON_STYLES.shared}
+                    />
+                    <Button 
+                        text="MORE ABOUT HANDWORK"
+                        link="https://www.example.com"
+                        {...BUTTON_STYLES.secondary}
+                        {...BUTTON_STYLES.shared}
+                    />
+                </IntroSection>
+            </section>
+
+            {/* Offerings section with service cards */}
+            <section aria-labelledby="offerings-title">
+                <CardSection 
+                    cards={cardData} 
+                    title="OFFERINGS"
+                    titleId="offerings-title"
+                    titleColor="#333"
+                    titleFontSize="3rem"
+                    titleMargin="30px"
                 />
-                <Button 
-                    text="MORE ABOUT HANDWORK"
-                    link="https://www.example.com"
-                    backgroundColor="#fff"
-                    color="#87b5ca"
-                    padding="10px 20px"
-                    borderRadius="30px"
-                    hoverColor="#f4fbff"
-                    hoverTextColor="#87b5ca"
-                    margin="10px"
-                />
-            </IntroSection>
-            <CardSection 
-                cards={cardData} 
-                title="OFFERINGS" // Title for the card section
-                titleColor="#333" // Color for the title
-                titleFontSize="3rem" // Font size for the title
-                titleMargin="30px" // Margin for the title
-            />
+            </section>
+
+            {/* About handwork section with philosophy */}
             <IntroSection 
                 image="src/images/card images/knots/Natural_dye_colour_wheel.jpg"
                 backgroundColor="#D6E9F2"
@@ -175,30 +243,42 @@ const HomePage: React.FC = () => {
                 <Button 
                     text="MORE ABOUT ME"
                     link="https://www.example.com"
-                    backgroundColor="#fff"
-                    color="#87b5ca"
-                    padding="10px 20px"
-                    borderRadius="30px"
-                    hoverColor="#f4fbff"
-                    hoverTextColor="#87b5ca"
-                    margin="10px"
+                    {...BUTTON_STYLES.secondary}
+                    {...BUTTON_STYLES.shared}
                 />
-                 <Button 
+                <Button 
                     text="MORE ABOUT HANDWORK"
                     link="https://www.example.com"
-                    backgroundColor="#fff"
-                    color="#87b5ca"
-                    padding="10px 20px"
-                    borderRadius="30px"
-                    hoverColor="#f4fbff"
-                    hoverTextColor="#87b5ca"
-                    margin="10px"
+                    {...BUTTON_STYLES.secondary}
+                    {...BUTTON_STYLES.shared}
                 />
             </IntroSection>
+
+            {/* Visual divider with wave pattern */}
             <WaveDivider backgroundColor="#D6E9F2" waveColor="#bcc9a0" />
+
+            {/* Site footer */}
             <Footer />
         </Container>
     );
 };
+
+/**
+ * GlobalStyle component defines utility classes
+ * for accessibility features like screen-reader-only content
+ */
+const GlobalStyle = createGlobalStyle`
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+`;
 
 export default HomePage;

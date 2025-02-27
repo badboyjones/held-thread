@@ -15,6 +15,7 @@ interface CardSectionProps {
     titleColor?: string;
     titleFontSize?: string;
     titleMargin?: string;
+    titleId?: string;
 }
 
 const ParentContainer = styled.div`
@@ -55,14 +56,14 @@ const Container = styled.div`
 `;
 
 // Main CardSection component
-const CardSection: React.FC<CardSectionProps> = ({ cards, backgroundColor, title, titleColor = "#000", titleFontSize = "24px", titleMargin = "20px" }) => {
+const CardSection: React.FC<CardSectionProps> = ({ cards, backgroundColor, title, titleColor = "#000", titleFontSize = "24px", titleMargin = "20px", titleId }) => {
     return (
         <ParentContainer>
             <SectionContainer backgroundColor={backgroundColor}>
                 <Container>
                     {title && (
                         // Render the title if provided
-                        <Title color={titleColor} fontSize={titleFontSize} margin={titleMargin}>
+                        <Title color={titleColor} fontSize={titleFontSize} margin={titleMargin} id={titleId}>
                             {title}
                         </Title>
                     )}
