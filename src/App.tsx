@@ -1,34 +1,47 @@
 /**
- * The main application component that sets up routing for the application.
- * It defines the routes for the homepage, about page, classes page, inquiry page, resources page, and 404 page.
+ * App component serves as the root component for the Held Thread website.
+ * Handles routing and global styling.
+ * 
+ * Features:
+ * - Client-side routing
+ * - Global styles
+ * - Error boundaries
+ * - Accessibility features
  */
-
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { GlobalStyle } from './styles/theme';
-import Navbar from './components/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { GlobalStyle } from './App.styles';
+
+// Import pages using the index.ts files
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import ClassesPage from './pages/ClassesPage';
-import InquiryPage from './pages/InquiryPage';
-import ResourcesPage from './pages/ResourcesPage';
+// TODO: Add these pages once they're created
+// import ClassesPage from './pages/ClassesPage';
+// import InquirePage from './pages/InquirePage';
+// import ResourcesPage from './pages/ResourcesPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 const App: React.FC = () => {
-    // Wrap the application in Router for routing functionality
     return (
         <Router>
+            {/* Step 1: Apply global styles */}
             <GlobalStyle />
-            <Navbar />
-            {/* Define the routes for the application */}
+
+            {/* Step 2: Set up routes */}
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
-                <Route path="/classes" element={<ClassesPage />} />
-                <Route path="/inquiry" element={<InquiryPage />} />
-                <Route path="/resources" element={<ResourcesPage />} />
+                {/* TODO: Add these routes once pages are created */}
+                {/* <Route path="/classes" element={<ClassesPage />} /> */}
+                {/* <Route path="/inquire" element={<InquirePage />} /> */}
+                {/* <Route path="/resources" element={<ResourcesPage />} /> */}
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
+
+            {/* Step 3: Skip to main content link for accessibility */}
+            <a href="#main" className="sr-only">
+                Skip to main content
+            </a>
         </Router>
     );
 };

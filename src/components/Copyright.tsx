@@ -20,7 +20,7 @@ const CopyrightContainer = styled.div`
 const Copyright: React.FC = () => {
     return (
         <CopyrightContainer>
-            © 2023 Held Thread Handwork. All rights reserved.
+            © 2025 Held Thread Handwork. All rights reserved.
         </CopyrightContainer>
     );
 };

@@ -20,52 +20,12 @@ import IntroSection from '../components/IntroSection';
 import CardSection from '../components/CardSection';
 import Footer from '../components/Footer';
 import WaveDivider from '../components/WaveDivider';
-import HeroSection from '../components/HeroSection';
+import HeroSection from '../components/HeroSection/HeroSection';
 import Button from '../components/Button';
-
-// Group constant definitions with descriptive comments
-/**
- * Image path constants for organizing and accessing
- * card and knot images throughout the component
- */
-const CARD_IMAGES_PATH = 'src/images/card images/card images';
-const KNOT_IMAGES_PATH = 'src/images/card images/knots';
-
-// Card images
-const cardImage1 = `${CARD_IMAGES_PATH}/1.png`;
-const cardImage3 = `${CARD_IMAGES_PATH}/3.png`;
-const cardImage5 = `${CARD_IMAGES_PATH}/5.png`;
-
-// Knot images 
-const knotImage1 = `${KNOT_IMAGES_PATH}/1.png`;
-const knotImage2 = `${KNOT_IMAGES_PATH}/2.png`;
-const knotImage3 = `${KNOT_IMAGES_PATH}/3.png`;
-const knotImage4 = `${KNOT_IMAGES_PATH}/4.png`;
-const knotImage5 = `${KNOT_IMAGES_PATH}/5.png`;
-
-/**
- * Button style configurations for maintaining
- * consistent visual hierarchy across the site
- */
-const BUTTON_STYLES = {
-    primary: {
-        backgroundColor: "#87b5ca",
-        color: "white",
-        hoverColor: "#9dbfd1",
-        hoverTextColor: "white",
-    },
-    secondary: {
-        backgroundColor: "#fff",
-        color: "#87b5ca",
-        hoverColor: "#f4fbff",
-        hoverTextColor: "#87b5ca",
-    },
-    shared: {
-        padding: "10px 20px",
-        borderRadius: "30px",
-        margin: "10px",
-    }
-} as const;
+import AboutHandworkSection from '../components/AboutHandworkSection/AboutHandworkSection';
+import { BUTTON_STYLES } from '../constants/styles';
+import WelcomeSection from '../components/WelcomeSection/WelcomeSection';
+import { IMAGES } from '../constants/images';
 
 /**
  * Container component provides the main layout structure.
@@ -97,7 +57,7 @@ const HomePage: React.FC = () => {
             title: "Private Lessons",
             description: "Personalized one-on-one instruction for all ages and skill levels",
             buttonText: "Learn More",
-            imageUrl: cardImage3,
+            imageUrl: IMAGES.CARDS.CARD_3,
             imageAlt: "Private lessons illustration",
             link: "/lessons",
             titleColor: "#f79c9c",
@@ -106,7 +66,7 @@ const HomePage: React.FC = () => {
             title: "Small Group Classes",
             description: "Social, group-based classes to build skills and community",
             buttonText: "Learn More",
-            imageUrl: cardImage1,
+            imageUrl: IMAGES.CARDS.CARD_1,
             imageAlt: "Small group classes illustration",
             link: "/classes",
             titleColor: "#9ddfff",
@@ -115,7 +75,7 @@ const HomePage: React.FC = () => {
             title: "Workshops & Special Events",
             description: "Seasonal, one-time experiences to explore new techniques and materials together",
             buttonText: "Learn More",
-            imageUrl: cardImage5,
+            imageUrl: IMAGES.CARDS.CARD_5,
             imageAlt: "Workshops and special events illustration",
             link: "/workshops",
             titleColor: "#ffd97d",
@@ -127,11 +87,11 @@ const HomePage: React.FC = () => {
      * Images are loaded in sequence to create a consistent visual rhythm.
      */
     const knotImages = useMemo(() => [
-        knotImage1, 
-        knotImage2, 
-        knotImage3, 
-        knotImage4, 
-        knotImage5
+        IMAGES.KNOTS.KNOT_1,
+        IMAGES.KNOTS.KNOT_2,
+        IMAGES.KNOTS.KNOT_3,
+        IMAGES.KNOTS.KNOT_4,
+        IMAGES.KNOTS.KNOT_5
     ], []);
     
     return (
@@ -152,7 +112,7 @@ const HomePage: React.FC = () => {
                 >
                     <Button 
                         text="inquire about lessons"
-                        link="https://www.example.com"
+                        link="/inquire"
                         {...BUTTON_STYLES.primary}
                         {...BUTTON_STYLES.shared}
                     />
@@ -161,43 +121,25 @@ const HomePage: React.FC = () => {
         
             {/* Introduction section with personal message */}
             <section aria-labelledby="intro-title">
-                <IntroSection 
-                    image="src/images/card images/card images/HEARTSPUN handwork(2).png"
+                <WelcomeSection 
+                    image={IMAGES.CARDS.HEARTSPUN}
                     backgroundColor="#D6E9F2"
                     title="hi! i'm happy you're here!"
                     titleId="intro-title"
-                    imageWidth="50%"
-                    textWidth="50%"
-                    maxHeight="100%"
-                    maxWidth="auto%"
-                    mobileMaxHeight="100%"
-                    mobileMaxWidth="100%"
-                    description={
-                        <>
-                            i'm morrissey and i am the teacher and artist behind held thread.
-                            <br /><br />
-                            held thread is built on the belief that traditional handwork nurtures both skill and soul.
-                            <br /><br />
-                            through slow, mindful making, we develop patience, perseverance, and connection to craft and community.
-                        </>
-                    }
-                    imagePosition="right"
-                    imageAlt="Heartspun handwork illustration"
-                    loading="lazy"
                 >
                     <Button 
                         text="MORE ABOUT ME"
-                        link="https://www.example.com"
+                        link="/about"
                         {...BUTTON_STYLES.secondary}
                         {...BUTTON_STYLES.shared}
                     />
                     <Button 
                         text="MORE ABOUT HANDWORK"
-                        link="https://www.example.com"
+                        link="/handwork"
                         {...BUTTON_STYLES.secondary}
                         {...BUTTON_STYLES.shared}
                     />
-                </IntroSection>
+                </WelcomeSection>
             </section>
 
             {/* Offerings section with service cards */}
@@ -213,46 +155,23 @@ const HomePage: React.FC = () => {
             </section>
 
             {/* About handwork section with philosophy */}
-            <IntroSection 
-                image="src/images/card images/knots/Natural_dye_colour_wheel.jpg"
+            <AboutHandworkSection
+                image={IMAGES.KNOTS.COLOR_WHEEL}
                 backgroundColor="#D6E9F2"
-                title="why handwork?"
-                description={
-                    <>
-                        in a world full of screens and distractions, handwork gives us the chance to slow down,
-                        focus, and create with our own hands.
-                        <br /><br />
-                        the deep and complex tradition of handwork isn't about a finished product, but a way to build 
-                        the self. working with yarn, fabric, and thread work to strengthen physical skills like fine 
-                        motor control as well as a greater sense of rhythm in the body and world.
-                        <br /><br />
-                        we have to remember that these skills have been passed down for millennia. 
-                        working with your hands is a connection to tradition and community. we take these skills and 
-                        make them our own, creating our own traditions and stories together. the world becomes a more beautiful place 
-                        when we share this task with one another.
-                        <br /><br />
-                        at held thread, handwork is more than craft. it's a way to help us grow, one stitch 
-                        at a time.
-                    </>
-                }
-                imagePosition="left"
-                style={{ transform: 'rotate(270deg)' }}
-                maxHeight="100%" // Ensure the image takes full height
-                maxWidth="100%" // Ensure the image does not exceed its container's width
             >
                 <Button 
                     text="MORE ABOUT ME"
-                    link="https://www.example.com"
+                    link="/about"
                     {...BUTTON_STYLES.secondary}
                     {...BUTTON_STYLES.shared}
                 />
                 <Button 
                     text="MORE ABOUT HANDWORK"
-                    link="https://www.example.com"
+                    link="/handwork"
                     {...BUTTON_STYLES.secondary}
                     {...BUTTON_STYLES.shared}
                 />
-            </IntroSection>
+            </AboutHandworkSection>
 
             {/* Visual divider with wave pattern */}
             <WaveDivider backgroundColor="#D6E9F2" waveColor="#bcc9a0" />
