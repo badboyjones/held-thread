@@ -10,7 +10,7 @@ export const Section = styled.section<{ backgroundColor: string }>`
     background-color: ${props => props.backgroundColor};
     width: 100%;
     min-height: 500px;
-    height: 80vh;
+    height: auto;
     overflow: hidden;
 
     @media (max-width: 768px) {

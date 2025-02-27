@@ -16,9 +16,7 @@
 
 import React, { useMemo, useCallback, useState, useEffect } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import IntroSection from '../components/IntroSection';
 import CardSection from '../components/CardSection';
-import Footer from '../components/Footer';
 import WaveDivider from '../components/WaveDivider';
 import HeroSection from '../components/HeroSection/HeroSection';
 import Button from '../components/Button';
@@ -26,6 +24,7 @@ import AboutHandworkSection from '../components/AboutHandworkSection/AboutHandwo
 import { BUTTON_STYLES } from '../constants/styles';
 import WelcomeSection from '../components/WelcomeSection/WelcomeSection';
 import { IMAGES } from '../constants/images';
+import StarDivider from '../components/StarDivider';
 
 /**
  * Container component provides the main layout structure.
@@ -40,6 +39,16 @@ const Container = styled.div`
     min-height: 100vh;
     padding: 0;
     margin: 0;
+    position: relative;
+    z-index: 1;
+`;
+
+// Add this styled component near the top with other styled components
+const ButtonContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 `;
 
 const HomePage: React.FC = () => {
@@ -93,7 +102,7 @@ const HomePage: React.FC = () => {
         IMAGES.KNOTS.KNOT_4,
         IMAGES.KNOTS.KNOT_5
     ], []);
-    
+
     return (
         <>
             <GlobalStyle />
@@ -129,22 +138,26 @@ const HomePage: React.FC = () => {
                         title="I'm happy you're here."
                         titleId="intro-title"
                     >
-                        <Button 
-                            text="MORE ABOUT ME"
-                            link="/about"
-                            {...BUTTON_STYLES.secondary}
-                            {...BUTTON_STYLES.shared}
-                        />
-                        <Button 
-                            text="MORE ABOUT HANDWORK"
-                            link="/handwork"
-                            {...BUTTON_STYLES.secondary}
-                            {...BUTTON_STYLES.shared}
-                        />
+                        <ButtonContainer>
+                            <Button 
+                                text="MORE ABOUT ME"
+                                link="/about"
+                                {...BUTTON_STYLES.secondary}
+                                {...BUTTON_STYLES.shared}
+                            />
+                            <Button 
+                                text="MORE ABOUT HANDWORK"
+                                link="/handwork"
+                                {...BUTTON_STYLES.secondary}
+                                {...BUTTON_STYLES.shared}
+                            />
+                        </ButtonContainer>
                     </WelcomeSection>
                 </section>
 
-                {/* Offerings section with service cards */}
+                <StarDivider height="0px" />
+
+                {/* Offerings section with no margin */}
                 <section aria-labelledby="offerings-title">
                     <CardSection 
                         cards={cardData} 
@@ -161,18 +174,20 @@ const HomePage: React.FC = () => {
                     image={IMAGES.KNOTS.COLOR_WHEEL}
                     backgroundColor="#D6E9F2"
                 >
-                    <Button 
-                        text="MORE ABOUT ME"
-                        link="/about"
-                        {...BUTTON_STYLES.secondary}
-                        {...BUTTON_STYLES.shared}
-                    />
-                    <Button 
-                        text="MORE ABOUT HANDWORK"
-                        link="/handwork"
-                        {...BUTTON_STYLES.secondary}
-                        {...BUTTON_STYLES.shared}
-                    />
+                    <ButtonContainer>
+                        <Button 
+                            text="MORE ABOUT ME"
+                            link="/about"
+                            {...BUTTON_STYLES.secondary}
+                            {...BUTTON_STYLES.shared}
+                        />
+                        <Button 
+                            text="MORE ABOUT HANDWORK"
+                            link="/handwork"
+                            {...BUTTON_STYLES.secondary}
+                            {...BUTTON_STYLES.shared}
+                        />
+                    </ButtonContainer>
                 </AboutHandworkSection>
 
                 {/* Visual divider with wave pattern */}

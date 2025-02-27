@@ -22,6 +22,7 @@ export const BUTTON_STYLES = {
         hoverTextColor: "#87b5ca",
     },
     shared: {
+        width: "auto",
         padding: "10px 20px",
         borderRadius: "30px",
         margin: "10px",

@@ -28,10 +28,12 @@ const ParentContainer = styled.div`
 // Create a styled section with a gradient background
 const SectionContainer = styled.section<{ backgroundColor?: string }>`
     width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    /* margin-left: 50%;
+    transform: translateX(-50%); */
     min-height: 100%;
     padding: 4rem 0;
+    position: relative;
+    z-index: 1;
     
     background: ${({ backgroundColor, theme }) => backgroundColor || `linear-gradient(
         to right,

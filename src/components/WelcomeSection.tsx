@@ -107,7 +107,9 @@ const WelcomeSection: React.FC<WelcomeSectionProps> = ({
             </ImageRow>
             <Grid columns={2} rows={2}>
                 {knotImages.map((image, index) => (
-                    <GridItem key={index} image={image} alt={`Knot ${index + 1}`} />
+                    <GridItem key={index}>
+                        <img src={image} alt={`Knot ${index + 1}`} />
+                    </GridItem>
                 ))}
             </Grid>
         </SectionContainer>

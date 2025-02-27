@@ -7,6 +7,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../components/Button';
 import { spacing, breakpoints } from '../styles/constants';
+import { BUTTON_STYLES } from '../constants/styles';
+import StarDivider from '../components/StarDivider';
 
 /**
  * Container component that wraps the entire about page content.
@@ -174,10 +176,7 @@ const AboutPage: React.FC = () => {
                     />
                 </ImageColumn>
                 <Column>
-                    <DividerImage 
-                        src="src/images/card images/card images/Transparent Stars.png"
-                        alt="Glittery stars serving as a divider between sections of text."
-                    />
+                    <StarDivider height="100px" />
                     <Title>About Teacher Morrissey</Title>
                     <IndentedText>
                         I'm Morrissey, a textile artist and teacher with a lifelong love for handwork. 
@@ -185,10 +184,7 @@ const AboutPage: React.FC = () => {
                         That love turned into a career, teaching in public schools, leading community workshops and projects, and helping others discover the quiet joy of 
                         making by hand.
                     </IndentedText>
-                    <DividerImage 
-                        src="src/images/card images/card images/Transparent Stars.png"
-                        alt="Glittery stars serving as a divider between sections of text."
-                    />
+                    <StarDivider height="100px" />
                     <Title>My Philosophy</Title>
                     <IndentedText>
                         Through <b>Held Thread</b>, I offer handwork classes for children that emphasize patience, creativity, 
@@ -203,10 +199,9 @@ const AboutPage: React.FC = () => {
                     <ButtonContainer>
                         <Button 
                             text="MORE ABOUT HANDWORK"
-                            backgroundColor="#A06B8F"
-                            color="#FFFFFF"
-                            hoverColor="#D6E9F2"
                             link="/about/handwork"
+                            {...BUTTON_STYLES.secondary}
+                            {...BUTTON_STYLES.shared}
                         />
                     </ButtonContainer>
                 </Column>
