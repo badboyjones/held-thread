@@ -6,107 +6,68 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import HamburgerMenu from './HamburgerMenu'; // Import the new HamburgerMenu component
+import HamburgerMenu from './HamburgerMenu';
+import NavLink from './NavLink';
+import Logo from './Logo';
 
-// Create a styled container for the Navbar with a gradient background
+// Step 1: Update NavbarContainer styling
 const NavbarContainer = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Ensure navbar takes full width */
+    width: 100%;
     background: linear-gradient(to right, 
-        #FFD6D6, /* Soft coral */
-        #FFE6D5, /* Warm peach */
-        #FFF3D6, /* Soft butter */
-        #E6EDD5, /* Gentle sage green */
-        #D6E9F2, /* Soft sky blue */
-        #E6D6F2, /* Gentle purple */
-        #F4B5D9 /* Accent pink */
-    ), #ffffff; /* Fallback color */
+        #FFD6D6, #FFE6D5, #FFF3D6, #E6EDD5, 
+        #D6E9F2, #E6D6F2, #F4B5D9
+    ), #ffffff;
     position: sticky;
     top: 0;
     z-index: 400;
-    @media (max-width: 768px) {
-        flex-direction: column; /* Stack items on small screens */
-    }
 `;
 
-// Create a styled logo that maintains h1 styling
-const Logo = styled.h1`
-    font-family: 'Rubik', sans-serif; /* Replace with your font */
-    font-size: 2rem;
-    color: #333; /* Text color */
-    &:hover {
-        color: #Fff; /* Change color on hover */
-    }
-`;
-
-// Create a styled link wrapper for the logo
-const LogoLink = styled(Link)`
-    text-decoration: none;
-    color: inherit; /* Inherit text color */
-`;
-
-// Create a styled link list
-const NavLinks = styled.div<{ isOpen: boolean }>`
-    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')}; /* Show or hide links */
-    flex-direction: column; /* Stack links vertically */
-    gap: 10px; /* Space between links */
+// Add a wrapper for logo and hamburger menu
+const TopSection = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    background: #ffffff;
-    align-items: center; /* Full width for mobile */
 `;
 
-const HamburgerLinks = styled.div<{ isOpen: boolean }>`
-    display: ${({ isOpen }) => (isOpen ? 'flex' : 'unset')}; /* Show or hide links */
-    flex-direction: column; /* Stack links vertically */
-    gap: 10px; /* Space between links */
-    align-items: right; /* Full width for mobile */
-    @media (max-width: 768px) {       
-        display: none; /* Hide the hamburger menu on small screens */
-        
-    }
-`;
-
-// Create a styled link
-const NavLink = styled(Link)`
-    text-decoration: none;
-    color: #333; /* Text color */
-    font-weight: bold;
-    padding: 10px; /* Add padding for better touch targets */
-
-    &:hover {
-        color: #Fff; /* Change color on hover */
+// Step 2: Update NavLinks to handle both mobile and desktop views
+const NavLinks = styled.div<{ isOpen: boolean }>`
+    display: flex;
+    gap: 10px;
+    
+    @media (max-width: 768px) {
+        display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+        flex-direction: column;
+        width: 100%;
+        background: #ffffff;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
     }
 `;
 
 const Navbar: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false); // State to manage menu visibility
+    const [isOpen, setIsOpen] = useState(false);
 
-    // Toggle the visibility of the navigation links
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
 
     return (
         <NavbarContainer>
-            <LogoLink to="/">
-                <Logo>HELD THREAD HANDWORK</Logo>
-            </LogoLink>
-            <HamburgerMenu onClick={toggleMenu} /> 
-            <NavLinks isOpen={isOpen}>
+            <TopSection>
+                <Logo text="HELD THREAD HANDWORK" />
+                <HamburgerMenu onClick={toggleMenu} isOpen={isOpen} />
+            </TopSection>
+            <NavLinks isOpen={isOpen} id="navigation-menu">
                 <NavLink to="/about">ABOUT</NavLink>
                 <NavLink to="/classes">CLASSES</NavLink>
                 <NavLink to="/resources">RESOURCES</NavLink>
             </NavLinks>
-            <HamburgerLinks isOpen={isOpen}>
-                <NavLink to="/about">ABOUT</NavLink>
-                <NavLink to="/classes">CLASSES</NavLink>
-                <NavLink to="/resources">RESOURCES</NavLink>
-            </HamburgerLinks>
-
-
         </NavbarContainer>
     );
 };
