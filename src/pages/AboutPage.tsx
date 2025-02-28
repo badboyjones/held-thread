@@ -8,7 +8,6 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 import { spacing, breakpoints } from '../styles/constants';
 import { BUTTON_STYLES } from '../constants/styles';
-import StarDivider from '../components/StarDivider';
 
 /**
  * Container component that wraps the entire about page content.
@@ -80,7 +79,6 @@ const Image = styled.img`
     height: auto;
     object-fit: contain;
     transform: rotate(5deg);
-    max-height: 80vh;
 
     @media (max-width: 768px) {
         max-height: 50vh;
@@ -156,8 +154,8 @@ const ImageColumn = styled(Column)`
     display: flex;
     justify-content: center;
     align-items: center;
-    position: sticky;
     top: 0;
+    height: 100%;
 
     @media (max-width: 768px) {
         position: static;
@@ -171,12 +169,12 @@ const AboutPage: React.FC = () => {
             <TwoColumnLayout>
                 <ImageColumn>
                     <Image 
-                        src="src/images/card images/card images/about me collage.png"
+                        src="src/images/card images/card images/about collage.png"
                         alt="A collage of various items on a quilt. The items include buttons, yarn, and knick knacks. Among them are three pictures. One is of Morrissey as a child, one is of them and their partner Daneil, and one is of their cat named Monkey." 
                     />
                 </ImageColumn>
                 <Column>
-                    <StarDivider height="100px" />
+                    <DividerImage src="src/images/card images/card images/Transparent Stars.png" alt="Glittery stars serving as a divider between sections of text." />
                     <Title>About Teacher Morrissey</Title>
                     <IndentedText>
                         I'm Morrissey, a textile artist and teacher with a lifelong love for handwork. 
@@ -184,7 +182,7 @@ const AboutPage: React.FC = () => {
                         That love turned into a career, teaching in public schools, leading community workshops and projects, and helping others discover the quiet joy of 
                         making by hand.
                     </IndentedText>
-                    <StarDivider height="100px" />
+                    <DividerImage src="src/images/card images/card images/Transparent Stars.png" alt="Glittery stars serving as a divider between sections of text." />
                     <Title>My Philosophy</Title>
                     <IndentedText>
                         Through <b>Held Thread</b>, I offer handwork classes for children that emphasize patience, creativity, 
@@ -200,7 +198,7 @@ const AboutPage: React.FC = () => {
                         <Button 
                             text="MORE ABOUT HANDWORK"
                             link="/about/handwork"
-                            {...BUTTON_STYLES.secondary}
+                            {...BUTTON_STYLES.primary}
                             {...BUTTON_STYLES.shared}
                         />
                     </ButtonContainer>

@@ -14,7 +14,7 @@
  * - Responsive layout
  */
 
-import React, { useMemo, useCallback, useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 import CardSection from '../components/CardSection';
 import WaveDivider from '../components/WaveDivider';
@@ -77,7 +77,7 @@ const HomePage: React.FC = () => {
             buttonText: "Learn More",
             imageUrl: IMAGES.CARDS.CARD_1,
             imageAlt: "Small group classes illustration",
-            link: "/classes",
+            link: "/learn",
             titleColor: "#9ddfff",
         },
         {
@@ -121,12 +121,15 @@ const HomePage: React.FC = () => {
                         knotImages={knotImages}
                         titleId="hero-title"
                     >
-                        <Button 
-                            text="inquire about lessons"
-                            link="/inquire"
-                            {...BUTTON_STYLES.primary}
-                            {...BUTTON_STYLES.shared}
-                        />
+                        <ButtonContainer>
+                            <Button 
+                                to="/inquire"
+                                {...BUTTON_STYLES.primary}
+                                {...BUTTON_STYLES.shared}
+                            >
+                                inquire about lessons
+                            </Button>
+                        </ButtonContainer>
                     </HeroSection>
                 </section>
             
@@ -140,17 +143,19 @@ const HomePage: React.FC = () => {
                     >
                         <ButtonContainer>
                             <Button 
-                                text="MORE ABOUT ME"
-                                link="/about"
+                                to="/about"
                                 {...BUTTON_STYLES.secondary}
                                 {...BUTTON_STYLES.shared}
-                            />
+                            >
+                                MORE ABOUT ME
+                            </Button>
                             <Button 
-                                text="MORE ABOUT HANDWORK"
-                                link="/handwork"
+                                to="/handwork"
                                 {...BUTTON_STYLES.secondary}
                                 {...BUTTON_STYLES.shared}
-                            />
+                            >
+                                MORE ABOUT HANDWORK
+                            </Button>
                         </ButtonContainer>
                     </WelcomeSection>
                 </section>
@@ -176,17 +181,19 @@ const HomePage: React.FC = () => {
                 >
                     <ButtonContainer>
                         <Button 
-                            text="MORE ABOUT ME"
-                            link="/about"
+                            to="/about"
                             {...BUTTON_STYLES.secondary}
                             {...BUTTON_STYLES.shared}
-                        />
+                        >
+                            MORE ABOUT ME
+                        </Button>
                         <Button 
-                            text="MORE ABOUT HANDWORK"
-                            link="/handwork"
+                            to="/handwork"
                             {...BUTTON_STYLES.secondary}
                             {...BUTTON_STYLES.shared}
-                        />
+                        >
+                            MORE ABOUT HANDWORK
+                        </Button>
                     </ButtonContainer>
                 </AboutHandworkSection>
 

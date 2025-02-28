@@ -25,6 +25,8 @@ const StyledLink = styled.a<{
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     margin: ${({ $margin }) => $margin};
+    z-index: 300;
+    position: relative;
 
     &:hover {
         background-color: ${({ $hoverColor }) => $hoverColor};
@@ -34,43 +36,27 @@ const StyledLink = styled.a<{
 
 // Props for the Button component
 interface ButtonProps {
-    text: string;
-    link: string;  // URL to navigate to
-    backgroundColor: string;
-    color: string;
-    padding: string;
-    borderRadius: string;
-    hoverColor: string;
-    hoverTextColor: string;
+    to: string;
+    children: React.ReactNode;
+    backgroundColor?: string;
+    color?: string;
+    padding?: string;
+    borderRadius?: string;
+    hoverColor?: string;
+    hoverTextColor?: string;
     margin?: string;
-    width: string;
+    width?: string;
     type?: 'button' | 'submit' | 'reset';
 }
 
 // Main Button component
-const Button: React.FC<ButtonProps> = ({
-    text,
-    link,
-    backgroundColor,
-    color,
-    padding,
-    borderRadius,
-    hoverColor,
-    hoverTextColor,
-    margin
-}) => {
+const Button: React.FC<ButtonProps> = ({ ...props }) => {
     return (
         <StyledLink 
-            href={link}
-            $backgroundColor={backgroundColor}
-            $color={color}
-            $padding={padding}
-            $borderRadius={borderRadius}
-            $hoverColor={hoverColor}
-            $hoverTextColor={hoverTextColor}
-            $margin={margin}
+            className="styled-button"
+            {...props}
         >
-            {text}
+            {props.children}
         </StyledLink>
     );
 };

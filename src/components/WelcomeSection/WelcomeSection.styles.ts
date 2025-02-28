@@ -23,7 +23,7 @@ export const Section = styled.section<{ backgroundColor: string }>`
 
 export const TextContent = styled.div`
     text-align: left;
-    margin: 2rem;
+    margin: 3.5rem;
 `;
 
 export const Title = styled.h2`

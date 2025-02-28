@@ -1,7 +1,10 @@
 /**
  * Card component that displays information in a visually appealing format.
- * This component can be reused to show different types of content.
- * It now includes an image at the top, followed by a title, description, and a button.
+ * This component is designed to be accessible, responsive, and reusable.
+ * Features:
+ * - Semantic HTML structure
+ * - ARIA attributes for better screen reader support
+ * - Responsive design for all screen sizes
  */
 
 import React from 'react';
@@ -9,85 +12,149 @@ import styled from 'styled-components';
 import { CardData } from '../types/CardData'; // Import the shared CardData interface
 import Button from './Button'; // Import the Button component
 
-// Create a styled card container
-const CardContainer = styled.div`
-    background-color: ${({ theme }) => theme.colors.white}; /* Background color */
+// Update CardContainer with smaller dimensions
+const CardContainer = styled.article`
+    background-color: ${({ theme }) => theme.colors.white};
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    text-align: center; /* Center align text */
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Stack children vertically */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
     transition: transform 0.2s;
     
-    // Step 1: Set max-width for mobile and center with margin
-    width: 75%;
-    max-width: 300px;
-    margin: 5px auto;
+    // Mobile-first approach
+    width: 100%;
+    max-width: 250px; // Reduced from 300px
+    margin: 0.5rem auto;
+    padding: 0.5rem;
     
+    // Tablet breakpoint
     @media (min-width: 768px) {
         margin: 1rem;
-        width: 100%;
-        max-width: none;
+        padding: 0.75rem;
+        max-width: 280px; // Reduced from 350px
     }
-
-    // Step 2: Disable hover effect on mobile devices
+    
+    // Desktop breakpoint
+    @media (min-width: 1024px) {
+        max-width: 300px; // Reduced from 400px
+        padding: 1rem;
+    }
+    
+    // Add hover effects only for devices that support hover
     @media (hover: hover) {
         &:hover {
-            transform: none;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
     }
-
-    // Step 3: Adjust padding for mobile
-    padding: 8px;
-    
-    @media (min-width: 768px) {
-        padding: 0px;
-    }
 `;
 
-// Create a styled image
+// Update CardImage with smaller heights
 const CardImage = styled.img`
-    width: 100%; /* Full width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 8px 8px 0 0; /* Rounded top corners */
-    
-    // Step 3: Reduce image margin on mobile
-    margin-bottom: 4px;
+    width: 100%;
+    height: auto; // Reduced from 200px
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 0.5rem;
     
     @media (min-width: 768px) {
-        margin-bottom: 10px;
+        height: 100%; // Reduced from 250px
+        margin-bottom: 0.75rem;
+    }
+    
+    @media (min-width: 1024px) {
+        height: 100%; // Reduced from 300px
+        margin-bottom: 1rem;
     }
 `;
 
-// Add the missing CardContent component
+// Update PlaceholderImage to match CardImage dimensions
+const PlaceholderImage = styled.div`
+    width: 100%;
+    height: 150px; // Match CardImage height
+    background-color: ${({ theme }) => theme.colors.sage};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px 8px 0 0;
+    color: ${({ theme }) => theme.colors.plum};
+    font-size: 1rem;
+    
+    @media (min-width: 768px) {
+        height: 180px; // Match CardImage height
+    }
+    
+    @media (min-width: 1024px) {
+        height: 200px; // Match CardImage height
+    }
+`;
+
+// Update CardContent with better spacing
 const CardContent = styled.div`
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    justify-content: space-between;
+    gap: 0.5rem;
+    
+    @media (min-width: 768px) {
+        gap: 0.75rem;
+    }
+    
+    @media (min-width: 1024px) {
+        gap: 1rem;
+    }
 `;
 
-// Create a styled title
+// Adjust typography sizes
 const CardTitle = styled.h2<{ $color: string }>`
-    // Step 4: Smaller font size on mobile
-    font-size: 1rem;
+    font-size: 0.9rem; // Reduced from 1rem
+    font-weight: 700; // Make title bolder
+    letter-spacing: 0.5px; // Slight letter spacing for emphasis
     color: ${({ $color }) => $color};
     margin-bottom: 4px;
     
     @media (min-width: 768px) {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
+        font-size: 1.2rem; // Reduced from 1.5rem
+        margin-bottom: 8px;
     }
 `;
 
-// Create a styled paragraph
+// Adjust typography sizes
 const CardDescription = styled.p`
-    // Step 5: Smaller description text on mobile
-    font-size: 0.75rem;
-    color: ${({ theme }) => theme.colors.black}; /* Use theme color */
+    font-size: 0.7rem; // Reduced from 0.75rem
+    font-weight: 400; // Regular weight for description
+    line-height: 1.5; // Better line height for readability
+    color: ${({ theme }) => theme.colors.black};
+    margin-bottom: 1rem; // Add space before button
     
     @media (min-width: 768px) {
-        font-size: 1.25rem;
+        font-size: 0.9rem; // Reduced from 1.25rem
+    }
+`;
+
+// Add styles for button container to create spacing
+const ButtonContainer = styled.div`
+    margin-top: auto; // Push button to bottom of card
+    padding: 0.5rem;
+`;
+
+// Create a styled version of the Button component with enhanced styling
+const StyledButton = styled(Button)`
+    border: 1px solid rgba(135, 181, 202, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+`;
+
+// Add a styled link wrapper
+const CardLink = styled.a`
+    text-decoration: none;
+    color: inherit;
+    display: contents; // This preserves the card's layout while making it clickable
+    
+    &:focus-visible {
+        outline: 2px solid ${({ theme }) => theme.colors.plum};
+        border-radius: 10px;
     }
 `;
 
@@ -97,7 +164,8 @@ interface CardProps extends CardData {
     link: string; // Make link required
 }
 
-const Card: React.FC<CardProps> = ({
+// Add React.memo to prevent unnecessary re-renders
+const Card: React.FC<CardProps> = React.memo(({
     title,
     description,
     buttonText,
@@ -106,26 +174,56 @@ const Card: React.FC<CardProps> = ({
     titleColor,
     link
 }) => {
-    return (
-        <CardContainer>
-            <CardImage src={imageUrl} alt={imageAlt} />
-            <CardContent>
-                <CardTitle $color={titleColor}>{title}</CardTitle>
-                <CardDescription>{description}</CardDescription>
-                <Button 
-                    text={buttonText}
-                    link={link}
-                    backgroundColor="#87b5ca"
-                    color="white"
-                    padding="10px 20px"
-                    borderRadius="30px"
-                    hoverColor="#9dbfd1"
-                    hoverTextColor="white"
-                    width="auto"
-                />
-            </CardContent>
-        </CardContainer>
+    const [imageError, setImageError] = React.useState(false);
+    const titleId = React.useMemo(() => 
+        `card-title-${title.toLowerCase().replace(/\s+/g, '-')}`,
+        [title]
     );
-};
+    
+    return (
+        <CardLink href={link} aria-labelledby={titleId}>
+            <CardContainer role="article">
+                {!imageError ? (
+                    <CardImage 
+                        src={imageUrl} 
+                        alt={imageAlt || `Illustration for ${title}`}
+                        role="img"
+                        onError={() => setImageError(true)}
+                        loading="lazy"
+                        decoding="async"
+                    />
+                ) : (
+                    <PlaceholderImage>
+                        <span>{title}</span>
+                    </PlaceholderImage>
+                )}
+                <CardContent>
+                    <CardTitle 
+                        $color={titleColor}
+                        id={titleId}
+                    >{title}</CardTitle>
+                    <CardDescription>{description}</CardDescription>
+                    <ButtonContainer>
+                        <StyledButton 
+                            text={buttonText}
+                            link={link}
+                            backgroundColor="#87b5ca"
+                            color="white"
+                            padding="10px 20px"
+                            borderRadius="30px"
+                            hoverColor="#9dbfd1"
+                            hoverTextColor="white"
+                            width="auto"
+                            aria-label={`${buttonText} for ${title}`}
+                        />
+                    </ButtonContainer>
+                </CardContent>
+            </CardContainer>
+        </CardLink>
+    );
+});
+
+// Add display name for debugging
+Card.displayName = 'Card';
 
 export default Card; 

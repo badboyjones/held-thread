@@ -19,6 +19,7 @@ import AboutPage from './pages/AboutPage';
 // import ResourcesPage from './pages/ResourcesPage';
 import NotFoundPage from './pages/NotFoundPage';
 import Footer from './components/Footer';
+import Learn from './pages/Learn';
 
 const App: React.FC = () => {
     return (
@@ -28,6 +29,7 @@ const App: React.FC = () => {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
+                <Route path="/learn" element={<Learn />} />
                 {/* TODO: Add these routes once pages are created */}
                 {/* <Route path="/classes" element={<ClassesPage />} /> */}
                 {/* <Route path="/inquire" element={<InquirePage />} /> */}

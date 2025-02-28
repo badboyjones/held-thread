@@ -24,17 +24,28 @@ const NavbarContainer = styled.nav`
         #E6D6F2, /* Gentle purple */
         #F4B5D9 /* Accent pink */
     ), #ffffff; /* Fallback color */
-
+    position: sticky;
+    top: 0;
+    z-index: 400;
     @media (max-width: 768px) {
         flex-direction: column; /* Stack items on small screens */
     }
 `;
 
-// Create a styled logo
+// Create a styled logo that maintains h1 styling
 const Logo = styled.h1`
     font-family: 'Rubik', sans-serif; /* Replace with your font */
     font-size: 2rem;
     color: #333; /* Text color */
+    &:hover {
+        color: #Fff; /* Change color on hover */
+    }
+`;
+
+// Create a styled link wrapper for the logo
+const LogoLink = styled(Link)`
+    text-decoration: none;
+    color: inherit; /* Inherit text color */
 `;
 
 // Create a styled link list
@@ -80,7 +91,9 @@ const Navbar: React.FC = () => {
 
     return (
         <NavbarContainer>
-            <Logo>HELD THREAD HANDWORK</Logo>
+            <LogoLink to="/">
+                <Logo>HELD THREAD HANDWORK</Logo>
+            </LogoLink>
             <HamburgerMenu onClick={toggleMenu} /> 
             <NavLinks isOpen={isOpen}>
                 <NavLink to="/about">ABOUT</NavLink>
