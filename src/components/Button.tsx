@@ -36,24 +36,42 @@ const StyledLink = styled.a<{
 
 // Props for the Button component
 interface ButtonProps {
-    to: string;
-    children: React.ReactNode;
+    text?: string;
     backgroundColor?: string;
     color?: string;
     padding?: string;
     borderRadius?: string;
     hoverColor?: string;
     hoverTextColor?: string;
-    margin?: string;
+    type?: "submit" | "button";
     width?: string;
-    type?: 'button' | 'submit' | 'reset';
+    link?: string;
+    to?: string;
+    children?: React.ReactNode;
+    margin?: string;
 }
 
 // Main Button component
-const Button: React.FC<ButtonProps> = ({ ...props }) => {
+const Button: React.FC<ButtonProps> = ({ 
+    backgroundColor,
+    color,
+    padding,
+    borderRadius,
+    hoverColor,
+    hoverTextColor,
+    margin,
+    ...props 
+}) => {
     return (
         <StyledLink 
             className="styled-button"
+            $backgroundColor={backgroundColor || '#000'}
+            $color={color || '#fff'}
+            $padding={padding || '1rem 2rem'}
+            $borderRadius={borderRadius || '4px'}
+            $hoverColor={hoverColor || '#fff'}
+            $hoverTextColor={hoverTextColor || '#000'}
+            $margin={margin}
             {...props}
         >
             {props.children}

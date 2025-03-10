@@ -84,7 +84,6 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
                     />
                     {/* Submit button using the Button component */}
                     <Button
-                        text="subscribe"
                         backgroundColor={buttonColor}
                         color={buttonTextColor}
                         padding="10px 20px"
@@ -94,7 +93,9 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
                         type="submit" // Set the button type to submit
                         width={width}
                         link="https://buttondown.com/api/emails/embed-subscribe/morrissey"
-                    />
+                    >
+                        subscribe
+                    </Button>
                 </div>
             </form>
         </div>

@@ -16,7 +16,7 @@ import AboutPage from './pages/AboutPage';
 // TODO: Add these pages once they're created
 // import ClassesPage from './pages/ClassesPage';
 // import InquirePage from './pages/InquirePage';
-// import ResourcesPage from './pages/ResourcesPage';
+import Resources from './pages/Resources';
 import NotFoundPage from './pages/NotFoundPage';
 import Footer from './components/Footer';
 import Learn from './pages/Learn';
@@ -33,7 +33,7 @@ const App: React.FC = () => {
                 {/* TODO: Add these routes once pages are created */}
                 {/* <Route path="/classes" element={<ClassesPage />} /> */}
                 {/* <Route path="/inquire" element={<InquirePage />} /> */}
-                {/* <Route path="/resources" element={<ResourcesPage />} /> */}
+                <Route path="/resources" element={<Resources />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
             <Footer />

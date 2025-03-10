@@ -198,7 +198,7 @@ const HomePage: React.FC = () => {
                 </AboutHandworkSection>
 
                 {/* Visual divider with wave pattern */}
-                <WaveDivider backgroundColor="#D6E9F2" waveColor="#bcc9a0" />
+                <WaveDivider backgroundColor="#D6E9F2" waveColor="#f3f4f6" />
             </Container>
         </>
     );

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Button from '../components/Button'
 
 /**
  * Styled components for the Learn page
@@ -7,7 +8,6 @@ import styled from 'styled-components'
 
 export const HeroSection = styled.div`
   text-align: center;
-  margin-bottom: 4rem;
   background-color: ${({ theme }) => theme.colors.white};
 `
 
@@ -76,13 +76,13 @@ export const SkillIcon = styled.img`
 export const ClassOptionsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  gap: 3rem;
   margin-bottom: 4rem;
 `
 
 export const ClassCard = styled.div`
-  background: ${({ theme }) => theme.colors.peach};
-  border-radius: 8px;
+  background: ${({ theme }) => theme.colors.sky};
+  border-radius: 50px;
   text-align: center;
   padding: 2rem;
   
@@ -96,6 +96,29 @@ export const ClassCard = styled.div`
     line-height: 1.4;
   }
 `
+
+export const ClassCardButton = styled.a`
+    // Step 1: Set basic button styling
+    background-color:rgb(154, 206, 230);
+    color: #fff;
+    border-radius: 50px;
+    padding: 10px 20px;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    
+    // Step 2: Add hover effects
+    &:hover {
+        background-color: rgb(119, 189, 222);
+        color: #FFFFFF;
+        transform: translateY(-2px);
+        transition: all 0.2s ease-in-out;
+    }
+    
+    // Step 3: Set positioning and spacing
+    margin-top: 1rem;
+    align-self: center;
+`;
 
 export const SignUpSection = styled.div`
   text-align: center;
