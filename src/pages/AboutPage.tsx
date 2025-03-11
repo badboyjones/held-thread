@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 import { spacing, breakpoints } from '../styles/constants';
 import { BUTTON_STYLES } from '../constants/styles';
+import WaveDivider from '../components/WaveDivider';
 
 /**
  * Container component that wraps the entire about page content.
@@ -165,46 +166,42 @@ const ImageColumn = styled(Column)`
 
 const AboutPage: React.FC = () => {
     return (
-        <Container>
-            <TwoColumnLayout>
-                <ImageColumn>
-                    <Image 
-                        src="src/images/card images/card images/about collage.png"
-                        alt="A collage of various items on a quilt. The items include buttons, yarn, and knick knacks. Among them are three pictures. One is of Morrissey as a child, one is of them and their partner Daneil, and one is of their cat named Monkey." 
-                    />
-                </ImageColumn>
-                <Column>
-                    <DividerImage src="src/images/card images/card images/Transparent Stars.png" alt="Glittery stars serving as a divider between sections of text." />
-                    <Title>About Teacher Morrissey</Title>
-                    <IndentedText>
-                        I'm Morrissey, a textile artist and teacher with a lifelong love for handwork. 
-                        I first found comfort in fabric, thread, and yarn as a child, first learning to sew after begging my grandmother to teach me. 
-                        That love turned into a career, teaching in public schools, leading community workshops and projects, and helping others discover the quiet joy of 
-                        making by hand.
-                    </IndentedText>
-                    <DividerImage src="src/images/card images/card images/Transparent Stars.png" alt="Glittery stars serving as a divider between sections of text." />
-                    <Title>My Philosophy</Title>
-                    <IndentedText>
-                        Through <b>Held Thread</b>, I offer handwork classes for children that emphasize patience, creativity, 
-                        and emotional growth. Having trained in traditional Waldorf handwork pedagogy, my teaching 
-                        approach is gentle and adaptable, meeting each child where they are. I believe handwork is about 
-                        more than just learning to create a product. It teaches us to create ourselves.
-                    </IndentedText>
-                    <IndentedText>
-                        My goal is to create a learning environment where <b>mistakes are part of the process</b>. Here, slowness is valued, and every child can feel a sense of accomplishment. Whether they are knitting their first stitches or completing a their 100th sweater, my job is to support them in building resilience, creativity, and a connection to the rich tradition of textile arts.
-                    <br></br>
-                    </IndentedText>
-                    <ButtonContainer>
-                        <Button 
-                            text="MORE ABOUT HANDWORK"
-                            link="/about/handwork"
-                            {...BUTTON_STYLES.primary}
-                            {...BUTTON_STYLES.shared}
+        <>
+            <Container>
+                <TwoColumnLayout>
+                    <ImageColumn>
+                        <Image 
+                            src="src/images/card images/card images/about collage.png"
+                            alt="A collage of various items on a quilt. The items include buttons, yarn, and knick knacks. Among them are three pictures. One is of Morrissey as a child, one is of them and their partner Daneil, and one is of their cat named Monkey." 
                         />
-                    </ButtonContainer>
-                </Column>
-            </TwoColumnLayout>
-        </Container>
+                    </ImageColumn>
+                    <Column>
+                        <DividerImage src="src/images/card images/card images/Transparent Stars.png" alt="Glittery stars serving as a divider between sections of text." />
+                        <Title>About Teacher Morrissey</Title>
+                        <IndentedText>
+                            I'm Morrissey, a textile artist and teacher with a lifelong love for handwork. 
+                            I first found comfort in fabric, thread, and yarn as a child, first learning to sew after begging my grandmother to teach me. 
+                            That love turned into a career, teaching in public schools, leading community workshops and projects, and helping others discover the quiet joy of 
+                            making by hand.
+                        </IndentedText>
+                        <DividerImage src="src/images/card images/card images/Transparent Stars.png" alt="Glittery stars serving as a divider between sections of text." />
+                        <Title>My Philosophy</Title>
+                        <IndentedText>
+                            Through <b>Held Thread</b>, I offer handwork classes for children that emphasize patience, creativity, 
+                            and emotional growth. Having trained in traditional Waldorf handwork pedagogy, my teaching 
+                            approach is gentle and adaptable, meeting each child where they are. I believe handwork is about 
+                            more than just learning to create a product. It teaches us to create ourselves.
+                        </IndentedText>
+                        <IndentedText>
+                            My goal is to create a learning environment where <b>mistakes are part of the process</b>. Here, slowness is valued, and every child can feel a sense of accomplishment. Whether they are knitting their first stitches or completing a their 100th sweater, my job is to support them in building resilience, creativity, and a connection to the rich tradition of textile arts.
+                        <br></br>
+                        </IndentedText>
+
+                    </Column>
+                </TwoColumnLayout>
+            </Container>
+            <WaveDivider backgroundColor="#ffffff" waveColor="#f3f4f6" />
+        </>
     );
 };
 

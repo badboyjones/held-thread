@@ -64,29 +64,29 @@ const HomePage: React.FC = () => {
     const cardData = useMemo(() => [
         {
             title: "Private Lessons",
-            description: "Personalized one-on-one instruction for all ages and skill levels",
-            buttonText: "Learn More",
+            description: <>I offer personalized one-on-one instruction for all ages and skill levels. Learn more about classes <a href="/learn">here</a>.</>,
+            buttonText: "Inquire About Lessons",
             imageUrl: IMAGES.CARDS.CARD_3,
             imageAlt: "Private lessons illustration",
-            link: "/lessons",
-            titleColor: "#f79c9c",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSdAmp102YfEhFMvZLKhpBM_srUrXGv4lY3AKQrkP2pxYcMGMw/viewform",
+            titleColor: "#ff9dbd",
         },
         {
             title: "Small Group Classes",
-            description: "Social, group-based classes to build skills and community",
-            buttonText: "Learn More",
+            description: <>Small group classes are a way to build skills and community together. We currently have a waitlist for these classes but you can learn more about group classes <a href="/learn">here</a>.</>,
+            buttonText: "Join the Waitlist",
             imageUrl: IMAGES.CARDS.CARD_1,
             imageAlt: "Small group classes illustration",
-            link: "/learn",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLScNpBYNHdLgjNQKFKW6euZ7Foaz6KEETaBicXTAixiAUh9CiA/viewform",
             titleColor: "#9ddfff",
         },
         {
             title: "Workshops & Special Events",
-            description: "Seasonal, one-time experiences to explore new techniques and materials together",
-            buttonText: "Learn More",
+            description: <>Workshops are seasonal, one-time experiences to explore new techniques and materials in community. These offerings are limited and fill up fast. Learn more about workshops <a href="/learn">here</a>.</>,
+            buttonText: "Join the Waitlist",
             imageUrl: IMAGES.CARDS.CARD_5,
             imageAlt: "Workshops and special events illustration",
-            link: "/workshops",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLScNpBYNHdLgjNQKFKW6euZ7Foaz6KEETaBicXTAixiAUh9CiA/viewform",
             titleColor: "#ffd97d",
         },
     ], []);
@@ -147,14 +147,14 @@ const HomePage: React.FC = () => {
                                 {...BUTTON_STYLES.secondary}
                                 {...BUTTON_STYLES.shared}
                             >
-                                MORE ABOUT ME
+                                More About Me
                             </Button>
                             <Button 
-                                to="/handwork"
+                                to="/learn"
                                 {...BUTTON_STYLES.secondary}
                                 {...BUTTON_STYLES.shared}
                             >
-                                MORE ABOUT HANDWORK
+                                More About Lessons
                             </Button>
                         </ButtonContainer>
                     </WelcomeSection>
@@ -178,24 +178,7 @@ const HomePage: React.FC = () => {
                 <AboutHandworkSection
                     image={IMAGES.KNOTS.COLOR_WHEEL}
                     backgroundColor="#D6E9F2"
-                >
-                    <ButtonContainer>
-                        <Button 
-                            to="/about"
-                            {...BUTTON_STYLES.secondary}
-                            {...BUTTON_STYLES.shared}
-                        >
-                            MORE ABOUT ME
-                        </Button>
-                        <Button 
-                            to="/handwork"
-                            {...BUTTON_STYLES.secondary}
-                            {...BUTTON_STYLES.shared}
-                        >
-                            MORE ABOUT HANDWORK
-                        </Button>
-                    </ButtonContainer>
-                </AboutHandworkSection>
+                />
 
                 {/* Visual divider with wave pattern */}
                 <WaveDivider backgroundColor="#D6E9F2" waveColor="#f3f4f6" />

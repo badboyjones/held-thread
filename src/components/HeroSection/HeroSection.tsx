@@ -40,7 +40,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     children
 }) => {
     return (
-        <Section backgroundColor={backgroundColor}>
+        <Section $backgroundColor={backgroundColor}>
             {/* Step 1: Display decorative knot images */}
             <KnotImagesContainer>
                 {knotImages.map((image, index) => (
@@ -57,11 +57,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Step 2: Display main heading and subtitle */}
             <Title 
                 id={titleId} 
-                color={titleColor}
+                $color={titleColor}
             >
                 {title}
             </Title>
-            <Subtitle color={subtitleColor}>
+            <Subtitle $color={subtitleColor}>
                 {subtitle}
             </Subtitle>
 

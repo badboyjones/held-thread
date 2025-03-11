@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Button from '../components/Button'
 
 /**
  * Styled components for the Learn page

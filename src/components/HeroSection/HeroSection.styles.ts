@@ -4,13 +4,13 @@
  */
 import styled from 'styled-components';
 
-export const Section = styled.section<{ backgroundColor: string }>`
+export const Section = styled.section<{ $backgroundColor: string }>`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-color: ${props => props.backgroundColor};
+    background-color: ${props => props.$backgroundColor};
     text-align: center;
     min-height: 80vh;
 `;
@@ -39,16 +39,16 @@ export const KnotImage = styled.img`
     }
 `;
 
-export const Title = styled.h1<{ color: string }>`
-    color: ${props => props.color};
+export const Title = styled.h1<{ $color: string }>`
+    color: ${props => props.$color};
     font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 1rem;
     font-weight: bold;
     letter-spacing: 0.1em;
 `;
 
-export const Subtitle = styled.h2<{ color: string }>`
-    color: ${props => props.color};
+export const Subtitle = styled.h2<{ $color: string }>`
+    color: ${props => props.$color};
     font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     margin-bottom: 2rem;
     font-weight: normal;

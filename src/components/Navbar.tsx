@@ -34,12 +34,12 @@ const TopSection = styled.div`
 `;
 
 // Step 2: Update NavLinks to handle both mobile and desktop views
-const NavLinks = styled.div<{ isOpen: boolean }>`
+const NavLinks = styled.div<{ $isOpen: boolean }>`
     display: flex;
     gap: 10px;
     
     @media (max-width: 768px) {
-        display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+        display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
         flex-direction: column;
         width: 100%;
         background: #ffffff;
@@ -63,9 +63,9 @@ const Navbar: React.FC = () => {
                 <Logo text="HELD THREAD HANDWORK" />
                 <HamburgerMenu onClick={toggleMenu} isOpen={isOpen} />
             </TopSection>
-            <NavLinks isOpen={isOpen} id="navigation-menu">
+            <NavLinks $isOpen={isOpen} id="navigation-menu">
                 <NavLink to="/about">ABOUT</NavLink>
-                <NavLink to="/classes">CLASSES</NavLink>
+                <NavLink to="/learn">LEARN</NavLink>
                 <NavLink to="/resources">RESOURCES</NavLink>
             </NavLinks>
         </NavbarContainer>

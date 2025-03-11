@@ -53,6 +53,7 @@ interface ButtonProps {
 
 // Main Button component
 const Button: React.FC<ButtonProps> = ({ 
+    text,
     backgroundColor,
     color,
     padding,
@@ -74,7 +75,7 @@ const Button: React.FC<ButtonProps> = ({
             $margin={margin}
             {...props}
         >
-            {props.children}
+            {text || props.children}
         </StyledLink>
     );
 };

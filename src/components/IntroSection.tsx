@@ -98,14 +98,11 @@ const IntroSection: React.FC<IntroSectionProps> = ({
     imagePosition = 'left',
     children,
     style,
-    imageWidth = '50%', // Default width for image section
     textWidth = '50%', // Default width for text section
     maxHeight, // Accept maxHeight prop
     maxWidth, // Accept maxWidth prop
     mobileMaxHeight, // Accept mobileMaxHeight prop
     mobileMaxWidth, // Accept mobileMaxWidth prop
-    width, // Accept width prop
-    height, // Accept height prop
     titleId,
     imageAlt = '', // Default to empty string if not provided
     loading,
