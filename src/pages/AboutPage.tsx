@@ -7,7 +7,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { spacing, breakpoints } from '../styles/constants';
 import WaveDivider from '../components/WaveDivider';
-
+import { IMAGES } from '../constants/images';
 /**
  * Container component that wraps the entire about page content.
  * Provides main layout structure and responsive padding adjustments.
@@ -145,12 +145,12 @@ const AboutPage: React.FC = () => {
                 <TwoColumnLayout>
                     <ImageColumn>
                         <Image 
-                            src="src/images/card images/card images/about collage.png"
+                            src={IMAGES.CARDS.ABOUT_COLLAGE}
                             alt="A collage of various items on a quilt. The items include buttons, yarn, and knick knacks. Among them are three pictures. One is of Morrissey as a child, one is of them and their partner Daneil, and one is of their cat named Monkey." 
                         />
                     </ImageColumn>
                     <Column>
-                        <DividerImage src="src/images/card images/card images/Transparent Stars.png" alt="Glittery stars serving as a divider between sections of text." />
+                        <DividerImage src={IMAGES.CARDS.TRANSPARENT_STARS} alt="Glittery stars serving as a divider between sections of text." />
                         <Title>About Teacher Morrissey</Title>
                         <IndentedText>
                             I'm Morrissey, a textile artist and teacher with a lifelong love for handwork. 
@@ -158,7 +158,7 @@ const AboutPage: React.FC = () => {
                             That love turned into a career, teaching in public schools, leading community workshops and projects, and helping others discover the quiet joy of 
                             making by hand.
                         </IndentedText>
-                        <DividerImage src="src/images/card images/card images/Transparent Stars.png" alt="Glittery stars serving as a divider between sections of text." />
+                        <DividerImage src={IMAGES.CARDS.TRANSPARENT_STARS} alt="Glittery stars serving as a divider between sections of text." />
                         <Title>My Philosophy</Title>
                         <IndentedText>
                             Through <b>Held Thread</b>, I offer handwork classes for children that emphasize patience, creativity, 

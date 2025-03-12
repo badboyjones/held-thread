@@ -9,6 +9,8 @@ import { PageContainer } from '../../components/Layout';
 import { BookList } from './components/BookList';
 import { CommunitySection } from './components/CommunitySection';
 import WaveDivider from '../../components/WaveDivider';
+import { IMAGES } from '../../constants/images';
+
 // Style the main content container
 const ContentWrapper = styled.div`
   max-width: 50%;
@@ -62,7 +64,7 @@ const Resources: React.FC = () => {
         <>
             <PageContainer>
                 <ContentWrapper>
-                <Divider src="src/images/card images/card images/Transparent Stars.png" alt="Decorative divider" />
+                <Divider src={IMAGES.CARDS.TRANSPARENT_STARS} alt="Decorative divider" />
                     <Introduction>
                         <h1>Handwork Resources</h1>
                         <p>

@@ -5,7 +5,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-
+import { IMAGES } from '../constants/images';
 interface DividerContainerProps {
     height?: string;
 }
@@ -41,7 +41,7 @@ interface StarDividerProps {
 const StarDivider: React.FC<StarDividerProps> = ({ height }) => (
     <DividerContainer height={height}>
         <DividerImage 
-            src="src/images/card images/card images/Transparent Stars.png"
+            src={IMAGES.CARDS.TRANSPARENT_STARS}
             alt="Glittery stars serving as a divider between sections of text."
         />
     </DividerContainer>

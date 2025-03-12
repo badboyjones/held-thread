@@ -35,7 +35,7 @@ const MainContent = styled.main`
 
 const App: React.FC = () => {
     return (
-        <Router basename="/held-thread">
+        <Router>
             <Navbar />
             <PageWrapper>
                 <MainContent>
