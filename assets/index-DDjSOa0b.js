@@ -1028,7 +1028,7 @@ At Held Thread, handwork is more than craft. It's a way to help us grow, one sti
   flex-direction: column;
 `,rS=B.main`
   flex: 1;
-`,cS=()=>p.jsxs(o1,{basename:"/held-thread",children:[p.jsx(z1,{}),p.jsxs(uS,{children:[p.jsx(rS,{children:p.jsxs(Yv,{children:[p.jsx(cn,{path:"/",element:p.jsx(xb,{})}),p.jsx(cn,{path:"/about",element:p.jsx(zb,{})}),p.jsx(cn,{path:"/learn",element:p.jsx(iS,{})}),p.jsx(cn,{path:"/resources",element:p.jsx(Lb,{})}),p.jsx(cn,{path:"*",element:p.jsx(kb,{})})]})}),p.jsx(Jb,{})]})]}),oS={colors:{warmRed:"#FFD6D6",peach:"#FFE6D5",warmYellow:"#FFF3D6",sage:"#E6EDD5",sky:"#D6E9F2",lavender:"#E6D6F2",softPink:"#F4B5D9",plum:"#A06B8F",white:"#FFFFFF",black:"#333333"},typography:{fontFamily:"'Arial', sans-serif",scale:{small:"1rem",body:"1.2rem",h2:"1.5rem",h1:"2rem"},lineHeight:{normal:1.5,relaxed:1.6,loose:1.8},weight:{normal:400,medium:500,bold:700}}};Fm`
+`,cS=()=>p.jsxs(o1,{children:[p.jsx(z1,{}),p.jsxs(uS,{children:[p.jsx(rS,{children:p.jsxs(Yv,{children:[p.jsx(cn,{path:"/",element:p.jsx(xb,{})}),p.jsx(cn,{path:"/about",element:p.jsx(zb,{})}),p.jsx(cn,{path:"/learn",element:p.jsx(iS,{})}),p.jsx(cn,{path:"/resources",element:p.jsx(Lb,{})}),p.jsx(cn,{path:"*",element:p.jsx(kb,{})})]})}),p.jsx(Jb,{})]})]}),oS={colors:{warmRed:"#FFD6D6",peach:"#FFE6D5",warmYellow:"#FFF3D6",sage:"#E6EDD5",sky:"#D6E9F2",lavender:"#E6D6F2",softPink:"#F4B5D9",plum:"#A06B8F",white:"#FFFFFF",black:"#333333"},typography:{fontFamily:"'Arial', sans-serif",scale:{small:"1rem",body:"1.2rem",h2:"1.5rem",h1:"2rem"},lineHeight:{normal:1.5,relaxed:1.6,loose:1.8},weight:{normal:400,medium:500,bold:700}}};Fm`
   html {
     color-scheme: light;
   }
