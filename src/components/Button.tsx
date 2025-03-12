@@ -1,31 +1,83 @@
+/**
+ * Button component renders a styled button with customizable styles.
+ * It can be reused throughout the application for consistency.
+ */
+
 import React from 'react';
 import styled from 'styled-components';
 
-// Create a styled button
-const StyledButton = styled.button`
-    background-color: ${({ theme }) => theme.colors.softPink}; /* Use theme color */
-    color: ${({ theme }) => theme.colors.white}; /* Use theme color */
-    border: none;
-    border-radius: 50px; /* Keep this for a fully rounded button */
-    padding: 10px 15px; /* Padding for better button appearance */
+// Styled component for the anchor link
+const StyledLink = styled.a<{
+    $backgroundColor: string;
+    $color: string;
+    $padding: string;
+    $borderRadius: string;
+    $hoverColor: string;
+    $hoverTextColor: string;
+    $margin?: string;
+}>`
+    display: inline-block;
+    text-decoration: none;
+    background-color: ${({ $backgroundColor }) => $backgroundColor};
+    color: ${({ $color }) => $color};
+    padding: ${({ $padding }) => $padding};
+    border-radius: ${({ $borderRadius }) => $borderRadius};
     cursor: pointer;
-    margin: 10px auto; /* Center the button */
-    display: block; /* Make the button a block element */
-    width: 150px; /* Set a fixed width for uniformity */
+    transition: background-color 0.3s, color 0.3s;
+    margin: ${({ $margin }) => $margin};
+    z-index: 300;
+    position: relative;
 
     &:hover {
-        background-color: ${({ theme }) => theme.colors.warmRed}; /* Change color on hover */
+        background-color: ${({ $hoverColor }) => $hoverColor};
+        color: ${({ $hoverTextColor }) => $hoverTextColor};
     }
 `;
 
-// Define the Button component
+// Props for the Button component
 interface ButtonProps {
-    text: string; // Text to display on the button
-    onClick: () => void; // Function to handle button click
+    text?: string;
+    backgroundColor?: string;
+    color?: string;
+    padding?: string;
+    borderRadius?: string;
+    hoverColor?: string;
+    hoverTextColor?: string;
+    type?: "submit" | "button";
+    width?: string;
+    link?: string;
+    to?: string;
+    children?: React.ReactNode;
+    margin?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
-    return <StyledButton onClick={onClick}>{text}</StyledButton>;
+// Main Button component
+const Button: React.FC<ButtonProps> = ({ 
+    text,
+    backgroundColor,
+    color,
+    padding,
+    borderRadius,
+    hoverColor,
+    hoverTextColor,
+    margin,
+    ...props 
+}) => {
+    return (
+        <StyledLink 
+            className="styled-button"
+            $backgroundColor={backgroundColor || '#000'}
+            $color={color || '#fff'}
+            $padding={padding || '1rem 2rem'}
+            $borderRadius={borderRadius || '4px'}
+            $hoverColor={hoverColor || '#fff'}
+            $hoverTextColor={hoverTextColor || '#000'}
+            $margin={margin}
+            {...props}
+        >
+            {text || props.children}
+        </StyledLink>
+    );
 };
 
 export default Button; 

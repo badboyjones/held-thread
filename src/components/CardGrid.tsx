@@ -6,27 +6,41 @@
 import React from 'react';
 import Card from './Card'; // Ensure this import is correct
 import { CardData } from '../types/CardData'; // Import the shared CardData interface
+import styled from 'styled-components';
 
 interface CardGridProps {
     cards: CardData[];
 }
 
+const CardGridContainer = styled.div`
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+    padding: 10px;
+    
+    // Step 1: Center align grid items
+    justify-items: center;
+    
+    @media (min-width: 640px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+`;
+
 // Main CardGrid component
 const CardGrid: React.FC<CardGridProps> = ({ cards }) => {
-    // Render the grid of cards
     return (
-        // Set the width to 75% and center the grid
-        <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
-            gap: '30px', 
-            width: '75%',// Limit the width to 75%
-            margin: '0px auto' // Center the grid
-        }}>
+        <CardGridContainer>
             {cards.map((card, index) => (
-                <Card key={index} {...card} /> // Ensure Card is being used here
+                <Card key={index} {...card} />
             ))}
-        </div>
+        </CardGridContainer>
     );
 };
 

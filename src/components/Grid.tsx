@@ -13,6 +13,7 @@ const GridContainer = styled.div<{ rows: number; columns: number }>`
     grid-template-rows: repeat(${props => props.rows}, 1fr);
     grid-template-columns: repeat(${props => props.columns}, 1fr);
     gap: 10px; /* Adjust gap between grid items */
+    
 `;
 
 // Styled component for individual grid items

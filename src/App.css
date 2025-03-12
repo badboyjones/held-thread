@@ -4,7 +4,7 @@ html, body {
   width: 100%;
   max-width: 100vw;
   margin: 0;
-  font-family: 'Arial', sans-serif; /* Change to your preferred font */
+  font-family: 'Rubik', sans-serif; /* Change to your preferred font */
   background-color: #FFF3D6; /* Soft butter background */
   color: #333333; /* Text color */
 }
@@ -74,7 +74,6 @@ header {
 nav a {
   margin: 0 1rem;
   text-decoration: none;
-  color: #A06B8F; /* Plum */
 }
 
 /* Footer styles */

@@ -16,7 +16,7 @@ const StyledGridItem = styled.div<{ rowSpan?: number; colSpan?: number }>`
 interface GridItemProps {
     rowSpan?: number;
     colSpan?: number;
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
 // Main GridItem component

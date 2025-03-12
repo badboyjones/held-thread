@@ -4,6 +4,7 @@
  */
 
 import { DefaultTheme } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 const theme: DefaultTheme = {
     colors: {
@@ -20,8 +21,34 @@ const theme: DefaultTheme = {
     },
     typography: {
         fontFamily: "'Arial', sans-serif",
-        fontSize: '16px',
+        scale: {
+            small: '1rem',
+            body: '1.2rem',
+            h2: '1.5rem',
+            h1: '2rem',
+        },
+        lineHeight: {
+            normal: 1.5,
+            relaxed: 1.6,
+            loose: 1.8
+        },
+        weight: {
+            normal: 400,
+            medium: 500,
+            bold: 700
+        }
     },
 };
+
+export const GlobalStyle = createGlobalStyle`
+  html {
+    color-scheme: light;
+  }
+  
+  body {
+    background-color: white;
+    color-scheme: light;
+  }
+`;
 
 export default theme; 
