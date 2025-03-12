@@ -17,11 +17,11 @@ const GridContainer = styled.div<{ rows: number; columns: number }>`
 `;
 
 // Styled component for individual grid items
-const GridItem = styled.div<{ rowSpan?: number; colSpan?: number }>`
-    grid-row: span ${props => props.rowSpan || 1};
-    grid-column: span ${props => props.colSpan || 1};
-    background-color: #f0f0f0; /* Default background color */
-`;
+// const GridItem = styled.div<{ rowSpan?: number; colSpan?: number }>`
+//     grid-row: span ${props => props.rowSpan || 1};
+//     grid-column: span ${props => props.colSpan || 1};
+//     background-color: #f0f0f0; /* Default background color */
+// `;
 
 // Props for the Grid component
 interface GridProps {
