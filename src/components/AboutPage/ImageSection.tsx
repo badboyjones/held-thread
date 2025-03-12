@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { IMAGES } from '../../constants/images';
 
 const ImageColumn = styled.div`
     flex: 1;
@@ -37,7 +38,7 @@ const ImageSection: React.FC = () => {
     return (
         <ImageColumn role="complementary" aria-label="Teacher Morrissey's Photo Collage">
             <Image 
-                src="src/images/card images/card images/about me collage.png"
+                src={IMAGES.CARDS.ABOUT_COLLAGE}
                 alt="Photo collage showing childhood sewing memories, family moments, and crafting materials" 
             />
         </ImageColumn>

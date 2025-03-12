@@ -18,6 +18,7 @@ import {
     SignUpSection, 
     ClassCardButton 
 } from './Learn.styles';
+import { IMAGES } from '../constants/images';
 
 const Learn: React.FC = () => {
 
@@ -43,7 +44,7 @@ const Learn: React.FC = () => {
                 <HeroSection>
                     <PageTitle>Let's Learn Together</PageTitle>
                     <SubTitle>Handwork Classes for All</SubTitle>
-                    <HeroImage src="src/images/card images/card images/Transparent Stars.png" alt="Children engaged in handwork" />
+                    <HeroImage src={IMAGES.CARDS.TRANSPARENT_STARS} alt="Children engaged in handwork" />
                 </HeroSection>
 
                 <IntroSection>

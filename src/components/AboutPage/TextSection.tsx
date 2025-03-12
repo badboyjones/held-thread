@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../Button';
 import { buttonStyles, spacing, breakpoints } from '../../styles/constants';
-
+import { IMAGES } from '../../constants/images';
 const Column = styled.div`
     flex: 1;
     display: flex;
@@ -60,7 +60,7 @@ const TextSection: React.FC = () => {
     return (
         <Column role="main" aria-label="About Teacher Morrissey and Teaching Philosophy">
             <DividerImage 
-                src="src/images/card images/card images/Transparent Stars.png"
+                src={IMAGES.CARDS.TRANSPARENT_STARS}
                 alt="Decorative star divider"
                 aria-hidden="true"
             />
@@ -72,7 +72,7 @@ const TextSection: React.FC = () => {
                 making by hand.
             </Text>
             <DividerImage 
-                src="src/images/card images/card images/Transparent Stars.png"
+                src={IMAGES.CARDS.TRANSPARENT_STARS}
                 alt="Decorative star divider"
                 aria-hidden="true"
             />
