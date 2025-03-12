@@ -5,9 +5,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../components/Button';
 import { spacing, breakpoints } from '../styles/constants';
-import { BUTTON_STYLES } from '../constants/styles';
 import WaveDivider from '../components/WaveDivider';
 
 /**
@@ -124,33 +122,9 @@ const Text = styled.p`
     }
 `;
 
-/**
- * IndentedText extends Text component.
- * Used for consistent paragraph styling throughout the page.
- */
 const IndentedText = styled(Text)`
 `;
 
-/**
- * ButtonContainer wraps the call-to-action button.
- * Provides consistent spacing and responsive sizing.
- */
-const ButtonContainer = styled.footer`
-    margin-top: ${spacing.large};
-    padding: ${spacing.medium} 0;
-    align-self: center;
-    color: ${({ theme }) => theme.colors.warmYellow};
-
-    @media (max-width: 768px) {
-        margin-top: 1rem;
-        height: 3rem;
-    }
-`;
-
-/**
- * ImageColumn component for the left side of the layout.
- * Handles image positioning and responsive behavior.
- */
 const ImageColumn = styled(Column)`
     display: flex;
     justify-content: center;

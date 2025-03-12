@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from './Button'; // Ensure this is the new Button component
 
 /**
  * IntroSection component displays an introductory section

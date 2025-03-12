@@ -3,14 +3,6 @@ import styled from 'styled-components';
 import Grid from '../components/Grid'; // Import the Grid component
 import GridItem from '../components/GridItem'; // Import the GridItem component
 
-/**
- * WelcomeSection component displays a welcoming message
- * with a title, subtitle, buttons, and a row of images.
- */
-
-/**
- * Styled components for layout and appearance of the hero section.
- */
 const SectionContainer = styled.div<{ backgroundColor: string }>`
     display: flex;
     flex-direction: column;
@@ -18,14 +10,14 @@ const SectionContainer = styled.div<{ backgroundColor: string }>`
     justify-content: center;
     height: 100vh; // Full viewport height for hero effect
     min-height: 100vh; // Ensure it fills the viewport even with content
-    width: 100%;
+    /* width: 100%; */
     max-width: 60%; // Ensure it fills the viewport width
     background-color: ${({ backgroundColor }) => backgroundColor}; // Use the backgroundColor prop
     text-align: center; // Center text
     margin-top: 60px; // Add margin to create space from the navbar
 
     @media (max-width: 768px) {
-        padding: 10px; // Reduce padding on smaller screens
+        /* padding: 10px; // Reduce padding on smaller screens */
         margin-top: 30px; // Adjust margin for smaller screens
     }
 `;
@@ -43,7 +35,7 @@ const Title = styled.h1`
 const Subtitle = styled.h2`
     font-size: 1.5rem; // Font size for the subtitle
     color: #666666; // Subtitle color
-    margin: 10px 0; // Margin for spacing
+    /* margin: 10px 0; // Margin for spacing */
 
     @media (max-width: 768px) {
         font-size: 1.2rem; // Adjust font size for smaller screens

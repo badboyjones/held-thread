@@ -197,7 +197,7 @@ const Footer = () => {
             <NavLinks>
               <Link to="/">Home</Link>
               <Link to="/about">About Held Thread</Link>
-              <Link to="/resources">More About Handwork</Link>
+              <Link to="/resources">Resources</Link>
               <Link to="/learn">Learn With Us</Link>
             </NavLinks>
           </NavSection>

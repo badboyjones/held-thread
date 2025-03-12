@@ -23,6 +23,9 @@ const NavbarContainer = styled.nav`
     position: sticky;
     top: 0;
     z-index: 400;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform;
 `;
 
 // Add a wrapper for logo and hamburger menu
@@ -53,6 +56,11 @@ const NavLinks = styled.div<{ $isOpen: boolean }>`
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
 
+    // Step 1: Add handler to close menu
+    const handleLinkClick = () => {
+        setIsOpen(false);
+    };
+
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
@@ -64,9 +72,11 @@ const Navbar: React.FC = () => {
                 <HamburgerMenu onClick={toggleMenu} isOpen={isOpen} />
             </TopSection>
             <NavLinks $isOpen={isOpen} id="navigation-menu">
-                <NavLink to="/about">ABOUT</NavLink>
-                <NavLink to="/learn">LEARN</NavLink>
-                <NavLink to="/resources">RESOURCES</NavLink>
+                {/* Add Home link as the first item */}
+                <NavLink to="/" onClick={handleLinkClick}>HOME</NavLink>
+                <NavLink to="/about" onClick={handleLinkClick}>ABOUT</NavLink>
+                <NavLink to="/learn" onClick={handleLinkClick}>LEARN</NavLink>
+                <NavLink to="/resources" onClick={handleLinkClick}>RESOURCES</NavLink>
             </NavLinks>
         </NavbarContainer>
     );
