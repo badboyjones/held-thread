@@ -1,0 +1,128 @@
+<Preferences>
+- Code should be written as a series of steps. Every step should be grouped using whitespace and a comment should precede the code for that step explaining what is happening. A function should be no more 3 steps
+
+- Every function and component should have a docstring style comment explaining what it does and why it's there
+</Preferences>
+
+<Plan>
+Website Development Checklist
+
+### 1. Project Setup  
+- [x] Create a GitHub repository for the project  
+- [x] Set up a new React TypeScript app using Vite or Create React App  
+- [ ] Install and setup dependencies:  
+   - ESLint with Airbnb standards  
+   - Prettier  
+   - Styled Components  
+- [x] Set up ESLint and Prettier with proper config files  
+
+### 2. Basic Structure  
+- [x] Organize project folder structure (e.g., `/components`, `/pages`, `/styles`)  
+- [x] Set up a global theme with Styled Components for colors and typography  
+- [x] Implement basic routing using React Router  
+
+### 3. Core Pages & Features  
+- [ ] **Homepage:** Warm, welcoming introduction to Held Thread  
+- [ ] **About Page:** Teaching philosophy, emotional learning through craft, values  
+- [ ] **Classes & Private Lessons Page:** Offerings, how waitlist works, inquiry link  
+- [ ] **Inquiry Page:** Contact form and optional phone call scheduling  
+- [ ] **Resources Page:** Curated materials (but no digital sales)  
+- [ ] **Newsletter Signup:** Form to collect emails for future updates  
+- [x] **404 Page:** Friendly "Page Not Found" message  
+
+### 4. Design & Aesthetic  
+- [ ] Implement brand colors and ensure they follow rainbow order where possible  
+- [ ] Use a traditional but subtly whimsical typography style  
+- [ ] Ensure spacing, padding, and layout feel warm and welcoming  
+
+### 5. Interactivity & Functionality  
+- [ ] Implement a functional contact form (use Formspree or a backend service if needed)  
+- [ ] Add a simple newsletter signup form (e.g., ConvertKit, Mailchimp)  
+- [ ] Ensure accessibility (ARIA labels, readable text, good color contrast)  
+
+### 6. Deployment & Optimization  
+- [ ] Test the website locally and fix any UI/UX issues  
+- [ ] Optimize for mobile and tablet views  
+- [ ] Deploy to GitHub Pages  
+- [ ] Verify forms and links are working correctly  
+- [ ] Share with a small group for feedback before public launch  
+</notes>
+
+
+
+
+
+<businessdetails>
+  - Audience: Parents
+  - Offerings: Private lessons & classes (waitlist-based)
+  - Teaching Format: In-person only
+  - Teaching Philosophy:
+    - Rooted in tradition and heart
+    - Teaching emotional skills through craft: resilience, gentleness, perseverance, stamina, emotional regulation
+    - Focus on ages 6-14
+    - Emphasis on social-emotional learning and community-building through craft
+    - Parents appreciate the wholesome nature of the classes
+</businessdetails>
+
+<features>
+  - No booking or scheduling system
+  - Inquiry page or an option to schedule an informational phone call
+  - Resource section (but no digital resources for sale)
+  - No gallery
+  - Contact form & newsletter sign-up
+</features>
+
+<designaesthetic>
+  - Brand colors:
+    - Warm red: #FFD6D6 (Soft coral)
+    - Peach: #FFE6D5 (Warm peach)
+    - Warm yellow: #FFF3D6 (Soft butter)
+    - Sage: #E6EDD5 (Gentle sage green)
+    - Sky: #D6E9F2 (Soft sky blue)
+    - Lavender: #E6D6F2 (Gentle purple)
+    - Soft pink: #F4B5D9 (Accent pink)
+    - Plum: #A06B8F (Text and details)
+    - White: #FFFFFF
+    - Black: #333333
+  - Aesthetic:
+    - Warm, familiar, welcoming
+    - Traditional but with a subtle, whimsical feeling
+    - Colors should be kept in rainbow order when possible
+
+</designaesthetic>
+
+<refactoring>
+HomePage Refactoring Checklist
+Create New Components
+[ ] HeroSection Component
+Create a new file HeroSection.tsx in the /components directory.
+Move the styled HeroSection and its props (title and subtitle) to this new component.
+Ensure it accepts props for title and subtitle.
+[ ] CardGrid Component
+Create a new file CardGrid.tsx in the /components directory.
+Move the styled CardGrid and the logic for rendering cards from HomePage.tsx to this new component.
+Ensure it accepts props for card data.
+[ ] Title and Subtitle Components
+Create a new file TitleSubtitle.tsx in the /components directory.
+Move the styled Title and Subtitle to this new component.
+Ensure it accepts props for title and subtitle text.
+2. Update HomePage Component
+[ ] Import New Components
+Import the newly created HeroSection, CardGrid, and TitleSubtitle components in HomePage.tsx.
+[ ] Replace Old Code with New Components
+Replace the existing HeroSection styled component with the new HeroSection component, passing the title and subtitle as props.
+Replace the card rendering logic with the new CardGrid component, passing the cardData as props.
+Replace the styled Title and Subtitle with the new TitleSubtitle component, passing the appropriate text.
+3. Clean Up
+[ ] Remove Unused Styled Components
+Delete the styled components (HeroSection, CardGrid, Title, Subtitle) from HomePage.tsx as they are now in their respective components.
+[ ] Ensure Proper Imports
+Check that all necessary imports are included in the new component files.
+[ ] Test the Application
+Run the application to ensure that everything works correctly after the refactor.
+Documentation
+[ ] Add Docstrings
+Ensure each new component has a docstring explaining its purpose and usage.
+</refactoring>
+
+NEVER ADD PADDING.
