@@ -9,8 +9,14 @@
  * - Fluid typography
  */
 import React from 'react';
-// Import the styled components from the styles file
-import { Section, Title, Subtitle, ButtonContainer } from './HeroSection.styles';
+import {
+    Section,
+    KnotImagesContainer,
+    KnotImage,
+    Title,
+    Subtitle,
+    ButtonContainer
+} from './HeroSection.styles';
 
 interface HeroSectionProps {
     backgroundColor: string;
@@ -29,11 +35,25 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     subtitleColor,
     title,
     subtitle,
+    knotImages,
     titleId,
     children
 }) => {
     return (
         <Section $backgroundColor={backgroundColor}>
+            {/* Step 1: Display decorative knot images */}
+            <KnotImagesContainer>
+                {knotImages.map((image, index) => (
+                    <KnotImage 
+                        key={index} 
+                        src={image} 
+                        alt="" 
+                        role="presentation"
+                        loading={index > 2 ? "lazy" : undefined}
+                    />
+                ))}
+            </KnotImagesContainer>
+
             {/* Step 2: Display main heading and subtitle */}
             <Title 
                 id={titleId} 
