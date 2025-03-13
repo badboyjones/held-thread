@@ -147,8 +147,13 @@ console.log(`${colors.cyan}Analyzing ${colors.yellow}${sourceFiles.length}${colo
 // Step 3: Track all exports and imports
 const allExports = new Map<string, Set<string>>();
 const allImports = new Map<string, Set<string>>();
+// Track default exports separately with file paths as keys
+const defaultExports = new Map<string, boolean>();
+// Track default imports with module specifiers
+const defaultImports = new Map<string, Set<string>>();
 let totalExportsFound = 0;
 let totalImportsFound = 0;
+let skippedImports = 0;
 
 // Process all source files
 for (const sourceFile of sourceFiles) {
@@ -156,94 +161,161 @@ for (const sourceFile of sourceFiles) {
   
   // Process all nodes in the source file
   ts.forEachChild(sourceFile, (node) => {
-    // Handle export declarations
-    if (ts.isExportDeclaration(node) && node.exportClause && ts.isNamedExports(node.exportClause)) {
-      for (const exportSpecifier of node.exportClause.elements) {
-        const exportName = exportSpecifier.name.text;
-        if (!allExports.has(exportName)) {
-          allExports.set(exportName, new Set());
-        }
-        allExports.get(exportName)!.add(filePath);
-        totalExportsFound++;
-      }
-    }
-    
-    // Handle named export variables/functions/classes
-    else if (
-      (ts.isFunctionDeclaration(node) || 
-       ts.isClassDeclaration(node) || 
-       ts.isVariableStatement(node)) && 
-      node.modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword)
-    ) {
-      if (ts.isFunctionDeclaration(node) || ts.isClassDeclaration(node)) {
-        if (node.name) {
-          const exportName = node.name.text;
+    try {
+      // Handle export declarations
+      if (ts.isExportDeclaration(node) && node.exportClause && ts.isNamedExports(node.exportClause)) {
+        for (const exportSpecifier of node.exportClause.elements) {
+          const exportName = exportSpecifier.name.text;
           if (!allExports.has(exportName)) {
             allExports.set(exportName, new Set());
           }
           allExports.get(exportName)!.add(filePath);
           totalExportsFound++;
         }
-      } else if (ts.isVariableStatement(node)) {
-        for (const declaration of node.declarationList.declarations) {
-          if (ts.isIdentifier(declaration.name)) {
-            const exportName = declaration.name.text;
+      }
+      
+      // Handle named export variables/functions/classes
+      else if (
+        (ts.isFunctionDeclaration(node) || 
+         ts.isClassDeclaration(node) || 
+         ts.isVariableStatement(node)) && 
+        node.modifiers?.some(m => m.kind === ts.SyntaxKind.ExportKeyword)
+      ) {
+        if (ts.isFunctionDeclaration(node) || ts.isClassDeclaration(node)) {
+          if (node.name) {
+            const exportName = node.name.text;
             if (!allExports.has(exportName)) {
               allExports.set(exportName, new Set());
             }
             allExports.get(exportName)!.add(filePath);
             totalExportsFound++;
           }
+        } else if (ts.isVariableStatement(node)) {
+          for (const declaration of node.declarationList.declarations) {
+            if (ts.isIdentifier(declaration.name)) {
+              const exportName = declaration.name.text;
+              if (!allExports.has(exportName)) {
+                allExports.set(exportName, new Set());
+              }
+              allExports.get(exportName)!.add(filePath);
+              totalExportsFound++;
+            }
+          }
         }
-      }
-    }
-    
-    // Handle default exports
-    else if (ts.isExportAssignment(node) && !node.isExportEquals) {
-      const defaultExport = 'default';
-      if (!allExports.has(defaultExport)) {
-        allExports.set(defaultExport, new Set());
-      }
-      allExports.get(defaultExport)!.add(filePath);
-      totalExportsFound++;
-    }
-    
-    // Handle imports
-    else if (ts.isImportDeclaration(node) && node.importClause) {
-      // Default imports
-      if (node.importClause.name) {
-        const importName = node.importClause.name.text;
-        if (!allImports.has(importName)) {
-          allImports.set(importName, new Set());
-        }
-        allImports.get(importName)!.add(filePath);
-        totalImportsFound++;
       }
       
-      // Named imports
-      if (node.importClause.namedBindings && ts.isNamedImports(node.importClause.namedBindings)) {
-        for (const importSpecifier of node.importClause.namedBindings.elements) {
-          const importName = importSpecifier.propertyName?.text || importSpecifier.name.text;
+      // Handle default exports
+      else if (ts.isExportAssignment(node) && !node.isExportEquals) {
+        // Store the file path as having a default export
+        defaultExports.set(filePath, true);
+        totalExportsFound++;
+      }
+      
+      // Handle imports
+      else if (ts.isImportDeclaration(node) && node.importClause) {
+        // Get the module specifier (the path being imported from)
+        let moduleSpecifier = '';
+        
+        if (node.moduleSpecifier && ts.isStringLiteral(node.moduleSpecifier)) {
+          moduleSpecifier = node.moduleSpecifier.text;
+        } else {
+          // Skip this import if we can't determine the module specifier
+          skippedImports++;
+          return;
+        }
+        
+        // Default imports
+        if (node.importClause.name) {
+          // Track the module being imported from for default imports
+          if (!defaultImports.has(moduleSpecifier)) {
+            defaultImports.set(moduleSpecifier, new Set());
+          }
+          defaultImports.get(moduleSpecifier)!.add(filePath);
+          totalImportsFound++;
+          
+          // Also track as a regular import
+          const importName = node.importClause.name.text;
           if (!allImports.has(importName)) {
             allImports.set(importName, new Set());
           }
           allImports.get(importName)!.add(filePath);
-          totalImportsFound++;
+        }
+        
+        // Named imports
+        if (node.importClause.namedBindings && ts.isNamedImports(node.importClause.namedBindings)) {
+          for (const importSpecifier of node.importClause.namedBindings.elements) {
+            const importName = importSpecifier.propertyName?.text || importSpecifier.name.text;
+            if (!allImports.has(importName)) {
+              allImports.set(importName, new Set());
+            }
+            allImports.get(importName)!.add(filePath);
+            totalImportsFound++;
+          }
         }
       }
+    } catch (error) {
+      console.log(`${colors.yellow}Warning: Error processing node in ${path.relative(process.cwd(), filePath)}: ${error}${colors.reset}`);
     }
   });
 }
 
 // Step 4: Find and report unused exports
 console.log(`\n${colors.cyan}Analysis complete:${colors.reset}`);
-console.log(`${colors.green}Found ${totalExportsFound} exports across ${allExports.size} unique export names${colors.reset}`);
+console.log(`${colors.green}Found ${totalExportsFound} exports across ${allExports.size + defaultExports.size} unique export names${colors.reset}`);
 console.log(`${colors.green}Found ${totalImportsFound} imports across ${allImports.size} unique import names${colors.reset}`);
+console.log(`${colors.green}Found ${defaultExports.size} files with default exports${colors.reset}`);
+console.log(`${colors.green}Found ${defaultImports.size} modules with default imports${colors.reset}`);
+if (skippedImports > 0) {
+  console.log(`${colors.yellow}Skipped ${skippedImports} imports due to parsing issues${colors.reset}`);
+}
+
+// Resolve relative paths to absolute paths for comparison
+function resolveModulePath(importPath: string, importingFilePath: string): string | null {
+  try {
+    // Handle non-relative imports (from node_modules, etc.)
+    if (!importPath.startsWith('.')) {
+      return null;
+    }
+    
+    const importingDir = path.dirname(importingFilePath);
+    const resolvedPath = path.resolve(importingDir, importPath);
+    
+    // Try different extensions if the exact path doesn't exist
+    const extensions = ['.ts', '.tsx', '.js', '.jsx'];
+    
+    // Check if the path exists directly
+    if (fs.existsSync(resolvedPath)) {
+      return resolvedPath;
+    }
+    
+    // Try with extensions
+    for (const ext of extensions) {
+      const pathWithExt = `${resolvedPath}${ext}`;
+      if (fs.existsSync(pathWithExt)) {
+        return pathWithExt;
+      }
+    }
+    
+    // Try as a directory with index files
+    for (const ext of extensions) {
+      const indexPath = path.join(resolvedPath, `index${ext}`);
+      if (fs.existsSync(indexPath)) {
+        return indexPath;
+      }
+    }
+    
+    return null;
+  } catch (error) {
+    console.log(`${colors.yellow}Warning: Error resolving module path ${importPath} from ${importingFilePath}: ${error}${colors.reset}`);
+    return null;
+  }
+}
 
 console.log(`\n${colors.yellow}Unused exports:${colors.reset}`);
 let unusedCount = 0;
 const unusedExports: { name: string; files: string[] }[] = [];
 
+// Check named exports
 for (const [exportName, files] of allExports.entries()) {
   // Skip exports that are used as imports
   if (allImports.has(exportName)) {
@@ -253,6 +325,37 @@ for (const [exportName, files] of allExports.entries()) {
   unusedCount++;
   const fileList = Array.from(files).map(file => path.relative(process.cwd(), file));
   unusedExports.push({ name: exportName, files: fileList });
+}
+
+// Check default exports
+const unusedDefaultExports: string[] = [];
+for (const exportFilePath of defaultExports.keys()) {
+  let isUsed = false;
+  
+  // Check if this file's default export is imported anywhere
+  for (const [importSpecifier, importingFiles] of defaultImports.entries()) {
+    // Resolve the import specifier to an absolute path for each importing file
+    for (const importingFile of importingFiles) {
+      const resolvedPath = resolveModulePath(importSpecifier, importingFile);
+      if (resolvedPath === exportFilePath) {
+        isUsed = true;
+        break;
+      }
+    }
+    if (isUsed) break;
+  }
+  
+  if (!isUsed) {
+    unusedDefaultExports.push(path.relative(process.cwd(), exportFilePath));
+  }
+}
+
+// Add unused default exports to the list
+if (unusedDefaultExports.length > 0) {
+  unusedCount += unusedDefaultExports.length;
+  for (const filePath of unusedDefaultExports) {
+    unusedExports.push({ name: 'default', files: [filePath] });
+  }
 }
 
 // Sort unused exports by file path for better readability
@@ -289,4 +392,5 @@ if (unusedCount === 0) {
   console.log(`\n${colors.yellow}Suggestions:${colors.reset}`);
   console.log(`${colors.green}1. Remove unused exports if they're not needed${colors.reset}`);
   console.log(`${colors.green}2. For intentional public API exports, consider adding a comment: /* public API */${colors.reset}`);
+  console.log(`${colors.green}3. For default exports in entry points, mark with: /* entry point */${colors.reset}`);
 }
