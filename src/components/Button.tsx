@@ -52,7 +52,7 @@ interface ButtonProps {
 }
 
 // Main Button component
-const Button: React.FC<ButtonProps> = ({ 
+const Button: React.FC<ButtonProps> = ({
     text,
     backgroundColor,
     color,
@@ -61,10 +61,10 @@ const Button: React.FC<ButtonProps> = ({
     hoverColor,
     hoverTextColor,
     margin,
-    ...props 
+    ...props
 }) => {
     return (
-        <StyledLink 
+        <StyledLink
             className="styled-button"
             $backgroundColor={backgroundColor || '#000'}
             $color={color || '#fff'}

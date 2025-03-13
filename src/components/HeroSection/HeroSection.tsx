@@ -10,12 +10,12 @@
  */
 import React from 'react';
 import {
-    Section,
-    KnotImagesContainer,
+    ButtonContainer,
     KnotImage,
-    Title,
+    KnotImagesContainer,
+    Section,
     Subtitle,
-    ButtonContainer
+    Title
 } from './HeroSection.styles';
 
 interface HeroSectionProps {
@@ -44,10 +44,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Step 1: Display decorative knot images */}
             <KnotImagesContainer>
                 {knotImages.map((image, index) => (
-                    <KnotImage 
-                        key={index} 
-                        src={image} 
-                        alt="" 
+                    <KnotImage
+                        key={index}
+                        src={image}
+                        alt=""
                         role="presentation"
                         loading={index > 2 ? "lazy" : undefined}
                     />
@@ -55,8 +55,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </KnotImagesContainer>
 
             {/* Step 2: Display main heading and subtitle */}
-            <Title 
-                id={titleId} 
+            <Title
+                id={titleId}
                 $color={titleColor}
             >
                 {title}

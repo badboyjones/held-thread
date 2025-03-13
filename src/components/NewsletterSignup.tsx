@@ -50,10 +50,10 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
                 className="embeddable-buttondown-form"
             >
                 {/* Label for email input with custom font */}
-                <label 
-                    htmlFor="bd-email" 
-                    style={{ 
-                        color: labelColor, 
+                <label
+                    htmlFor="bd-email"
+                    style={{
+                        color: labelColor,
                         fontFamily: 'Lexend, sans-serif', // Use the new font
                         fontSize: '2rem', // Adjust font size as needed
                         fontWeight: 'bold', // Make it bold if desired

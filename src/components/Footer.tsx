@@ -6,8 +6,8 @@
  * Tablet (768px-1024px): Two columns - (Links, Resources) | Newsletter
  * Mobile (<768px): Single column - All sections stack vertically
  */
-import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 /**
  * Main footer wrapper that spans full width

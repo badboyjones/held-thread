@@ -7,14 +7,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface Category {
-    title: string;
-    items: string[];
-    description?: string;
+  title: string;
+  items: string[];
+  description?: string;
 }
 
 interface ResourceSectionProps {
-    title: string;
-    categories: Category[];
+  title: string;
+  categories: Category[];
 }
 
 const Section = styled.section`
@@ -103,24 +103,24 @@ const CategoryContainer = styled.div`
   }
 `;
 
-export const ResourceSection: React.FC<ResourceSectionProps> = ({ 
-    title, 
-    categories 
+export const ResourceSection: React.FC<ResourceSectionProps> = ({
+  title,
+  categories
 }) => {
-    return (
-        <Section>
-            <SectionTitle>{title}</SectionTitle>
-            {categories.map((category, index) => (
-                <CategoryContainer key={index}>
-                    <h3>{category.title}</h3>
-                    {category.description && <p>{category.description}</p>}
-                    <ul>
-                        {category.items.map((item, itemIndex) => (
-                            <li key={itemIndex}>{item}</li>
-                        ))}
-                    </ul>
-                </CategoryContainer>
+  return (
+    <Section>
+      <SectionTitle>{title}</SectionTitle>
+      {categories.map((category, index) => (
+        <CategoryContainer key={index}>
+          <h3>{category.title}</h3>
+          {category.description && <p>{category.description}</p>}
+          <ul>
+            {category.items.map((item, itemIndex) => (
+              <li key={itemIndex}>{item}</li>
             ))}
-        </Section>
-    );
+          </ul>
+        </CategoryContainer>
+      ))}
+    </Section>
+  );
 }; 

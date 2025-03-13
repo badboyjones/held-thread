@@ -30,7 +30,7 @@ interface ButtonProps {
  * Button component that renders either as an anchor or button element
  * based on whether it's being used as a link or action trigger
  */
-const Button: React.FC<ButtonProps> = ({ 
+const Button: React.FC<ButtonProps> = ({
     to,
     onClick,
     children,

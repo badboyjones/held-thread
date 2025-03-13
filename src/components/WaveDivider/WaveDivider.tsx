@@ -8,7 +8,7 @@
  * - Decorative SVG element
  */
 import React from 'react';
-import { WaveContainer, Wave } from './WaveDivider.styles';
+import { Wave, WaveContainer } from './WaveDivider.styles';
 
 interface WaveDividerProps {
     backgroundColor: string;

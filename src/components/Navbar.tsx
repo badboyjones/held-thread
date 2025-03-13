@@ -7,8 +7,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import HamburgerMenu from './HamburgerMenu';
-import NavLink from './NavLink';
 import Logo from './Logo';
+import NavLink from './NavLink';
 
 // Step 1: Update NavbarContainer styling
 const NavbarContainer = styled.nav`

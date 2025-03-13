@@ -6,10 +6,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { PageContainer } from '../../components/Layout';
-import { BookList } from './components/BookList';
-import { CommunitySection } from './components/CommunitySection';
 import WaveDivider from '../../components/WaveDivider';
 import { IMAGES } from '../../constants/images';
+import { BookList } from './components/BookList';
+import { CommunitySection } from './components/CommunitySection';
 
 // Style the main content container
 const ContentWrapper = styled.div`
@@ -64,17 +64,17 @@ const Resources: React.FC = () => {
         <>
             <PageContainer>
                 <ContentWrapper>
-                <Divider src={IMAGES.CARDS.TRANSPARENT_STARS} alt="Decorative divider" />
+                    <Divider src={IMAGES.CARDS.TRANSPARENT_STARS} alt="Decorative divider" />
                     <Introduction>
                         <h1>Handwork Resources</h1>
                         <p>
                             Handwork is a lifelong skill that has roots going backward and forward in time.
-                            Through working and creating with our hands, we nurture patience, 
-                            creativity, and resilience. <br /> <br /> I've gotten together some 
+                            Through working and creating with our hands, we nurture patience,
+                            creativity, and resilience. <br /> <br /> I've gotten together some
                             resources that may be helpful to you. I often
-                             remind my students that in this kind of work, there is no mistake you can make that 
-                             someone hasn't made before. Hopefully, between these books, these shops (and don't forget
-                             you can always ask me!), you'll figure out a solution that makes your skills even stronger than before.
+                            remind my students that in this kind of work, there is no mistake you can make that
+                            someone hasn't made before. Hopefully, between these books, these shops (and don't forget
+                            you can always ask me!), you'll figure out a solution that makes your skills even stronger than before.
                         </p>
                     </Introduction>
                     <BookList />

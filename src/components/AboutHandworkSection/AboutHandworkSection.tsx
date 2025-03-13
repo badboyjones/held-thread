@@ -10,13 +10,13 @@
  */
 import React from 'react';
 import {
-    Section,
     Content,
-    TextContent,
-    Title,
     Description,
+    Image,
     ImageContainer,
-    Image
+    Section,
+    TextContent,
+    Title
 } from './AboutHandworkSection.styles';
 
 interface AboutHandworkSectionProps {
@@ -53,8 +53,8 @@ const AboutHandworkSection: React.FC<AboutHandworkSectionProps> = ({
 
                 {/* Step 2: Display the image */}
                 <ImageContainer>
-                    <Image 
-                        src={image} 
+                    <Image
+                        src={image}
                         alt="Natural dye colour wheel"
                         loading="lazy"
                     />

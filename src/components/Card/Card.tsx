@@ -73,11 +73,11 @@ const CARD_BUTTON_STYLES = {
  * Card component displays information about a service or offering
  * with consistent styling and interactive elements
  */
-const Card: React.FC<CardProps> = ({ 
-    title, 
-    description, 
-    buttonText, 
-    link, 
+const Card: React.FC<CardProps> = ({
+    title,
+    description,
+    buttonText,
+    link,
     imageUrl,
     imageAlt,
     titleColor,
@@ -85,8 +85,8 @@ const Card: React.FC<CardProps> = ({
     return (
         <CardContainer role="article">
             {imageUrl && (
-                <CardImage 
-                    src={imageUrl} 
+                <CardImage
+                    src={imageUrl}
                     alt={imageAlt || `Image for ${title}`}
                 />
             )}

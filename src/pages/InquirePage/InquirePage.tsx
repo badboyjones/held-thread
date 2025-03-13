@@ -10,9 +10,9 @@
 import React from 'react';
 import {
     Container,
-    Title,
     Content,
-    Description
+    Description,
+    Title
 } from './InquirePage.styles';
 
 const InquirePage: React.FC = () => {

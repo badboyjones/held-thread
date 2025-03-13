@@ -37,9 +37,9 @@ const Image = styled.img`
 const ImageSection: React.FC = () => {
     return (
         <ImageColumn role="complementary" aria-label="Teacher Morrissey's Photo Collage">
-            <Image 
+            <Image
                 src={IMAGES.CARDS.ABOUT_COLLAGE}
-                alt="Photo collage showing childhood sewing memories, family moments, and crafting materials" 
+                alt="Photo collage showing childhood sewing memories, family moments, and crafting materials"
             />
         </ImageColumn>
     );

@@ -11,10 +11,10 @@ import React from 'react';
 import Button from '../../components/Button';
 import { BUTTON_STYLES } from '../../constants/styles';
 import {
+    ButtonContainer,
     Container,
-    Title,
     Message,
-    ButtonContainer
+    Title
 } from './NotFoundPage.styles';
 
 const NotFoundPage: React.FC = () => {
@@ -23,7 +23,7 @@ const NotFoundPage: React.FC = () => {
             {/* Step 1: Display error message */}
             <Title>Oops! Page Not Found</Title>
             <Message>
-                It seems we've dropped a stitch! The page you're looking for 
+                It seems we've dropped a stitch! The page you're looking for
                 has wandered off into the yarn basket.
             </Message>
 

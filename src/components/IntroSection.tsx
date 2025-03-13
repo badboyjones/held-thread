@@ -109,15 +109,15 @@ const IntroSection: React.FC<IntroSectionProps> = ({
     return (
         <SectionContainer $backgroundColor={backgroundColor} $imagePosition={imagePosition}>
             <ImageSection>
-                <StyledImage 
-                    src={image} 
+                <StyledImage
+                    src={image}
                     alt={imageAlt}
                     loading={loading}
-                    style={style} 
-                    $maxHeight={maxHeight} 
-                    $maxWidth={maxWidth} 
-                    $mobileMaxHeight={mobileMaxHeight} 
-                    $mobileMaxWidth={mobileMaxWidth} 
+                    style={style}
+                    $maxHeight={maxHeight}
+                    $maxWidth={maxWidth}
+                    $mobileMaxHeight={mobileMaxHeight}
+                    $mobileMaxWidth={mobileMaxWidth}
                 />
             </ImageSection>
             <TextSection $width={textWidth}>

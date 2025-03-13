@@ -1,1 +1,1 @@
-export { default } from './WaveDivider'; 
+export { default } from './WaveDivider';

@@ -1,57 +1,57 @@
 /* Full-page menu styles */
 .full-page-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000; /* Ensure it appears above other content */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Ensure it appears above other content */
 }
 
 .full-page-menu ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .full-page-menu li {
-    margin: 20px 0;
-    font-size: 24px;
+  margin: 20px 0;
+  font-size: 24px;
 }
 
 /* Step 1: Basic styles for the navbar */
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Step 2: Hide the nav links by default on mobile */
 .nav-links {
-    display: none;
+  display: none;
 }
 
 /* Step 3: Show the nav links when the menu is open */
 .nav-links.open {
-    display: block;
+  display: block;
 }
 
 /* Step 4: Style the hamburger button */
 .hamburger {
-    font-size: 24px;
-    cursor: pointer;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 /* Step 5: Media query for mobile responsiveness */
 @media (min-width: 768px) {
-    .nav-links {
-        display: flex;
-    }
-    .hamburger {
-        display: none; /* Hide hamburger on larger screens */
-    }
-} 
+  .nav-links {
+    display: flex;
+  }
+  .hamburger {
+    display: none; /* Hide hamburger on larger screens */
+  }
+}

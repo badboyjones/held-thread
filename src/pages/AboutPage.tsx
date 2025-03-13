@@ -5,9 +5,9 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { spacing, breakpoints } from '../styles/constants';
 import WaveDivider from '../components/WaveDivider';
 import { IMAGES } from '../constants/images';
+import { breakpoints, spacing } from '../styles/constants';
 /**
  * Container component that wraps the entire about page content.
  * Provides main layout structure and responsive padding adjustments.
@@ -144,31 +144,31 @@ const AboutPage: React.FC = () => {
             <Container>
                 <TwoColumnLayout>
                     <ImageColumn>
-                        <Image 
+                        <Image
                             src={IMAGES.CARDS.ABOUT_COLLAGE}
-                            alt="A collage of various items on a quilt. The items include buttons, yarn, and knick knacks. Among them are three pictures. One is of Morrissey as a child, one is of them and their partner Daneil, and one is of their cat named Monkey." 
+                            alt="A collage of various items on a quilt. The items include buttons, yarn, and knick knacks. Among them are three pictures. One is of Morrissey as a child, one is of them and their partner Daneil, and one is of their cat named Monkey."
                         />
                     </ImageColumn>
                     <Column>
                         <DividerImage src={IMAGES.CARDS.TRANSPARENT_STARS} alt="Glittery stars serving as a divider between sections of text." />
                         <Title>About Teacher Morrissey</Title>
                         <IndentedText>
-                            I'm Morrissey, a textile artist and teacher with a lifelong love for handwork. 
-                            I first found comfort in fabric, thread, and yarn as a child, first learning to sew after begging my grandmother to teach me. 
-                            That love turned into a career, teaching in public schools, leading community workshops and projects, and helping others discover the quiet joy of 
+                            I'm Morrissey, a textile artist and teacher with a lifelong love for handwork.
+                            I first found comfort in fabric, thread, and yarn as a child, first learning to sew after begging my grandmother to teach me.
+                            That love turned into a career, teaching in public schools, leading community workshops and projects, and helping others discover the quiet joy of
                             making by hand.
                         </IndentedText>
                         <DividerImage src={IMAGES.CARDS.TRANSPARENT_STARS} alt="Glittery stars serving as a divider between sections of text." />
                         <Title>My Philosophy</Title>
                         <IndentedText>
-                            Through <b>Held Thread</b>, I offer handwork classes for children that emphasize patience, creativity, 
-                            and emotional growth. Having trained in traditional Waldorf handwork pedagogy, my teaching 
-                            approach is gentle and adaptable, meeting each child where they are. I believe handwork is about 
+                            Through <b>Held Thread</b>, I offer handwork classes for children that emphasize patience, creativity,
+                            and emotional growth. Having trained in traditional Waldorf handwork pedagogy, my teaching
+                            approach is gentle and adaptable, meeting each child where they are. I believe handwork is about
                             more than just learning to create a product. It teaches us to create ourselves.
                         </IndentedText>
                         <IndentedText>
                             My goal is to create a learning environment where <b>mistakes are part of the process</b>. Here, slowness is valued, and every child can feel a sense of accomplishment. Whether they are knitting their first stitches or completing a their 100th sweater, my job is to support them in building resilience, creativity, and a connection to the rich tradition of textile arts.
-                        <br></br>
+                            <br></br>
                         </IndentedText>
 
                     </Column>
