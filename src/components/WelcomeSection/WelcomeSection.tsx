@@ -9,12 +9,12 @@
  */
 import React from 'react';
 import {
+    Description,
+    Image,
+    ImageContainer,
     Section,
     TextContent,
-    Title,
-    Description,
-    ImageContainer,
-    Image
+    Title
 } from './WelcomeSection.styles';
 
 interface WelcomeSectionProps {
@@ -46,8 +46,8 @@ const WelcomeSection: React.FC<WelcomeSectionProps> = ({
                 {children}
             </TextContent>
             <ImageContainer>
-                <Image 
-                    src={image} 
+                <Image
+                    src={image}
                     alt="An image of Morrissey surrounded by images of flowers and clouds"
                     loading="lazy"
                 />

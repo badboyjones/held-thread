@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import CardGrid from './CardGrid'; // Import the CardGrid component
 import { CardData } from '../types/CardData'; // Import the shared CardData interface
+import CardGrid from './CardGrid'; // Import the CardGrid component
 
 /**
  * CardSection component displays a grid of cards with an optional title.

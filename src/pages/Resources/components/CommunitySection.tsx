@@ -115,7 +115,7 @@ export const CommunitySection: React.FC = () => {
           <ShopAddress>2505 SE 11th Ave STE 119 Entrance on SE Division at SE 10th Ave</ShopAddress>
           <ShopText>An extremely friendly and cool place with a LARGE selection of yarns, books, and supplies. They are great and very eager to help!</ShopText>
         </ShopItem>
-      
+
         <ShopItem>
           <ShopName>Northwest Wools</ShopName>
           <ShopAddress>3524 SW Troy St</ShopAddress>
@@ -139,14 +139,14 @@ export const CommunitySection: React.FC = () => {
           <ShopAddress>1736 SW Alder St</ShopAddress>
           <ShopText>Scrap is a creative reuse center with a great selection of yarns, books, and supplies of all kinds.</ShopText>
         </ShopItem>
-        
+
         <ShopImage src="https://lh3.googleusercontent.com/p/AF1QipOfKXfa-ST6ItZnXqFUstCbmjjHLHDvvt10zWyw=s1360-w1360-h1020" alt="Portland Starlight Knitting Society" />
         <ShopImage src="https://lh3.googleusercontent.com/p/AF1QipN7RCOwAVMfbMCE0VvnZlNJybPZwsm52mMCGbKV=s1360-w1360-h1020" alt="Fiber Rhythm Craft and Design" />
         <ShopImage src="https://lh3.googleusercontent.com/p/AF1QipNoXq2kysStM9WF9rINgb6p6H2Wh8PxcWTYbvo1=s1360-w1360-h1020" alt="Northwest Wools" />
         <ShopImage src="https://lh3.googleusercontent.com/p/AF1QipM2XKInPzsW9s1c48XFpaJtjPJXRWmG95qprU1b=s1360-w1360-h1020" alt="Ritual Dyes" />
         <ShopImage src="https://lh3.googleusercontent.com/p/AF1QipPicfK-A_3mu2yM8G06UaBAflXgaCb67ikhB7yE=s1360-w1360-h1020" alt="Backstory Books" />
         <ShopImage src="https://portland.scrapcreativereuse.org/files/galleries/PDX_Store_front2.JPG" alt="SCRAP PDX" />
-        
+
       </ShopList>
     </Section>
   );

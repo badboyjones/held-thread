@@ -40,7 +40,7 @@ interface StarDividerProps {
 
 const StarDivider: React.FC<StarDividerProps> = ({ height }) => (
     <DividerContainer height={height}>
-        <DividerImage 
+        <DividerImage
             src={IMAGES.CARDS.TRANSPARENT_STARS}
             alt="Glittery stars serving as a divider between sections of text."
         />

@@ -7,18 +7,18 @@
 import React from 'react';
 import { PageContainer } from '../components/PageContainer.tsx';
 import WaveDivider from '../components/WaveDivider';
-import { 
-    HeroSection, 
-    PageTitle, 
-    SubTitle, 
-    HeroImage, 
-    IntroSection, 
-    ClassOptionsGrid, 
-    ClassCard, 
-    SignUpSection, 
-    ClassCardButton 
-} from './Learn.styles';
 import { IMAGES } from '../constants/images';
+import {
+    ClassCard,
+    ClassCardButton,
+    ClassOptionsGrid,
+    HeroImage,
+    HeroSection,
+    IntroSection,
+    PageTitle,
+    SignUpSection,
+    SubTitle
+} from './Learn.styles';
 
 const Learn: React.FC = () => {
 
@@ -53,7 +53,7 @@ const Learn: React.FC = () => {
                     <p>My scope and sequence of skills is based on the Waldorf handwork curriculum which takes into account the developmental stages of the student.
                         I offer classes in traditional skills like knitting, crochet, embroidery, weaving, and hand- and machine-sewing.</p>
                     <p>I also offer private lessons for those who would like to focus on a specific skill or project as well as group classes for those who would like to learn together.</p>
-                    
+
                 </IntroSection>
                 <ClassOptionsGrid>
                     {classOptions.map(option => (
@@ -61,7 +61,7 @@ const Learn: React.FC = () => {
                             <h3>{option.title}</h3>
                             <p>{option.description}</p>
                             {option.buttonLink && (
-                                <ClassCardButton 
+                                <ClassCardButton
                                     href={option.buttonLink}
                                     target="_blank"
                                     rel="noopener noreferrer"

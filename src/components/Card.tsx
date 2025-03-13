@@ -175,17 +175,17 @@ const Card: React.FC<CardProps> = React.memo(({
     link
 }) => {
     const [imageError, setImageError] = React.useState(false);
-    const titleId = React.useMemo(() => 
+    const titleId = React.useMemo(() =>
         `card-title-${title.toLowerCase().replace(/\s+/g, '-')}`,
         [title]
     );
-    
+
     return (
         <CardLink href={link} aria-labelledby={titleId}>
             <CardContainer role="article">
                 {!imageError ? (
-                    <CardImage 
-                        src={imageUrl} 
+                    <CardImage
+                        src={imageUrl}
                         alt={imageAlt || `Illustration for ${title}`}
                         role="img"
                         onError={() => setImageError(true)}
@@ -198,13 +198,13 @@ const Card: React.FC<CardProps> = React.memo(({
                     </PlaceholderImage>
                 )}
                 <CardContent>
-                    <CardTitle 
+                    <CardTitle
                         $color={titleColor}
                         id={titleId}
                     >{title}</CardTitle>
                     <CardDescription>{description}</CardDescription>
                     <ButtonContainer>
-                        <StyledButton 
+                        <StyledButton
                             text={buttonText}
                             link={link}
                             backgroundColor="#87b5ca"

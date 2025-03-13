@@ -16,15 +16,15 @@
 
 import React, { useMemo } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import CardSection from '../components/CardSection';
-import WaveDivider from '../components/WaveDivider';
-import HeroSection from '../components/HeroSection/HeroSection';
-import Button from '../components/Button';
 import AboutHandworkSection from '../components/AboutHandworkSection/AboutHandworkSection';
-import { BUTTON_STYLES } from '../constants/styles';
+import Button from '../components/Button';
+import CardSection from '../components/CardSection';
+import HeroSection from '../components/HeroSection/HeroSection';
+import StarDivider from '../components/StarDivider';
+import WaveDivider from '../components/WaveDivider';
 import WelcomeSection from '../components/WelcomeSection/WelcomeSection';
 import { IMAGES } from '../constants/images';
-import StarDivider from '../components/StarDivider';
+import { BUTTON_STYLES } from '../constants/styles';
 
 /**
  * Container component provides the main layout structure.
@@ -109,10 +109,10 @@ const HomePage: React.FC = () => {
             <Container role="main">
                 {/* Navigation section */}
                 <nav role="navigation" aria-label="Main navigation"></nav>
-                
+
                 {/* Hero section with main call-to-action */}
                 <section aria-labelledby="hero-title">
-                    <HeroSection 
+                    <HeroSection
                         backgroundColor="#ffffff"
                         titleColor="#87b5ca"
                         subtitleColor="#87b5ca"
@@ -122,7 +122,7 @@ const HomePage: React.FC = () => {
                         titleId="hero-title"
                     >
                         <ButtonContainer>
-                            <Button 
+                            <Button
                                 to="/inquire"
                                 {...BUTTON_STYLES.primary}
                                 {...BUTTON_STYLES.shared}
@@ -132,24 +132,24 @@ const HomePage: React.FC = () => {
                         </ButtonContainer>
                     </HeroSection>
                 </section>
-            
+
                 {/* Introduction section with personal message */}
                 <section aria-labelledby="intro-title">
-                    <WelcomeSection 
+                    <WelcomeSection
                         image={IMAGES.CARDS.HEARTSPUN}
                         backgroundColor="#D6E9F2"
                         title="I'm happy you're here."
                         titleId="intro-title"
                     >
                         <ButtonContainer>
-                            <Button 
+                            <Button
                                 to="/about"
                                 {...BUTTON_STYLES.secondary}
                                 {...BUTTON_STYLES.shared}
                             >
                                 More About Me
                             </Button>
-                            <Button 
+                            <Button
                                 to="/learn"
                                 {...BUTTON_STYLES.secondary}
                                 {...BUTTON_STYLES.shared}
@@ -164,8 +164,8 @@ const HomePage: React.FC = () => {
 
                 {/* Offerings section with no margin */}
                 <section aria-labelledby="offerings-title">
-                    <CardSection 
-                        cards={cardData} 
+                    <CardSection
+                        cards={cardData}
                         title="OFFERINGS"
                         titleId="offerings-title"
                         titleColor="#333"

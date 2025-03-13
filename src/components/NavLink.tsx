@@ -6,8 +6,8 @@
  * <NavLink to="/about">ABOUT</NavLink>
  */
 
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 interface NavLinkProps {
     // Step 1: Add onClick handler to props
@@ -31,10 +31,10 @@ const StyledLink = styled(Link)`
 `;
 
 // Step 2: Update component to use onClick prop
-const NavLink: React.FC<NavLinkProps & { to: string; children: React.ReactNode }> = ({ 
-    to, 
-    children, 
-    onClick 
+const NavLink: React.FC<NavLinkProps & { to: string; children: React.ReactNode }> = ({
+    to,
+    children,
+    onClick
 }) => (
     <StyledLink to={to} onClick={onClick}>
         {children}

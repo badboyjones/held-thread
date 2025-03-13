@@ -55,9 +55,9 @@ export const BookList: React.FC = () => {
           </BookListItemDescription>
         </BookListItem>
       </ul>
-       <h3>Crochet Books</h3>
-          <ul>
-          <BookListItem>
+      <h3>Crochet Books</h3>
+      <ul>
+        <BookListItem>
           <BookListItemLink href="https://archive.org/details/kidscrochet0000ronc/mode/2up?view=theater">
             - Kids Crochet
           </BookListItemLink>
@@ -73,7 +73,7 @@ export const BookList: React.FC = () => {
             - Waldorf Education: A Family Guide
           </BookListItemLink>
           <BookListItemDescription>
-          This book is a great resource for families seeking insight into Waldorf philosophy and its perspective on handwork. 
+            This book is a great resource for families seeking insight into Waldorf philosophy and its perspective on handwork.
           </BookListItemDescription>
         </BookListItem>
       </ul>

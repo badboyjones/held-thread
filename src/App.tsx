@@ -9,15 +9,15 @@
  * - Accessibility features
  */
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import styled from 'styled-components';
-import Navbar from './components/Navbar';
-import HomePage from './pages/HomePage';
-import AboutPage from './pages/AboutPage';
-import Resources from './pages/Resources';
-import NotFoundPage from './pages/NotFoundPage';
 import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import AboutPage from './pages/AboutPage';
+import HomePage from './pages/HomePage';
 import Learn from './pages/Learn';
+import NotFoundPage from './pages/NotFoundPage';
+import Resources from './pages/Resources';
 
 // Create a layout wrapper to handle the fixed navbar spacing
 const PageWrapper = styled.div`

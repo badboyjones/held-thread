@@ -4,9 +4,9 @@
  */
 
 import React from 'react';
-import Card from './Card'; // Ensure this import is correct
-import { CardData } from '../types/CardData'; // Import the shared CardData interface
 import styled from 'styled-components';
+import { CardData } from '../types/CardData'; // Import the shared CardData interface
+import Card from './Card'; // Ensure this import is correct
 
 interface CardGridProps {
     cards: CardData[];
