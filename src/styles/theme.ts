@@ -3,7 +3,7 @@
  * It includes color definitions and typography settings to ensure consistency across the app.
  */
 
-import { createGlobalStyle, DefaultTheme } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
 
 const theme: DefaultTheme = {
   colors: {
@@ -39,15 +39,15 @@ const theme: DefaultTheme = {
   },
 };
 
-export const GlobalStyle = createGlobalStyle`
-  html {
-    color-scheme: light;
-  }
-  
-  body {
-    background-color: white;
-    color-scheme: light;
-  }
-`;
+// export const GlobalStyle = createGlobalStyle`
+//   html {
+//     color-scheme: light;
+//   }
+
+//   body {
+//     background-color: white;
+//     color-scheme: light;
+//   }
+// `;
 
 export default theme; 

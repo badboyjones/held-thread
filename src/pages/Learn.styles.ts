@@ -42,36 +42,6 @@ export const IntroSection = styled.div`
   }
 `
 
-export const SkillsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 4rem;
-`
-
-export const SkillCard = styled.div`
-  background: ${({ theme }) => theme.colors.warmYellow};
-  border-radius: 8px;
-  text-align: center;
-  padding: 2rem;
-  
-  h3 {
-    color: ${({ theme }) => theme.colors.black};
-    margin: 1rem 0;
-  }
-  
-  p {
-    color: ${({ theme }) => theme.colors.black};
-    line-height: 1.4;
-  }
-`
-
-export const SkillIcon = styled.img`
-  width: 80px;
-  height: 80px;
-  margin: 1rem auto;
-`
-
 export const ClassOptionsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -131,37 +101,6 @@ export const SignUpSection = styled.div`
   
   p {
     margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-`
-
-export const FAQSection = styled.div`
-  max-width: 800px;
-  margin: 0 auto 4rem;
-  text-align: center;
-
-  h2 {
-    color: ${({ theme }) => theme.colors.black};
-    margin-bottom: 2rem;
-  }
-
-  .styled-button {
-    margin-top: 2rem;
-  }
-`
-
-export const FAQItem = styled.div`
-  text-align: left;
-  margin-bottom: 2rem;
-
-  h3 {
-    color: ${({ theme }) => theme.colors.black};
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-  }
-
-  p {
-    color: ${({ theme }) => theme.colors.black};
     line-height: 1.6;
   }
 `
