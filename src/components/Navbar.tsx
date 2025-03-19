@@ -77,6 +77,7 @@ const Navbar: React.FC = () => {
                 <NavLink to="/about" onClick={handleLinkClick}>ABOUT</NavLink>
                 <NavLink to="/learn" onClick={handleLinkClick}>LEARN</NavLink>
                 <NavLink to="/resources" onClick={handleLinkClick}>RESOURCES</NavLink>
+                <NavLink to="/contact" onClick={handleLinkClick}>CONTACT</NavLink>
             </NavLinks>
         </NavbarContainer>
     );

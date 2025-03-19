@@ -18,6 +18,7 @@ import HomePage from './pages/HomePage';
 import Learn from './pages/Learn';
 import NotFoundPage from './pages/NotFoundPage';
 import Resources from './pages/Resources';
+import ContactPage from './pages/ContactPage';
 
 // Create a layout wrapper to handle the fixed navbar spacing
 const PageWrapper = styled.div`
@@ -43,10 +44,8 @@ const App: React.FC = () => {
                         <Route path="/" element={<HomePage />} />
                         <Route path="/about" element={<AboutPage />} />
                         <Route path="/learn" element={<Learn />} />
-                        {/* TODO: Add these routes once pages are created */}
-                        {/* <Route path="/classes" element={<ClassesPage />} /> */}
-                        {/* <Route path="/inquire" element={<InquirePage />} /> */}
                         <Route path="/resources" element={<Resources />} />
+                        <Route path="/contact" element={<ContactPage />} />
                         <Route path="*" element={<NotFoundPage />} />
                     </Routes>
                 </MainContent>

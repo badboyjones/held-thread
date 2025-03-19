@@ -6,7 +6,6 @@
  * 2. Intro Section - Introduces the teacher and philosophy
  * 3. Offerings Section - Shows available classes and services
  * 4. About Handwork Section - Explains the importance of handwork
- * 5. Footer - Contains site navigation and contact info
  * 
  * Features:
  * - Accessible navigation and feedback

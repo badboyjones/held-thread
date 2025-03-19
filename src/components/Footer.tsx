@@ -196,9 +196,10 @@ const Footer = () => {
             <h3><Link to="/">HELD THREAD</Link></h3>
             <NavLinks>
               <Link to="/">Home</Link>
-              <Link to="/about">About Held Thread</Link>
+              <Link to="/about">About</Link>
+              <Link to="/learn">Learn</Link>
               <Link to="/resources">Resources</Link>
-              <Link to="/learn">Learn With Us</Link>
+              <Link to="/contact">Contact</Link>
             </NavLinks>
           </NavSection>
         </LinksSection>
